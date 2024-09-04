@@ -22,6 +22,9 @@
 
 
         <activity
+            android:name=".activity_edit_profile"
+            android:exported="false" />
+        <activity
             android:name="com.nqobza.wetutors.splash"
             android:exported="true">
             <intent-filter>
