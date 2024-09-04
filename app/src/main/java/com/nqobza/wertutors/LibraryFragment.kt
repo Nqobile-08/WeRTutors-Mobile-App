@@ -20,7 +20,7 @@ class LibraryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {val view = inflater.inflate(R.layout.fragment_library, container, false) // Inflate the layout
 
-         // Find the VideoView
+        val videoView = view.findViewById<VideoView>(R.id.videoView) // Find the VideoView
 
         // Set the video source (replace with your actual video path or URL)
 

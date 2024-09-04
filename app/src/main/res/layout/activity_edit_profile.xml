@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Profile Picture -->
+    <ImageView
+        android:id="@+id/edit_profile_picture"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:src="@drawable/tutors"
+    android:contentDescription="@string/profile_picture" />
+
+    <!-- Change Picture Button -->
+    <Button
+        android:id="@+id/change_picture_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="Change Picture" />
+
+    <!-- Name Input -->
+    <EditText
+        android:id="@+id/edit_profile_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Name"
+        android:minHeight="48dp" />
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/edit_profile_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/save_profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="Save Changes" />
+
+</LinearLayout>

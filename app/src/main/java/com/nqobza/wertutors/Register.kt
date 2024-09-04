@@ -1,4 +1,3 @@
-package com.nqobza.wertutors
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,8 +16,8 @@ class RegisterActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         binding.btnRegister.setOnClickListener {
-            val email = binding.edtREmail.text.toString()
-            val password = binding.edtRPass.text.toString()
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
             createUser(email, password)
         }
     }
