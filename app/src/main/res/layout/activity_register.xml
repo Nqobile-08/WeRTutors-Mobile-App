@@ -8,11 +8,19 @@
     android:padding="16dp"
     tools:ignore="ExtraText">
 
-    <ImageView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@drawable/tutors" />"
+        android:contentDescription="@string/Wertutors">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/tutors" />
+    </ScrollView>
+
+    "
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,18 +30,54 @@
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/edtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="Name:"
+        android:inputType="textPersonName"
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/et_password"
+        android:id="@+id/edtSurname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Surname:"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email:"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/edtPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/edtSchool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="School:"
+        android:inputType="text"
+        android:minHeight="48dp" />
+
+    <Spinner
+        android:id="@+id/TypeOfTutoring"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:entries="@array/TypeOfTutoring"
+        android:prompt="Type of Tutoring:"
         android:minHeight="48dp" />
 
     <Button
@@ -43,9 +87,5 @@
         android:backgroundTint="#E81E63"
         android:text="Register" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CheckBox" />
+
 </LinearLayout>

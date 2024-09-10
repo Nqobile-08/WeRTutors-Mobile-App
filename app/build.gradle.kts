@@ -45,7 +45,8 @@ dependencies {
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
     implementation ("com.google.android.material:material:1.5.0")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.3")
-
+    implementation ("androidx.cardview:cardview:1.0.0")
+implementation("implementation 'com.google.android.material:material:1.2.1'")
     implementation ("com.google.android.material:material:1.10.0")
     implementation ("androidx.drawerlayout:drawerlayout:1.2.0")
     implementation ("androidx.appcompat:appcompat:1.6.1")
@@ -60,6 +61,7 @@ dependencies {
     implementation(libs.androidx.cardview)
     implementation(libs.firebase.storage.ktx)
     implementation(libs.firebase.firestore.ktx)
+    implementation(libs.androidx.preference)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
