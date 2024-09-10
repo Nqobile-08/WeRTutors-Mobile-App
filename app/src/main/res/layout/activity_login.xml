@@ -22,14 +22,14 @@
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/edtSurname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
         android:minHeight="48dp" />            
 
     <EditText
-        android:id="@+id/et_password"
+        android:id="@+id/edtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"

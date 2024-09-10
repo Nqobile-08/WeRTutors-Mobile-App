@@ -15,24 +15,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeRTutors"
         tools:targetApi="31">
+
         <activity
-            android:name=".SettingsDM"
-            android:exported="false" />
-        <activity
-            android:name=".EditProfile"
-            android:exported="false" />
-        <activity
-            android:name=".Payments"
-            android:exported="false" />
-        <activity
-            android:name=".AccountSettings"
-            android:exported="false" />
-        <activity
-            android:name=".createReview"
-            android:exported="false" />
-        <activity
-            android:name=".TutorExpandedActivity"
-            android:exported="false" /> <!-- Set TutorOptions as the main launcher activity -->
+            android:name="com.nqobza.wetutors.splash"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.nqobza.wetutors.MainActivity"
             android:exported="true">
