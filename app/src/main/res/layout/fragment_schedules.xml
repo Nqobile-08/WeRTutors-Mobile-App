@@ -25,7 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/calendarView"
         android:layout_marginTop="16dp"
-        android:hint="Enter appointment" />
+        android:hint="Enter appointment"
+        android:minHeight="48dp" />
 
     <Button
         android:id="@+id/addButton"

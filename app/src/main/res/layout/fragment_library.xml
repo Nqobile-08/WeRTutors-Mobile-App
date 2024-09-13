@@ -54,7 +54,7 @@
         android:backgroundTint="#00BCD4"
 
 
-        android:backgroundtColor="#"
+
         app:cardCornerRadius="15dp"
         app:cardElevation="12dp">
 
