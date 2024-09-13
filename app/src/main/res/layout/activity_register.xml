@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:backgroundTint="#03A9F4"
             android:src="@drawable/tutors" />
     </ScrollView>
 
@@ -38,14 +39,14 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/edtSurname"
+        android:id="@+id/edtRSurname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Surname:"
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/edtEmail"
+        android:id="@+id/edtREmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -54,7 +55,7 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/edtPass"
+        android:id="@+id/edtRPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -63,7 +64,7 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/edtSchool"
+        android:id="@+id/edtRSchool"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -72,19 +73,17 @@
         android:minHeight="48dp" />
 
     <Spinner
-        android:id="@+id/TypeOfTutoring"
+        android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:entries="@array/TypeOfTutoring"
-        android:prompt="Type of Tutoring:"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:prompt="@string/type_of_tutoring" />
 
     <Button
         android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#E81E63"
+        android:backgroundTint="#00BCD4"
         android:text="Register" />
 
 

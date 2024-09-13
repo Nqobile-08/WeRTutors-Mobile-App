@@ -3,79 +3,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00BCD4"
+   
     android:backgroundTint="#03A9F4"
     tools:context=".DashboardFragment"
-    android:layout_gravity="center"
     tools:ignore="ExtraText">
 
-    <!-- Profile Section -->
+    <!-- Top View Section -->
+    <View
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="208dp"
+        android:background="@drawable/custom_button_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Central Image -->
+    <ImageView
+        android:id="@+id/central_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/tutors"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topview"
+        app:layout_constraintBottom_toTopOf="@+id/profile_image"
+        app:layout_constraintHeight_default="wrap"
+        app:layout_constraintWidth_default="wrap" />
+
+    <!-- Profile Section -->
     <ImageView
         android:id="@+id/profile_image"
         android:layout_width="173dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="109dp"
+        android:layout_height="173dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="3dp"
         android:src="@drawable/tutors"
-        app:layout_constraintBottom_toTopOf="@+id/tvDashboard"
+        app:layout_constraintTop_toBottomOf="@id/central_image"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHeight_default="wrap" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tvDashboard"
-        android:layout_width="247dp"
-        android:layout_height="51dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="DashBoard"
         android:textColor="#ECE1E1"
-
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/scrollable_services"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Horizontal ScrollView Section -->
     <HorizontalScrollView
         android:id="@+id/scrollable_services"
         android:layout_width="0dp"
-        android:foregroundGravity="center"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/feature_grid"
+        app:layout_constraintTop_toBottomOf="@+id/tvDashboard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDashboard">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
             <!-- Individual Cards for Features -->
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="4dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="#00BCD4"
                     android:gravity="center"
                     android:orientation="vertical">
-
                     <ImageView
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:src="@drawable/baseline_airline_seat_recline_extra_24" />
-
                     <TextView
                         android:id="@+id/tvSession"
                         android:layout_width="wrap_content"
@@ -83,43 +100,39 @@
                         android:layout_marginTop="8dp"
                         android:gravity="center"
                         android:text="Session" />
-
                     <Button
                         android:id="@+id/btnSession"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#0E1010"
-                        android:minHeight="49dp"
+                        android:minHeight="48dp"
                         android:text="Session" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="4dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="#00BCD4"
                     android:gravity="center"
                     android:orientation="vertical">
-
                     <ImageView
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:src="@drawable/billing" />
-
                     <TextView
                         android:id="@+id/tvBilling"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text=" Billing" />
-
+                        android:text="Billing" />
                     <Button
                         android:id="@+id/btnBilling"
                         android:layout_width="match_parent"
@@ -131,23 +144,21 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_margin="8dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="4dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="#00BCD4"
                     android:gravity="center"
                     android:orientation="vertical">
-
                     <ImageView
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:src="@drawable/progress" />
-
                     <TextView
                         android:id="@+id/tvProgressTracker"
                         android:layout_width="wrap_content"
@@ -155,7 +166,6 @@
                         android:layout_marginTop="8dp"
                         android:gravity="center"
                         android:text="ProgressTracker" />
-
                     <Button
                         android:id="@+id/btnProgress"
                         android:layout_width="match_parent"
@@ -165,14 +175,11 @@
                         android:text="Progress" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
         </LinearLayout>
     </HorizontalScrollView>
 
-
     <!-- Grid Layout for Additional Actions -->
     <GridLayout
-        android:layout_gravity="center"
         android:id="@+id/feature_grid"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -180,35 +187,30 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:columnCount="3"
-        android:foregroundGravity="center"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:rowCount="2"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/scrollable_services"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollable_services">
+        app:layout_constraintStart_toStartOf="parent">
 
         <!-- Grid Item 1 -->
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_margin="8dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="#00BCD4"
                 android:gravity="center"
                 android:orientation="vertical">
-
-
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/settings" />
-
                 <TextView
                     android:id="@+id/tvSettings"
                     android:layout_width="wrap_content"
@@ -216,8 +218,6 @@
                     android:layout_marginTop="8dp"
                     android:gravity="center"
                     android:text="Settings" />
-
-
                 <Button
                     android:id="@+id/btnSettings"
                     android:layout_width="match_parent"
@@ -230,23 +230,21 @@
 
         <!-- Grid Item 2 -->
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_margin="8dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="#00BCD4"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/profile" />
-
                 <TextView
                     android:id="@+id/tvProfile"
                     android:layout_width="wrap_content"
@@ -254,7 +252,6 @@
                     android:layout_marginTop="8dp"
                     android:gravity="center"
                     android:text="Profile" />
-
                 <Button
                     android:id="@+id/btnProfile"
                     android:layout_width="match_parent"
@@ -267,23 +264,21 @@
 
         <!-- Grid Item 3 -->
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_margin="8dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="4dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="#00BCD4"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/job" />
-
                 <TextView
                     android:id="@+id/tvJobs"
                     android:layout_width="wrap_content"
@@ -291,7 +286,6 @@
                     android:layout_marginTop="8dp"
                     android:gravity="center"
                     android:text="Jobs" />
-
                 <Button
                     android:id="@+id/btnJobs"
                     android:layout_width="match_parent"

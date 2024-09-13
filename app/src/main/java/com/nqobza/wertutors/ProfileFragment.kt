@@ -29,7 +29,7 @@ class ProfileFragment : Fragment() {
         profilePicture = view.findViewById(R.id.profile_picture)
         profileName = view.findViewById(R.id.profile_name)
         profileEmail = view.findViewById(R.id.profile_email)
-        editProfileButton = view.findViewById(R.id.edit_profile_button)
+        editProfileButton = view.findViewById(R.id.btnBack)
 
         // Set user data (replace with real data fetching logic)
         loadUserData()
