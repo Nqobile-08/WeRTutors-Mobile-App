@@ -16,8 +16,8 @@ class RegisterActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         binding.btnRegister.setOnClickListener {
-            val email = binding.etEmail.text.toString()
-            val password = binding.etPassword.text.toString()
+            val email = binding.edtREmail.text.toString()
+            val password = binding.edtRPass.text.toString()
             createUser(email, password)
         }
     }
