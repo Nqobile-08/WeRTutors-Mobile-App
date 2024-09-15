@@ -18,26 +18,12 @@
             android:title="Library"
             android:icon="@drawable/baseline_book_24"/>
         <item
-            android:id="@+id/nav_jobs"
+            android:id="@+id/nav_Jobs"
             android:title="Jobs"
-            android:icon="@drawable/baseline_app_settings_alt_24"/> <!-- Changed ID to lowercase -->
+            android:icon="@drawable/baseline_app_settings_alt_24"/>
         <item
             android:id="@+id/nav_logout"
-            android:title="Log Out"
+            android:title="LogOut"
             android:icon="@drawable/baseline_airline_seat_recline_extra_24"/>
-        <item
-            android:id="@+id/nav_tutor_profiles"
-            android:title="Tutor Profile"
-            android:icon="@drawable/icon"/>
-        <item
-            android:id="@+id/nav_create_review"
-            android:title="Create Review"/> <!-- Add icon here -->
-        <item
-            android:id="@+id/nav_settings"
-            android:title="Settings"/>
-        <item
-            android:id="@+id/nav_dark_mode"
-            android:title="Dark mode"/>
-
     </group>
 </menu>
