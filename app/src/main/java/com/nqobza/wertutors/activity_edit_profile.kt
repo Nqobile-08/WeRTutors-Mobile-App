@@ -1,4 +1,4 @@
-package com.yourpackage.name
+package com.nqobza.wertutors
 
 import android.app.Activity
 import android.content.Intent
@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.nqobza.wertutors.R
+
 
 class EditProfileActivity : AppCompatActivity() {
 

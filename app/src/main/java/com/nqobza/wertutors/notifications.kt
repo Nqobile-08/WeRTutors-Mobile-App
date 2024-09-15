@@ -1,4 +1,4 @@
-package com.example.notifications
+package com.nqobza.wertutors
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -14,8 +14,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
-import com.nqobza.wertutors.R
 import com.nqobza.wetutors.MainActivity
+
 
 class NotificationsFragment : Fragment() {
 

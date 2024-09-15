@@ -69,9 +69,10 @@
         android:id="@+id/notesInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter session notes here"
         android:layout_below="@id/sessionNotes"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp"
+        android:hint="Enter session notes here"
+        android:minHeight="48dp" />
 
     <Button
         android:id="@+id/submitSessionButton"

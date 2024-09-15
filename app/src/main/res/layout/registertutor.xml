@@ -62,7 +62,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Phone.No"
-        android:inputType="number" />
+        android:inputType="number"
+        android:minHeight="48dp" />
 
     <Button
         android:id="@+id/btn_register"
