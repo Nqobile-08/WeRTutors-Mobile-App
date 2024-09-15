@@ -1,4 +1,4 @@
-package com.yourpackage.name
+package com.nqobza.wertutors
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import com.nqobza.wertutors.R
+
 
 class ProfileFragment : Fragment() {
 
@@ -21,6 +21,7 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
@@ -50,4 +51,6 @@ class ProfileFragment : Fragment() {
         profileEmail.text = "johndoe@example.com"
         profilePicture.setImageResource(R.drawable.tutors)  // Placeholder image
     }
+
+
 }
