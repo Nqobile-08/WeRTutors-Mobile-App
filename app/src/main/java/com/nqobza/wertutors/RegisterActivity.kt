@@ -1,4 +1,5 @@
-package com.nqobza.wertutors
+package com.nqobza.wetutors
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
@@ -10,7 +11,7 @@ import com.nqobza.wertutors.databinding.ActivityRegisterBinding
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var binding:  ActivityRegisterBinding
+    private lateinit var binding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,77 +20,35 @@ class RegisterActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+
         binding.btnRegister.setOnClickListener {
-            val name = binding.edtName.text.toString().trim()
-            val surname = binding.edtRSurname.text.toString().trim()
-            val email = binding.edtREmail.text.toString().trim()
-            val password = binding.edtRPass.text.toString().trim()
-            val school = binding.edtRSchool.text.toString().trim()
+            val name = binding.edtName.text.toString()
+            val surname = binding.edtSurname.text.toString()
+            val email = binding.edtEmail.text.toString()
+            val password = binding.edtPass.text.toString()
+            val confirmPass = binding.edtConfirmPass.toString()
+            val school = binding.edtSchool.text.toString()
 
-            if(validateInput(name, surname, email, password, school))
-            {
-                createUser(name, surname, email, password, school, isAdmin = false)
-            }
-        }
-    }
 
-    private fun validateInput(name:String, surname:String, email: String, password: String, school:String) :Boolean
-    {
-        if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || password.isEmpty() || school.isEmpty())
-        {
-            Toast.makeText(this, "All fields are required.", Toast.LENGTH_SHORT).show()
-            return false
-        }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
-            return false
-        }
-
-        if(!isPasswordValid(password))
-        {
-            Toast.makeText(this, "Password must be at least 12 characters long, contain a number, special character, uppercase, and lowercase.", Toast.LENGTH_LONG).show()
-            return false
-        }
-
-        return true
-    }
-
-    private fun isPasswordValid  (password:String):Boolean {
-        val passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%^&+=!]).{12,}$"
-        return password.matches(Regex(passwordPattern))
-    }
-
-    private fun createUser(name:String, surname:String, email: String, password: String, school:String, isAdmin:Boolean) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Store user role (Student/Tutor/Admin) in database
-                    val userId = auth.currentUser?.uid
-                    val role = if(isAdmin) "admin" else "student"
-
-                    val userMap = mapOf(
-                        "name" to name,
-                        "surname" to surname,
-                        "email" to email,
-                        "school" to school,
-                        "role" to role
-                    )
-
-                    FirebaseDatabase.getInstance().reference.child("Users").child(userId!!)
-                        .setValue(userMap).addOnCompleteListener{
-                            if(it.isSuccessful){
-                                Toast.makeText(this, "Registration successful!",Toast.LENGTH_SHORT).show()
-                            }
-                            else{
-                                Toast.makeText(this, "Failed to register user",Toast.LENGTH_SHORT).show()
-                            }
+            if(name.isNotEmpty() && surname.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPass.isNotEmpty() && school.isNotEmpty()){
+                if(password == confirmPass)
+                {
+                    auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
+                        if(it.isSuccessful){
+                            val intent = Intent(this, LoginActivity::class.java)
+                            startActivity(intent)
+                    }else{
+                          Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                         }
-
+                    }
+                }else{
+                    Toast.makeText(this, "Password does not match", Toast.LENGTH_SHORT).show()
                 }
-                else {
-                    Toast.makeText(baseContext, "Registration Failed.", Toast.LENGTH_SHORT).show()
+            }else{
+                    Toast.makeText(this,"Empty fields are not allowed, fill in all the fields", Toast.LENGTH_SHORT).show()
                 }
             }
+
+        }
     }
-}
+
