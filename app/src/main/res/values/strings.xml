@@ -25,4 +25,22 @@
     <string name="nav_dashboard" />
     <string name="nav_notifications" />
     <string name="type_of_tutoring" />
+    <string name="todo">TODO</string>
+    <string name="sammy_snow">Sammy Snow</string>
+    <string name="we_r_tutors">We R Tutors</string>
+    <string name="tutor">tutor</string>
+    <string name="billing">Billing</string>
+    <string name="_400">400</string>
+    <string name="todo1">TODO</string>
+    <string name="todo2">TODO2</string>
+    <string name="enter_number">enter_number\n</string>
+    <string name="phonenumber">phone_number\n</string>
+    <string name="name">name</string>
+    <string name="enter_name">enter_name\n</string>
+    <string name="surname">surname\n</string>
+    <string name="entersurname">Enter_Surname\n</string>
+    <string name="tetiary_institution_adress">tertiary_institution\n</string>
+    <string name="enter_institution">enter_institution\n</string>
+    <string name="__400">400\n</string>
+    <string name="booking">Booking\n</string>
 </resources>

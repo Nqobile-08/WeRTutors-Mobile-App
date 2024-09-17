@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "512312559336",
+    "firebase_url": "https://wertutors-v1-default-rtdb.firebaseio.com",
+    "project_id": "wertutors-v1",
+    "storage_bucket": "wertutors-v1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512312559336:android:de075065a9da30cbe32b5d",
+        "android_client_info": {
+          "package_name": "com.nqobza.wertutors"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp77VcMIA2v3pg8g9LgsYZoV8KISAKfII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

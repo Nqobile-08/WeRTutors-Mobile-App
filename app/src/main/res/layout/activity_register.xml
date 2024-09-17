@@ -72,13 +72,6 @@
         android:inputType="text"
         android:minHeight="48dp" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:prompt="@string/type_of_tutoring" />
-
     <Button
         android:id="@+id/btn_register"
         android:layout_width="match_parent"

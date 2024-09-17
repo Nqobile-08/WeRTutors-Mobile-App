@@ -14,43 +14,26 @@ import android.widget.TextView
 class ProfileFragment : Fragment() {
 
     private lateinit var profilePicture: ImageView
-    private lateinit var profileName: TextView
+    private lateinit var fullName: TextView
     private lateinit var profileEmail: TextView
     private lateinit var editProfileButton: Button
+private lateinit var profileName: TextView
+private lateinit var fullNameTutor: TextView
+private  lateinit var billing : ImageView
+private lateinit var calender: ImageView
+private lateinit var billingtext: TextView
+private lateinit var booking: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-
     ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        return inflater.inflate(R.layout.fragment_profile, container, false)
 
-        // Initialize views
-        profilePicture = view.findViewById(R.id.profile_picture)
-        profileName = view.findViewById(R.id.profile_name)
-        profileEmail = view.findViewById(R.id.profile_email)
-        editProfileButton = view.findViewById(R.id.btnBack)
 
-        // Set user data (replace with real data fetching logic)
-        loadUserData()
-
-        // Set button click listener to edit profile
-        editProfileButton.setOnClickListener {
-            // Start Edit Profile activity or navigate to Edit Profile Fragment
-            val intent = Intent(activity, EditProfileActivity::class.java)
-            startActivity(intent)
-        }
-
-        return view
     }
-
-    private fun loadUserData() {
-        // Example static data, replace with actual user data from Firebase or other source
-        profileName.text = "John Doe"
-        profileEmail.text = "johndoe@example.com"
-        profilePicture.setImageResource(R.drawable.tutors)  // Placeholder image
     }
 
 
-}
+
+
