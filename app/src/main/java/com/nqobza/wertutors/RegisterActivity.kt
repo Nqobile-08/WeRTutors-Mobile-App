@@ -23,9 +23,9 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.btnRegister.setOnClickListener {
             val name = binding.edtName.text.toString()
-            val surname = binding.edtSurname.text.toString()
-            val email = binding.edtEmail.text.toString()
-            val password = binding.edtPass.text.toString()
+            val surname = binding.edtRSurname.text.toString()
+            val email = binding.edtREmail.text.toString()
+            val password = binding.edtRPass.text.toString()
             val confirmPass = binding.edtConfirmPass.text.toString()
             val school = binding.edtSchool.text.toString()
 
