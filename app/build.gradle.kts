@@ -1,6 +1,8 @@
 plugins {
+
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -22,6 +24,9 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    buildFeatures{
+        dataBinding = true
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -41,10 +46,13 @@ android {
 }
 
 dependencies {
+    implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
 
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
     implementation ("com.google.android.material:material:1.5.0")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.3")
+
+    implementation("com.google.firebase:firebase-analytics")
 
     implementation ("com.google.android.material:material:1.10.0")
     implementation ("androidx.drawerlayout:drawerlayout:1.2.0")
@@ -61,6 +69,10 @@ dependencies {
     implementation(libs.firebase.storage.ktx)
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.androidx.preference)
+    implementation(libs.firebase.database.ktx)
+    implementation ("com.google.firebase:firebase-auth:latest_version")
+    implementation ("com.google.firebase:firebase-database:latest_version")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
