@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.nqobza.wertutors.RegisterTutorActivity
 import com.nqobza.wertutors.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -18,28 +19,30 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
-       binding.btnRegister.setOnClickListener {
-           val intent = Intent(this, RegisterActivity::class.java)
-           startActivity(intent)
-       }
+        binding.btnRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
 
-       binding.btnLogin.setOnClickListener {
+        binding.btnRegisterTutor.setOnClickListener{
+            val intent =Intent(this, RegisterTutorActivity::class.java)
+            startActivity(intent)
+        }
 
-           val email = binding.edtEmail.text.toString()
-           val password = binding.edtPass.text.toString()
+        binding.btnLogin.setOnClickListener {
 
-           auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-               if(it.isSuccessful){
-                   val intent = Intent(this, MainActivity::class.java)
-                   startActivity(intent)
-               }else{
-                   Toast.makeText(this, "Login unsuccessful. Try again!", Toast.LENGTH_SHORT).show()
-               }
-           }
-       }
+            val email = binding.edtEmail.text.toString()
+            val password = binding.edtPass.text.toString()
+
+            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                if(it.isSuccessful){
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }else{
+                    Toast.makeText(this, "Login unsuccessful. Try again!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
     }
 }
-
-
-

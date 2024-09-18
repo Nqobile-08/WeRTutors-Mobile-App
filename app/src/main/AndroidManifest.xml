@@ -41,6 +41,10 @@
         <activity
             android:name="com.nqobza.wetutors.RegisterActivity"
             android:exported="true" />
+        <activity
+            android:name=".RegisterTutorActivity"
+            android:exported="true"/>
+
     </application>
 
 </manifest>
