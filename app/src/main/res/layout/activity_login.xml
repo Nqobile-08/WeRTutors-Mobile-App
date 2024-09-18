@@ -48,5 +48,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#E81E63"
-        android:text="Register" />
+        android:text="Register as a student" />
+
+    <Button
+        android:id="@+id/btnRegisterTutor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#E81E63"
+        android:text="Register as a tutor" />
 </LinearLayout>

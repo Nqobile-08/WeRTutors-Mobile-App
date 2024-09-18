@@ -57,6 +57,14 @@
         android:minHeight="48dp" />
 
     <EditText
+        android:id="@+id/edtConfirmPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
+    <EditText
         android:id="@+id/edtNum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

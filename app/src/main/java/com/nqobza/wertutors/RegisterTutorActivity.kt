@@ -1,25 +1,23 @@
-package com.nqobza.wetutors
+package com.nqobza.wertutors
+
 import android.content.Intent
 import android.os.Bundle
-import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
-import com.nqobza.wertutors.databinding.ActivityRegisterBinding
+import com.nqobza.wertutors.databinding.RegistertutorBinding
+import com.nqobza.wetutors.LoginActivity
 
-class RegisterActivity : AppCompatActivity() {
-
+class RegisterTutorActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    private lateinit var binding: ActivityRegisterBinding
+    private lateinit var binding: RegistertutorBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        binding = RegistertutorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
-
 
         binding.btnRegister.setOnClickListener {
             val name = binding.edtName.text.toString()
@@ -27,10 +25,9 @@ class RegisterActivity : AppCompatActivity() {
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPass.text.toString()
             val confirmPass = binding.edtConfirmPass.text.toString()
-            val school = binding.edtSchool.text.toString()
+            val number = binding.edtNum.text.toString()
 
-
-            if (name.isNotEmpty() && surname.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPass.isNotEmpty() && school.isNotEmpty()) {
+            if (name.isNotEmpty() && surname.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPass.isNotEmpty() && number.isNotEmpty()) {
                 if (password == confirmPass) {
                     auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                         if (it.isSuccessful) {
@@ -51,6 +48,7 @@ class RegisterActivity : AppCompatActivity() {
                 ).show()
             }
         }
-
     }
 }
+
+
