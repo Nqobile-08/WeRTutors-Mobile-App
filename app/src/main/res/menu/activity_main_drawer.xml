@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Profile"
+            android:icon="@drawable/baseline_co_present_24"/>
+        <item
+            android:id="@+id/nav_dashboard"
+            android:title="Dashboard"
+            android:icon="@drawable/baseline_dashboard_24"/>
+        <item
+            android:id="@+id/nav_students"
+            android:title="Students"
+            android:icon="@drawable/baseline_account_circle_24"/>
+        <item
+            android:id="@+id/nav_library"
+            android:title="Library"
+            android:icon="@drawable/baseline_book_24"/>
+        <item
+            android:id="@+id/nav_Jobs"
+            android:title="Jobs"
+            android:icon="@drawable/baseline_app_settings_alt_24"/>
+        <item
+            android:id="@+id/nav_logout"
+            android:title="LogOut"
+            android:icon="@drawable/baseline_airline_seat_recline_extra_24"/>
+        <item
+            android:id="@+id/nav_tutor_profiles"
+            android:title="tutorProfile"
+            android:icon="@drawable/icon"/>
+    </group>
+</menu>

@@ -1,0 +1,24 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+    <string-array name="TypeOfTutoring">TypeOfTutoring</string-array>
+    <string-array name="subjects">Subjects</string-array>
+    <string-array name="Provinces">
+        <item>Limpopo</item>
+        <item>North West</item>
+        <item>Northern Cape</item>
+        <item>Western Cape</item>
+        <item>Eastern Cape</item>
+        <item>Gauteng</item>
+        <item>Mpumalanga</item>
+        <item>KwaZulu Natal</item>
+    </string-array>
+</resources>
