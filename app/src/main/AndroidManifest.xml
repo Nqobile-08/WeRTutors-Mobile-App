@@ -15,7 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeRTutors"
         tools:targetApi="31">
-         <!-- Set TutorOptions as the main launcher activity -->
+        <activity
+            android:name=".TutorExpandedActivity"
+            android:exported="false" />
+        <!-- Set TutorOptions as the main launcher activity -->
         <activity
             android:name="com.nqobza.wetutors.MainActivity"
             android:exported="true">
@@ -24,8 +27,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Other activities -->
-
+        </activity>
     </application>
 
 </manifest>
