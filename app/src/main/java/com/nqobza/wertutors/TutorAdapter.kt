@@ -35,11 +35,10 @@ class TutorAdapter(   private var tutorsList: ArrayList<Tutor>) :
         holder.rvProfilePic.setImageResource(currentTutor.ProfilePic)
         holder.rvTutorName.text = currentTutor.Name
         holder.rvRating.text = String.format("%.1f", currentTutor.Rating)
-        holder.rvRate.text = String.format("%.2f", currentTutor.Rate)
+        holder.rvRate.text = "R ${String.format("%.0f", currentTutor.Rate)}/hour"
         holder.rvLocation.text = currentTutor.Location
         holder.rvLanguage.text = currentTutor.Language
         holder.rvDescription.text = currentTutor.Description
-
     }
     class TutorViewHolder(itemView : View, listener: onItemClickListener): RecyclerView.ViewHolder(itemView){
         val rvProfilePic : ImageView = itemView.findViewById(R.id.ivProfilePic)

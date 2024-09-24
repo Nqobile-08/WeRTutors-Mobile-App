@@ -24,13 +24,33 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     android:padding="16dp"
     >
 
+    <ImageView
+        android:id="@+id/ivLocation"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/location_icon"
+        app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+        app:layout_constraintTop_toBottomOf="@+id/tvRate"/>
+
+    <ImageView
+        android:id="@+id/ivLanguage"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/language_icon"
+        app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+        app:layout_constraintTop_toBottomOf="@+id/tvLocation"/>
     <TextView
         android:id="@+id/tvLocation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Location"
         android:layout_marginLeft="5dp"
-        app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toEndOf="@+id/ivLocation"
         app:layout_constraintTop_toBottomOf="@+id/tvRate" />
 
     <TextView
@@ -59,7 +79,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="wrap_content"
         android:text="Language"
         android:layout_marginLeft="5dp"
-        app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toEndOf="@+id/ivLocation"
         app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
 
     <TextView
@@ -68,8 +89,21 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:text="Descripition"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
         app:layout_constraintTop_toBottomOf="@+id/tvLanguage" />
+
+    <TextView
+        android:id="@+id/tvSubjects"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Subjects"
+        android:textColor="@color/WRTBlue"
+        android:background="@color/WRTLightBlue"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
     <TextView
         android:id="@+id/tvRating"

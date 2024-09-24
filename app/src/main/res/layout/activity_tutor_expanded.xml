@@ -3,7 +3,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
-tools:context=".TutorExpandedFragment"
+tools:context=".TutorExpandedActivity"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
@@ -24,31 +24,29 @@ android:padding="16dp">
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:textSize="20dp"
-    android:layout_marginLeft="15dp"
+    android:layout_marginTop="10dp"
     android:textStyle="bold"
     android:text="Tutor Name"
-    app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
-    app:layout_constraintTop_toTopOf="parent" />
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/ivProfilePic" />
 
 <TextView
     android:id="@+id/tvRating"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="5dp"
+    android:layout_marginLeft="10dp"
     android:textSize="20dp"
     android:text="Rating"
     app:layout_constraintStart_toEndOf="@+id/tvTutorName"
-    app:layout_constraintTop_toTopOf="parent" />
+    app:layout_constraintTop_toTopOf="@+id/tvTutorName" />
 
 <ImageView
     android:id="@+id/ivLanguage"
     android:layout_width="20dp"
     android:layout_height="20dp"
-    android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
     android:src="@drawable/language_icon"
-    app:layout_constraintEnd_toStartOf="@+id/tvLanguage"
-    app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+    app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
 
 <ImageView
@@ -56,10 +54,8 @@ android:padding="16dp">
     android:layout_width="20dp"
     android:layout_height="20dp"
     android:src="@drawable/location_icon"
-    app:layout_constraintEnd_toStartOf="@+id/tvLocation"
     android:layout_marginTop="10dp"
-    android:layout_marginLeft="15dp"
-    app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+    app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/tvDescription"/>
 
 <TextView
@@ -72,20 +68,21 @@ android:padding="16dp">
     app:layout_constraintStart_toEndOf="@+id/ivLocation"
     app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
 
-<TextView
+
+    <TextView
     android:id="@+id/tvDescription"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="15dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="5dp"
     android:text="Descripition"
-    app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+    app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/tvTutorName" />
 
 <TextView
     android:id="@+id/tvRate"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
+    android:layout_marginTop="45dp"
     android:text="Rate"
     android:textSize="20dp"
     app:layout_constraintEnd_toEndOf="parent"
@@ -93,8 +90,9 @@ android:padding="16dp">
 
 <ImageView
     android:id="@+id/ivProfilePic"
-    android:layout_width="120dp"
-    android:layout_height="120dp"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_marginTop="15dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     style="@style/RoundCorners"
@@ -107,7 +105,7 @@ android:padding="16dp">
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_marginTop="15dp"
-    app:layout_constraintTop_toBottomOf="@+id/ivProfilePic"
+    app:layout_constraintTop_toBottomOf="@+id/tvLanguage"
     android:weightSum="3">
 
     <Button
@@ -142,33 +140,114 @@ android:padding="16dp">
 
 </LinearLayout>
 
-<TextView
-    android:id="@+id/tvAboutTutor"
-    android:layout_width="match_parent"
-    android:layout_height="480dp"
-    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-    android:layout_marginTop="10dp"
-    android:text="About Tutors"/>
+    <TextView
+        android:id="@+id/tvAboutTutorWorkExpHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:layout_marginTop="10dp"
+        android:text="Work Experience"
+        android:textStyle="bold"/>
 
-<TextView
-    android:id="@+id/tvLevelsAndSubjects"
-    android:layout_width="match_parent"
-    android:layout_height="480dp"
-    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-    android:layout_marginTop="10dp"
-    android:text="LEVELS AND SUBJECTS"
-    android:visibility="invisible"/>
+    <TextView
+        android:id="@+id/tvAboutTutorWorkExp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorWorkExpHeading"
+        android:layout_marginTop="5dp"
+        android:text="Work experience info"/>
+
+    <TextView
+        android:id="@+id/tvAboutTutorEducationHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorWorkExp"
+        android:layout_marginTop="20dp"
+        android:text="Education"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/tvAboutTutorEducation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorEducationHeading"
+        android:layout_marginTop="5dp"
+        android:text="education info"/>
+
+    <TextView
+        android:id="@+id/tvAboutTutorCoursesHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorEducation"
+        android:layout_marginTop="20dp"
+        android:text="Courses and Certifications"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/tvAboutTutorCourses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorCoursesHeading"
+        android:layout_marginTop="5dp"
+        android:text="courses info"/>
+    <TextView
+        android:id="@+id/tvAboutTutorSkillsHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorCourses"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:text="Skills"/>
+
+    <TextView
+        android:id="@+id/tvAboutTutorSkills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorSkillsHeading"
+        android:layout_marginTop="5dp"
+        android:text="skills info"/>
+
+    <TextView
+        android:id="@+id/tvLevelsAndSubjects1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:layout_marginTop="10dp"
+        android:text="Education levels"
+        android:visibility="invisible"/>
+    <TextView
+        android:id="@+id/tvLevels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Levels"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/tvLevelsAndSubjects1"
+        app:layout_constraintStart_toStartOf="@id/linearLayout"/>
+
+    <TextView
+        android:id="@+id/tvLevelsAndSubjects2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvLevels"
+        android:layout_marginTop="10dp"
+        android:text="Subjects"
+        android:textStyle="bold"
+        android:visibility="invisible"/>
+    <TextView
+        android:id="@+id/tvSubjects"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subjects"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/tvLevelsAndSubjects2"
+        app:layout_constraintStart_toStartOf="@id/linearLayout"/>
 
 
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/rvReviews"
-    android:layout_width="match_parent"
-    android:layout_height="480dp"
-    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-    android:layout_marginTop="10dp"
-    tools:listitem="@layout/item_review"/>
 
-
-
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvReviews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:layout_marginTop="10dp"
+        tools:listitem="@layout/item_review"
+        android:visibility="invisible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
