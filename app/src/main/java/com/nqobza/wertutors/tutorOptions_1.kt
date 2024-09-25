@@ -30,6 +30,11 @@ class tutorOptions_1 : Fragment() {
     lateinit var education: Array<String>
     lateinit var coursesCertifications: Array<String>
     lateinit var skills: Array<String>
+    lateinit var reviewTutorName: Array<String>
+    lateinit var reviewStudentName: Array<String>
+    lateinit var reviewRating: Array<Int>
+    lateinit var reviewSubject: Array<String>
+    lateinit var reviewDescription: Array<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -163,6 +168,70 @@ class tutorOptions_1 : Fragment() {
             "Critical thinking, problem-solving techniques, foundational mathematics.", // Ayanda
             "Historical analysis, geographic systems, curriculum design.", // Bianca
             "Ecological studies, environmental policy, research methodologies." // Christina
+        )
+// Tutor Names
+         reviewTutorName = arrayOf(
+            "Sipho Mthethwa", "Sipho Mthethwa", "Sipho Mthethwa",
+            "Zanele Mhlongo", "Zanele Mhlongo", "Zanele Mhlongo", "Zanele Mhlongo",
+            "Kabelo Phiri", "Kabelo Phiri", "Kabelo Phiri", "Kabelo Phiri", "Kabelo Phiri",
+            "Lerato Mokoena", "Lerato Mokoena", "Lerato Mokoena", "Lerato Mokoena", "Lerato Mokoena",
+            "Sizwe Nkosi", "Sizwe Nkosi", "Sizwe Nkosi", "Sizwe Nkosi", "Sizwe Nkosi",
+            "Mbali Mkhize", "Mbali Mkhize", "Mbali Mkhize", "Mbali Mkhize", "Mbali Mkhize",
+            "Ayanda Ndlovu", "Ayanda Ndlovu", "Ayanda Ndlovu", "Ayanda Ndlovu", "Ayanda Ndlovu",
+            "Bianca Moodley", "Bianca Moodley", "Bianca Moodley", "Bianca Moodley", "Bianca Moodley",
+            "Christina Goncalves", "Christina Goncalves", "Christina Goncalves", "Christina Goncalves"
+        )
+
+// Ratings
+         reviewRating = arrayOf(
+            4, 3, 4,
+            5, 4, 4, 5,
+            4, 5, 4, 3, 5,
+            5, 4, 5, 4, 5,
+            5, 4, 5, 4, 3,
+            4, 5, 4, 4, 3,
+            3, 3, 5, 4, 3,
+            3, 4, 3, 5, 3,
+            5, 4, 4, 5
+        )
+
+// Student Names
+         reviewStudentName = arrayOf(
+            "Lungelo M.", "Nolwazi Z.", "Bongani T.",
+            "Thabo K.", "Phindiwe D.", "Nomvula R.", "Sam L.",
+            "John P.", "Matthew V.", "Nandi S.", "Lebo M.", "Sam G.",
+            "Angela R.", "Jane K.", "Thomas Z.", "David N.", "Chris B.",
+            "Michael S.", "Kevin R.", "Zinhle N.", "Lerato S.", "Andy T.",
+            "Sarah N.", "Grace L.", "Lindiwe P.", "Peter O.", "Candice T.",
+            "Nkosi Z.", "Lucas F.", "Mary J.", "Thandi N.", "Tebogo M.",
+            "Eve A.", "Jenna M.", "Philip G.", "Simphiwe S.", "Lesego N.",
+            "David G.", "Ivy B.", "James L.", "Linda N."
+        )
+
+// Subjects
+         reviewSubject = arrayOf(
+            "Great planning", "Helpful sessions", "Clear guidance",
+            "Amazing tutor", "Clear explanations", "Not very engaging", "Patient and understanding",
+            "Good at programming", "Helpful with algorithms", "Strong with logic", "Confusing at times", "Knowledgeable",
+            "Creative writing expert", "Helpful feedback", "Excellent feedback", "Could improve", "Writing master",
+            "Data science skills", "Well-prepared", "Expert tutor", "Good but busy", "Rushed sessions",
+            "Passion for languages", "Very encouraging", "Good but slow", "Great teacher", "Lacked structure",
+            "Great math skills", "A bit technical", "Fantastic tutor", "Good with numbers", "Rushed lessons",
+            "History expert", "Well-organized", "Good tutor", "Engaging lessons", "Not for me",
+            "Biology genius", "Great teacher", "Helpful but slow", "Excellent"
+        )
+
+// Descriptions
+         reviewDescription = arrayOf(
+            "Very structured and easy to follow.", "Helped me understand concepts better.", "Simplified difficult concepts very well.",
+            "Very patient and knowledgeable.", "Explained things in a simple way.", "Could be more interactive.", "Really took the time to explain things.",
+            "Assisted me with coding tasks.", "Really knows his programming.", "Great tutor for programming logic.", "Could have explained more clearly.", "Explained everything with precision.",
+            "Great insights on writing.", "Helped me improve my writing style.", "Gave clear advice on my creative pieces.", "Sometimes her feedback was hard to implement.", "She really helped me shape my writing career.",
+            "Very knowledgeable in data science.", "Had well-structured lessons.", "Taught me things beyond the syllabus.", "Sessions were often cut short due to his schedule.", "Felt like he was hurrying through the material.",
+            "Helped me improve my Xhosa.", "Made learning a new language fun.", "Good tutor, but sometimes slow to respond.", "Very understanding and patient.", "I found her lessons disorganized at times.",
+            "Explains math concepts really well.", "Sometimes went into too much detail.", "Helped me ace my math exams.", "Very good with breaking down difficult problems.", "Felt like we were moving too fast for my pace.",
+            "Helped with my history assignments.", "Very organized and knew her content well.", "Helpful, but could improve time management.", "Made history really interesting.", "Felt like I didn't connect with her teaching style.",
+            "Very thorough in biology concepts.", "Helped me understand complex biology topics.", "Took time to explain things but sometimes too slow.", "Best tutor I've ever had for biology."
         )
 
         recyclerView.layoutManager = LinearLayoutManager(context)

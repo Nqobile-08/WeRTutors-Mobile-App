@@ -237,8 +237,7 @@ class TutorExpandedActivity : AppCompatActivity() {
             Review("Christina Goncalves", 4, "Ivy B.", "Great teacher", "Helped me understand complex biology topics."),
             Review("Christina Goncalves", 3, "James L.", "Helpful but slow", "Took time to explain things but sometimes too slow."),
             Review("Christina Goncalves", 5, "Linda N.", "Excellent", "Best tutor I've ever had for biology."),
-            Review("Christina Goncalves", 2, "Brian T.", "Not engaging", "Felt like the lessons were a bit boring.")
-        )
+         )
 
         reviewList.addAll(allReviews.filter { it.tutorName == tutorName })
 

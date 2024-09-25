@@ -1,5 +1,6 @@
 package com.nqobza.wetutors
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_dashboard -> selectedFragment = DashboardFragment()
                 R.id.nav_students -> selectedFragment = SchedulesFragment()
                 R.id.nav_library -> selectedFragment = LibraryFragment()
-                R.id.nav_Jobs -> selectedFragment = JobsFragment()
+                //R.id.nav_jobs -> selectedFragment = JobsFragment()
                 R.id.nav_logout -> selectedFragment = LogoutFragment()
                 R.id.nav_tutor_profiles -> selectedFragment = tutorOptions_1()
             }
