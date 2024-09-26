@@ -1,5 +1,4 @@
 package com.nqobza.wetutors
-
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -46,6 +45,8 @@ class MainActivity : AppCompatActivity() {
                 //R.id.nav_jobs -> selectedFragment = JobsFragment()
                 R.id.nav_logout -> selectedFragment = LogoutFragment()
                 R.id.nav_tutor_profiles -> selectedFragment = tutorOptions_1()
+                R.id.nav_create_review -> selectedFragment = CreateReviewFragment()
+                R.id.nav_settings -> selectedFragment = SettingsHomeFragment()
             }
 
             selectedFragment?.let {

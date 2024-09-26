@@ -1,5 +1,7 @@
 package com.nqobza.wertutors
 
+import java.io.Serializable
+
 data class Tutor (
     var ProfilePic: Int,
     var Name: String,
@@ -13,4 +15,4 @@ data class Tutor (
     var Education: String,
     var CoursesCertifications: String,
     var Skills: String
-    )
+    ): Serializable

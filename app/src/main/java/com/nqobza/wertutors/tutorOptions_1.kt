@@ -246,8 +246,9 @@ class tutorOptions_1 : Fragment() {
     private fun getUserData(subjects: Array<Array<String>>) {
         for (i in imageId.indices) {
             val tutor = Tutor(
-                imageId[i], name[i], rating[i], rate[i], location[i], languages[i], description[i], subjects[i]
-                , workExperience[i], education[i], coursesCertifications[i], skills[i])
+                imageId[i], name[i], rating[i], rate[i], location[i], languages[i], description[i], subjects[i],
+                workExperience[i], education[i], coursesCertifications[i], skills[i]
+            )
             tutorList.add(tutor)
         }
 
@@ -261,20 +262,23 @@ class tutorOptions_1 : Fragment() {
                 val intent = Intent(requireContext(), TutorExpandedActivity::class.java)
                 intent.putExtra("ProfilePic", tutorList[position].ProfilePic)
                 intent.putExtra("Name", tutorList[position].Name)
-                intent.putExtra("Rating", tutorList[position].Rating.toString())
-                intent.putExtra("Rate", tutorList[position].Rate.toString())
+                intent.putExtra("Rating", tutorList[position].Rating)
+                intent.putExtra("Rate", tutorList[position].Rate)
                 intent.putExtra("Location", tutorList[position].Location)
-                intent.putExtra("Language", tutorList[position].Language)
+                intent.putExtra("Languages", tutorList[position].Language)
                 intent.putExtra("Description", tutorList[position].Description)
                 intent.putExtra("WorkExperience", tutorList[position].WorkExperience)
                 intent.putExtra("Education", tutorList[position].Education)
                 intent.putExtra("CoursesCertifications", tutorList[position].CoursesCertifications)
                 intent.putExtra("Skills", tutorList[position].Skills)
 
-                // Pass subjects as a string array to the TutorExpandedActivity
+                // Passing subjects data
                 intent.putExtra("Subjects", tutorList[position].Subjects)
+
                 startActivity(intent)
             }
         })
     }
+
 }
+
