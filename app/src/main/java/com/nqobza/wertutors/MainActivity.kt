@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_tutor_profiles -> selectedFragment = tutorOptions_1()
                 R.id.nav_create_review -> selectedFragment = CreateReviewFragment()
                 R.id.nav_settings -> selectedFragment = SettingsHomeFragment()
+                R.id.nav_dark_mode -> selectedFragment = SettingsDarkModeFragment()
             }
 
             selectedFragment?.let {
