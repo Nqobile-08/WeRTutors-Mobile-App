@@ -10,9 +10,17 @@
             android:id="@+id/nav_session_timer"
             android:icon="@drawable/baseline_access_time_24"
             android:title="Session Timer" />
+        <item
+            android:id="@+id/nav_tutor_profile"
+            android:icon="@drawable/baseline_access_time_24"
+            android:title="Tutor Profile" />
+        <item
+            android:id="@+id/nav_create_review"
+            android:icon="@drawable/baseline_access_time_24"
+            android:title="Create Review" />
 
         <item
-            android:id="@+id/nav_students"
+            android:id="@+id/nav_schedule"
             android:title="Schedule"
             android:icon="@drawable/baseline_account_circle_24"/>
 

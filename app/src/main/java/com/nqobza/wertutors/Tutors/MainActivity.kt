@@ -9,8 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.nqobza.wertutors.CreateReviewFragment
 import com.nqobza.wertutors.R
 import com.nqobza.wertutors.SessionTimerFragment
+import com.nqobza.wertutors.SettingsHomeFragment
+import com.nqobza.wetutors.tutorOptions_1
 
 
 class MainActivity : AppCompatActivity() {
@@ -41,12 +44,12 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
 
                 R.id.nav_dashboard -> selectedFragment = DashboardFragment()
-                R.id.nav_profile -> selectedFragment = ProfileFragment()
-                R.id.nav_students -> selectedFragment = SchedulesFragment()
-                R.id.nav_library -> selectedFragment = LibraryFragment()
+                R.id.nav_tutor_profile -> selectedFragment = tutorOptions_1()
+                R.id.nav_schedule -> selectedFragment = SchedulesFragment()
+                R.id.nav_create_review -> selectedFragment = CreateReviewFragment()
                 R.id.nav_Jobs -> selectedFragment = JobsFragment()
                 R.id.nav_session_timer -> selectedFragment = SessionTimerFragment()
-                //R.id.nav_setting -> selectedFragment = Setting()
+                R.id.nav_setting -> selectedFragment = SettingsHomeFragment()
                 R.id.nav_logout -> selectedFragment = LogoutFragment()
             }
 

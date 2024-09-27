@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="max_blue">#FF00BCD4</color>
     <color name="light_blue">#FFB3E5FC</color>
+     <color name="WRTLightBlue">#FFB3E5FC</color>
+    <color name="WRTBlue">#FF00BCD4</color>
+
 </resources>
