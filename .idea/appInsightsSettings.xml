@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.nqobza.wertutors" />
+                  <option name="mobileSdkAppId" value="1:512312559336:android:de075065a9da30cbe32b5d" />
+                  <option name="projectId" value="wertutors-v1" />
+                  <option name="projectNumber" value="512312559336" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

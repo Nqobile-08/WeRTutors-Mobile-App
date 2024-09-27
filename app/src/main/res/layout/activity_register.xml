@@ -1,34 +1,38 @@
-<!-- activity_login.xml -->
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#1BB8D8"
     android:orientation="vertical"
     android:padding="16dp"
     tools:ignore="ExtraText">
 
     <ScrollView
+        android:id="@+id/scrollview"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/Wertutors">
-
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="#03A9F4"
             android:src="@drawable/tutors" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="WeTutors Client Register"
+            android:textSize="24sp" />
+        </LinearLayout>
     </ScrollView>
 
-    "
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="WeTutors Client Register"
-        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/edtName"
@@ -39,14 +43,14 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/edtRSurname"
+        android:id="@+id/edtSurname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Surname:"
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/edtREmail"
+        android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -54,17 +58,26 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp" />
 
+    <!-- Password Field -->
     <EditText
-        android:id="@+id/edtRPass"
+        android:id="@+id/edtPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         android:minHeight="48dp" />
 
+    <!-- Confirm Password Field -->
     <EditText
-        android:id="@+id/edtRSchool"
+        android:id="@+id/edtConfirmPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/edtSchool"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -78,6 +91,5 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#00BCD4"
         android:text="Register" />
-
 
 </LinearLayout>

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
 
     android:backgroundTint="#03A9F4"
-    tools:context=".DashboardFragment"
+    tools:context=".Tutors.DashboardFragment"
     tools:ignore="ExtraText">
 
     <!-- Top View Section -->
@@ -71,7 +71,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
+            android:layout_marginStart="60dp"
             android:gravity="center">
 
             <!-- Individual Cards for Features -->
@@ -103,7 +103,7 @@
                         android:text="Session" />
 
                     <Button
-                        android:id="@+id/btnSession"
+                        android:id="@+id/btn__Sessions"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#0E1010"
@@ -145,7 +145,7 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="#0F1416"
                         android:minHeight="48dp"
-                        android:text="Billing" />
+                        android:text="@string/billings" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -241,7 +241,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="#0F1416"
                     android:minHeight="48dp"
-                    android:text="Settings" />
+                    android:text="Settings_" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -312,12 +312,12 @@
                     android:text="Jobs" />
 
                 <Button
-                    android:id="@+id/btnJobs"
+                    android:id="@+id/btn_Jobs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#0E1010"
                     android:minHeight="48dp"
-                    android:text="Jobs" />
+                    android:text="Jobs_" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
