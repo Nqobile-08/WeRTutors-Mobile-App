@@ -22,6 +22,11 @@
             android:title="Jobs"
             android:icon="@drawable/baseline_app_settings_alt_24"/>
         <item
+            android:id="@+id/nav_communication"
+            android:title="Communication"
+            android:icon="@drawable/baseline_app_settings_alt_24"/>
+
+        <item
             android:id="@+id/nav_logout"
             android:title="LogOut"
             android:icon="@drawable/baseline_airline_seat_recline_extra_24"/>

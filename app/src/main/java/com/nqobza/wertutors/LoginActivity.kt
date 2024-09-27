@@ -3,9 +3,13 @@ package com.nqobza.wetutors
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.nqobza.wertutors.RegisterTutorActivity
+
 import com.nqobza.wertutors.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -19,6 +23,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
+
+
         binding.btnRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
@@ -37,6 +43,7 @@ class LoginActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                 if(it.isSuccessful){
                     val intent = Intent(this, MainActivity::class.java)
+                    finish()
                     startActivity(intent)
                 }else{
                     Toast.makeText(this, "Login unsuccessful. Try again!", Toast.LENGTH_SHORT).show()

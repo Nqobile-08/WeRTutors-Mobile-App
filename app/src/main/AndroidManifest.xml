@@ -34,7 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.nqobza.wetutors.MainActivity"
             android:exported="true" />
@@ -42,9 +41,14 @@
             android:name="com.nqobza.wetutors.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".RegisterTutorActivity"
-            android:exported="true"/>
-
+            android:name="com.nqobza.wetutors.RegisterTutorActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.nqobza.wetutors.ChatActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.nqobza.wetutors.commsAct"
+            android:exported="true" />
     </application>
 
 </manifest>

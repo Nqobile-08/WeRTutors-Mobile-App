@@ -72,7 +72,7 @@ dependencies {
     implementation(libs.firebase.database.ktx)
     implementation ("com.google.firebase:firebase-auth:latest_version")
     implementation ("com.google.firebase:firebase-database:latest_version")
-
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

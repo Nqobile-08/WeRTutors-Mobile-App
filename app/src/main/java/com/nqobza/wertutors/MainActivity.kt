@@ -1,5 +1,6 @@
 package com.nqobza.wetutors
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -44,6 +45,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_library -> selectedFragment = LibraryFragment()
                 R.id.nav_Jobs -> selectedFragment = JobsFragment()
                 R.id.nav_logout -> selectedFragment = LogoutFragment()
+                R.id.nav_communication -> {
+                    // Launch ChatActivity when communication is selected
+                    val intent = Intent(this, ChatActivity::class.java)
+                    startActivity(intent)
+                }
             }
 
             selectedFragment?.let {
