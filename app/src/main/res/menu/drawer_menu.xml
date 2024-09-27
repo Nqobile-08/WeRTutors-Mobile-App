@@ -7,20 +7,19 @@
         android:id="@+id/nav_dashboard"
         android:icon="@drawable/baseline_dashboard_24"
         android:title="Dashboard" />
+
     <item
-        android:id="@+id/nav_students"
+        android:id="@+id/nav_Bookings"
         android:icon="@drawable/baseline_account_circle_24"
-        android:title="Schedules" />
-    <item
-        android:id="@+id/nav_library"
-        android:icon="@drawable/baseline_book_24"
-        android:title="Library" />
-    <item
-        android:id="@+id/nav_Jobs"
-        android:icon="@drawable/baseline_app_settings_alt_24"
-        android:title="Settings" />
+        android:title="Bookings" />
+<item
+        android:id="@+id/nav_Reviews"
+        android:icon="@drawable/baseline_account_circle_24"
+        android:title="Reviews" />
+
     <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/baseline_airline_seat_recline_extra_24"
         android:title="Logout" />
+
 </menu>
