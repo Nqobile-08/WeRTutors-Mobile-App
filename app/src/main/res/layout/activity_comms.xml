@@ -1,42 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="405dp"
         android:layout_above="@+id/linearlayout"
         android:layout_alignParentTop="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_marginTop="119dp"
+        android:layout_marginBottom="153dp" />
 
     <LinearLayout
         android:id="@+id/linearlayout"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="5dp"
-        android:weightSum="100">
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp">
 
         <EditText
             android:id="@+id/messageBox"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_weight="1"
             android:hint="Type a message"
-            android:layout_marginLeft="10dp"
-            android:paddingLeft="10dp"
-            android:layout_weight="90"/>
+            android:paddingLeft="10dp"/>
 
-        <ImageView
+        <Button
             android:id="@+id/sendButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/send"
-            android:layout_weight="20"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send" />
     </LinearLayout>
+
 </RelativeLayout>

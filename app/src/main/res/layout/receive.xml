@@ -13,6 +13,8 @@
             android:id="@+id/txt_receive_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/received_message_background"
+            android:textColor="@android:color/black"
             android:text="This is received message"
             android:padding="10dp"
             android:textSize="18sp"/>

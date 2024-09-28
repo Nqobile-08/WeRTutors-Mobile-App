@@ -11,39 +11,36 @@ import com.google.firebase.auth.FirebaseAuth
 import com.nqobza.wertutors.R
 import com.nqobza.wetutors.Users
 
-class UserAdapter(val context: Context, val userList: ArrayList<Users>): RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+class UserAdapter(val context: Context, val userList: ArrayList<Users>) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
+    // Step 1: Define an interface for item clicks
+    private var onItemClickListener: ((Users) -> Unit)? = null
 
+    // Step 2: Allow ChatActivity to set the click listener
+    fun setOnItemClickListener(listener: (Users) -> Unit) {
+        onItemClickListener = listener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-          val view: View= LayoutInflater.from(context).inflate(R.layout.user_layout, parent,false)
+        val view: View = LayoutInflater.from(context).inflate(R.layout.user_layout, parent, false)
         return UserViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-
         val currentUser = userList[position]
-
         holder.textName.text = currentUser.name
 
-        holder.itemView.setOnClickListener{
-            val intent = Intent(context, ChatActivity::class.java)
-
-            intent.putExtra("name",currentUser.name)
-            intent.putExtra("uid",currentUser.uid)
-
-            context.startActivity(intent)
+        // Step 3: Trigger the click listener when the user clicks on an item
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.invoke(currentUser) // Pass the current user to the listener
         }
-
     }
-
 
     override fun getItemCount(): Int {
         return userList.size
     }
 
-
-    class UserViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val textName = itemView.findViewById<TextView>(R.id.txt_name)
+    class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val textName: TextView = itemView.findViewById(R.id.txt_name)
     }
 }

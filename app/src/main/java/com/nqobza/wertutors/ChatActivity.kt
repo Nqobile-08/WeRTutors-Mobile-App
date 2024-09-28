@@ -2,12 +2,8 @@ package com.nqobza.wetutors
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import androidx.activity.enableEdgeToEdge
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -16,8 +12,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.nqobza.wertutors.R
-import com.nqobza.wetutors.LoginActivity
-import com.nqobza.wetutors.Users
 
 class ChatActivity : AppCompatActivity() {
 
@@ -26,7 +20,6 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var adapter: UserAdapter
     private lateinit var auth: FirebaseAuth
     private lateinit var mDbref: FirebaseDatabase
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,56 +30,67 @@ class ChatActivity : AppCompatActivity() {
 
         userList = ArrayList()
         adapter = UserAdapter(this, userList)
-
         userRecyclerView = findViewById(R.id.userRecyclerView)
-
         userRecyclerView.layoutManager = LinearLayoutManager(this)
         userRecyclerView.adapter = adapter
 
-        mDbref.reference.child("Users").addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
+// In ChatActivity where you set up the RecyclerView and Adapter
+        adapter.setOnItemClickListener { selectedUser ->
+            val intent = Intent(this@ChatActivity, commsAct::class.java)
 
-                userList.clear()
-                for (postSnapshot in snapshot.children) {
-                    val currentUser = postSnapshot.getValue(Users::class.java)
+            // Pass user details to commsAct
+            intent.putExtra("name", selectedUser.name)
+            intent.putExtra("uid", selectedUser.uid)
 
-                    if(auth.currentUser?.uid != currentUser?.uid ){
-                        userList.add(currentUser!!)
-                    }
+            // Log for debugging
+            Log.d("ChatActivity", "Sending name: ${selectedUser.name}, uid: ${selectedUser.uid}")
 
-                    userList.add(currentUser!!)
-                }
-                adapter.notifyDataSetChanged()
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-        })
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.activity_main_drawer, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_communication -> {
-                // Open the Communication section (start a new activity or fragment)
-                val intent = Intent(this, ChatActivity::class.java)
-                startActivity(intent)
-                return true
-            }
-
-            R.id.nav_logout -> {
-                auth.signOut()
-                val intent = Intent(this, LoginActivity::class.java)
-                finish()
-                startActivity(intent)
-                return true
-            }
+            // Start the commsAct
+            startActivity(intent)
         }
-        return super.onOptionsItemSelected(item)
+
+
+        fetchUsers()
+    }
+
+    private fun fetchUsers() {
+        // Clear the list to avoid duplicating entries
+        userList.clear()
+
+        // Fetch Tutors
+        mDbref.reference.child("Users").child("Tutors")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (postSnapshot in snapshot.children) {
+                        val tutor = postSnapshot.getValue(Tutor::class.java)
+                        if (tutor != null && auth.currentUser?.uid != tutor.uid) {
+                            userList.add(tutor)  // Add tutor to userList
+                        }
+                    }
+                    adapter.notifyDataSetChanged()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("ChatActivity", "Error fetching tutors: ${error.message}")
+                }
+            })
+
+        // Fetch Students
+        mDbref.reference.child("Users").child("Students")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (postSnapshot in snapshot.children) {
+                        val student = postSnapshot.getValue(Student::class.java)
+                        if (student != null && auth.currentUser?.uid != student.uid) {
+                            userList.add(student)  // Add student to userList
+                        }
+                    }
+                    adapter.notifyDataSetChanged()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("ChatActivity", "Error fetching students: ${error.message}")
+                }
+            })
     }
 }
