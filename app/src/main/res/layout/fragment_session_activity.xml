@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/sessionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Session Title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"/>
+
+    <ImageView
+        android:layout_width="178dp"
+        android:layout_height="92dp"
+        android:layout_below="@id/sessionTitle"
+        android:layout_marginTop="412dp"
+        android:src="@drawable/tutors" />
+
+    <TextView
+        android:id="@+id/sessionStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status: Running"
+        android:layout_below="@id/sessionTitle"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/timerDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00:00"
+        android:textSize="32sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/sessionStatus"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/startSessionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Session"
+        android:layout_below="@id/timerDisplay"
+        android:layout_marginTop="32dp"
+        android:layout_alignParentLeft="true"/>
+
+    <Button
+        android:id="@+id/stopSessionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop Session"
+        android:layout_below="@id/timerDisplay"
+        android:layout_marginTop="32dp"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/sessionNotes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stopSessionButton"
+        android:layout_marginTop="16dp"
+        android:text="Notes"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/notesInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sessionNotes"
+        android:layout_marginTop="8dp"
+        android:hint="Enter session notes here"
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/submitSessionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit Session"
+        android:layout_below="@id/notesInput"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

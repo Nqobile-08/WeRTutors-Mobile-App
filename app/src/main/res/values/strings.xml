@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">WeRTutors</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="john_doe">John Doe</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="Wertutors">WeRTutors</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <string name="nav_profile">Profile</string>
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="type_of_tutoring">Type of Tutoring</string>
+
+    <string name="siphoWorkExperience">I am a high school math teacher with over 7 years of experience in teaching advanced mathematics. I specialize in preparing students for national exams and have a track record of improving student performance through personalized tutoring.</string>
+    <string name="siphoEducation">I hold a Bachelor’s degree in Education, specializing in Mathematics, from the University of Johannesburg.</string>
+    <string name="siphoCoursesCertifications">I am certified in Advanced Mathematical Pedagogy by the South African Council for Educators (SACE). I also completed online courses on Data Analysis in Education from Coursera.</string>
+    <string name="siphoSkills">Curriculum development, personalized learning strategies, advanced calculus and algebra.</string>
+
+    <string name="zaneleWorkExperience">I am a business and economics tutor with over 6 years of experience working with both high school and university students. I have helped many students understand complex economic theories and business strategies.</string>
+    <string name="zaneleEducation">I hold a Bachelor of Commerce in Economics from Durban University of Technology.</string>
+    <string name="zaneleCoursesCertifications">I completed certification in Financial Analysis from Udemy and am a certified Economics Tutor by TutorABC.</string>
+    <string name="zaneleSkills">Financial modeling, micro and macroeconomics, business management and consulting.</string>
+
+    <string name="kabeloWorkExperience">I am a skilled computer programming tutor with 5 years of experience. I focus on teaching algorithms, data structures, and object-oriented programming. I have worked with students from beginner to advanced levels in coding.</string>
+    <string name="kabeloEducation">I hold a Bachelor of Science in Computer Science from the University of Limpopo.</string>
+    <string name="kabeloCoursesCertifications">I completed a Data Structures and Algorithms course from Udacity and am a certified Java Developer by Oracle University.</string>
+    <string name="kabeloSkills">Object-oriented programming, algorithm optimization, data structure design.</string>
+
+    <string name="leratoWorkExperience">I am an experienced data scientist with a passion for data analytics and machine learning. I have 4 years of experience working in the tech industry and tutoring students in data science concepts.</string>
+    <string name="leratoEducation">I hold a Master’s degree in Data Science from the University of Pretoria.</string>
+    <string name="leratoCoursesCertifications">I completed the Data Science Specialization on Coursera (offered by Johns Hopkins University) and am certified in Machine Learning by Stanford University.</string>
+    <string name="leratoSkills">Python programming, machine learning algorithms, big data analysis.</string>
+
+    <string name="sizweWorkExperience">I have a diverse background, having tutored in both mathematics and physical sciences for over 5 years. I am particularly interested in helping students excel in problem-solving and analytical thinking.</string>
+    <string name="sizweEducation">I hold a Bachelor’s degree in Mechanical Engineering from Durban University of Technology.</string>
+    <string name="sizweCoursesCertifications">I am certified in Fluid Mechanics by edX and completed a course in Applied Mathematics from MIT OpenCourseWare.</string>
+    <string name="sizweSkills">Mechanical design, physics and applied mathematics, engineering problem-solving.</string>
+
+    <string name="mbaliWorkExperience">I am a passionate educator with over 6 years of experience teaching physics and chemistry at both high school and university levels. I have helped students achieve remarkable improvements in their understanding of physical sciences through practical and theoretical learning techniques.</string>
+    <string name="mbaliEducation">I hold a Bachelor’s degree in Chemical Engineering from the University of KwaZulu-Natal.</string>
+    <string name="mbaliCoursesCertifications">I am certified in Advanced Chemistry from Coursera and completed a Physics Specialization from MIT OpenCourseWare.</string>
+    <string name="mbaliSkills">Thermodynamics and chemical processes, physics and chemistry tutoring, problem-solving and analytical thinking.</string>
+
+    <string name="ayandaWorkExperience">I am a history and geography enthusiast with a unique ability to make subjects engaging and relevant. With over 6 years of tutoring experience, I have helped students improve their knowledge of world history and geographic systems.</string>
+    <string name="ayandaEducation">I hold a Bachelor’s degree in History and Geography from the University of Cape Town.</string>
+    <string name="ayandaCoursesCertifications">I am certified in Geographic Information Systems (GIS) by Udemy and completed an Advanced History Course from the University of Oxford Online.</string>
+    <string name="ayandaSkills">Historical analysis, geography and environmental science, critical thinking and writing.</string>
+
+    <string name="biancaWorkExperience">I am a computer engineering specialist with a focus on hardware systems and software integration. I have over 5 years of tutoring experience in computer engineering topics, especially for university students.</string>
+    <string name="biancaEducation">I hold a Master’s in Computer Engineering from Stellenbosch University.</string>
+    <string name="biancaCoursesCertifications">I am certified in Embedded Systems by Coursera and completed a Machine Learning specialization from Stanford University.</string>
+    <string name="biancaSkills">Embedded systems, artificial intelligence, software engineering.</string>
+
+    <string name="christinaWorkExperience">I am an expert in biology and environmental science with over 8 years of experience in tutoring high school and university students. I have a deep passion for ecological studies and environmental conservation.</string>
+    <string name="christinaEducation">I hold a Bachelor of Science in Environmental Science from the University of the Witwatersrand.</string>
+    <string name="christinaCoursesCertifications">I am certified in Environmental Conservation by WWF and completed courses in Climate Change and Biodiversity from Coursera.</string>
+    <string name="christinaSkills">Ecological analysis, climate science, biology and biodiversity conservation.</string>
+
+</resources>
