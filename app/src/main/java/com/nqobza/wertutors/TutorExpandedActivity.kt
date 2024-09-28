@@ -11,13 +11,19 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class TutorExpandedActivity : AppCompatActivity() {
 
     // RecyclerView for Reviews
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var reviewRecyclerView: RecyclerView
+    private lateinit var dbRef: DatabaseReference
     private lateinit var reviewList: ArrayList<Review>
-    private lateinit var adapter: ReviewAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -57,6 +63,7 @@ class TutorExpandedActivity : AppCompatActivity() {
         // Corresponding views
         val tvLevelsAndSubjects: TextView = findViewById(R.id.tvLevelsAndSubjects1)
         val rvReviews: RecyclerView = findViewById(R.id.rvReviews)
+
 
         // Setting up the initial view state
         tutorCoursesHeading.visibility = View.VISIBLE
@@ -166,79 +173,33 @@ class TutorExpandedActivity : AppCompatActivity() {
         tutorSubjects.text = subjectsString
 
         // Setting up RecyclerView for reviews
-        recyclerView = findViewById(R.id.rvReviews)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.setHasFixedSize(true)
+        reviewRecyclerView = findViewById(R.id.rvReviews)
+        reviewRecyclerView.layoutManager = LinearLayoutManager(this)
+        reviewRecyclerView.setHasFixedSize(true)
 
-        // Initialize the review list and load reviews for the selected tutor
-        reviewList = ArrayList()
-        loadReviews(name ?: "")
-        adapter = ReviewAdapter(reviewList)
-        recyclerView.adapter = adapter
+        reviewList = arrayListOf<Review>()
+        getReviewData()
+
     }
 
-    private fun loadReviews(tutorName: String) {
-  //      val allReviews = arrayOf(
-            // Reviews for Sipho Mthethwa
-//            Review("Sipho Mthethwa", 5, "Lungelo M.", "Great planning", "Very structured and easy to follow."),
-//            Review("Sipho Mthethwa", 4, "Nolwazi Z.", "Helpful sessions", "Helped me understand concepts better."),
-//            Review("Sipho Mthethwa", 5, "Bongani T.", "Clear guidance", "Simplified difficult concepts very well."),
-//
-//            // Reviews for Zanele Mhlongo
-//            Review("Zanele Mhlongo", 5, "Thabo K.", "Amazing tutor", "Very patient and knowledgeable."),
-//            Review("Zanele Mhlongo", 4, "Phindiwe D.", "Clear explanations", "Explained things in a simple way."),
-//            Review("Zanele Mhlongo", 3, "Nomvula R.", "Not very engaging", "Could be more interactive."),
-//            Review("Zanele Mhlongo", 5, "Sam L.", "Patient and understanding", "Really took the time to explain things."),
-//
-//            // Reviews for Kabelo Phiri
-//            Review("Kabelo Phiri", 3, "John P.", "Good at programming", "Assisted me with coding tasks."),
-//            Review("Kabelo Phiri", 5, "Matthew V.", "Helpful with algorithms", "Really knows his programming."),
-//            Review("Kabelo Phiri", 4, "Nandi S.", "Strong with logic", "Great tutor for programming logic."),
-//            Review("Kabelo Phiri", 2, "Lebo M.", "Confusing at times", "Could have explained more clearly."),
-//            Review("Kabelo Phiri", 5, "Sam G.", "Knowledgeable", "Explained everything with precision."),
-//
-//            // Reviews for Lerato Mokoena
-//            Review("Lerato Mokoena", 5, "Angela R.", "Creative writing expert", "Great insights on writing."),
-//            Review("Lerato Mokoena", 4, "Jane K.", "Helpful feedback", "Helped me improve my writing style."),
-//            Review("Lerato Mokoena", 5, "Thomas Z.", "Excellent feedback", "Gave clear advice on my creative pieces."),
-//            Review("Lerato Mokoena", 3, "David N.", "Could improve", "Sometimes her feedback was hard to implement."),
-//            Review("Lerato Mokoena", 5, "Chris B.", "Writing master", "She really helped me shape my writing career."),
-//
-//            // Reviews for Sizwe Nkosi
-//            Review("Sizwe Nkosi", 5, "Michael S.", "Data science skills", "Very knowledgeable in data science."),
-//            Review("Sizwe Nkosi", 4, "Kevin R.", "Well-prepared", "Had well-structured lessons."),
-//            Review("Sizwe Nkosi", 5, "Zinhle N.", "Expert tutor", "Taught me things beyond the syllabus."),
-//            Review("Sizwe Nkosi", 3, "Lerato S.", "Good but busy", "Sessions were often cut short due to his schedule."),
-//            Review("Sizwe Nkosi", 2, "Andy T.", "Rushed sessions", "Felt like he was hurrying through the material."),
-//
-//            // Reviews for Mbali Mkhize
-//            Review("Mbali Mkhize", 4, "Sarah N.", "Passion for languages", "Helped me improve my Xhosa."),
-//            Review("Mbali Mkhize", 5, "Grace L.", "Very encouraging", "Made learning a new language fun."),
-//            Review("Mbali Mkhize", 3, "Lindiwe P.", "Good but slow", "Good tutor, but sometimes slow to respond."),
-//            Review("Mbali Mkhize", 4, "Peter O.", "Great teacher", "Very understanding and patient."),
-//            Review("Mbali Mkhize", 2, "Candice T.", "Lacked structure", "I found her lessons disorganized at times."),
-//
-//            // Reviews for Ayanda Ndlovu
-//            Review("Ayanda Ndlovu", 4, "Nkosi Z.", "Great math skills", "Explains math concepts really well."),
-//            Review("Ayanda Ndlovu", 3, "Lucas F.", "A bit technical", "Sometimes went into too much detail."),
-//            Review("Ayanda Ndlovu", 5, "Mary J.", "Fantastic tutor", "Helped me ace my math exams."),
-//            Review("Ayanda Ndlovu", 4, "Thandi N.", "Good with numbers", "Very good with breaking down difficult problems."),
-//            Review("Ayanda Ndlovu", 2, "Tebogo M.", "Rushed lessons", "Felt like we were moving too fast for my pace."),
-//
-//            // Reviews for Bianca Moodley
-//            Review("Bianca Moodley", 5, "Eve A.", "History expert", "Helped with my history assignments."),
-//            Review("Bianca Moodley", 4, "Jenna M.", "Well-organized", "Very organized and knew her content well."),
-//            Review("Bianca Moodley", 3, "Philip G.", "Good tutor", "Helpful, but could improve time management."),
-//            Review("Bianca Moodley", 5, "Simphiwe S.", "Engaging lessons", "Made history really interesting."),
-//            Review("Bianca Moodley", 2, "Lesego N.", "Not for me", "Felt like I didn't connect with her teaching style."),
-//
-//            // Reviews for Christina Goncalves
-//            Review("Christina Goncalves", 5, "David G.", "Biology genius", "Very thorough in biology concepts."),
-//            Review("Christina Goncalves", 4, "Ivy B.", "Great teacher", "Helped me understand complex biology topics."),
-//            Review("Christina Goncalves", 3, "James L.", "Helpful but slow", "Took time to explain things but sometimes too slow."),
-//            Review("Christina Goncalves", 5, "Linda N.", "Excellent", "Best tutor I've ever had for biology."), )
+    private fun getReviewData() {
+        dbRef = FirebaseDatabase.getInstance().getReference("student_reviews")
+        dbRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for( reviewSnapshot in snapshot.children){
+                        val review = reviewSnapshot.getValue(Review::class.java)
+                        reviewList.add(review!!)
 
-//        reviewList.addAll(allReviews.filter { it.tutorName == tutorName })
+                    }
+                    reviewRecyclerView.adapter = ReviewAdapter(reviewList)
+                }}
 
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 }
+

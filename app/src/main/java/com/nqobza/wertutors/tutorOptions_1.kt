@@ -170,7 +170,7 @@ class tutorOptions_1 : Fragment() {
             "Ecological studies, environmental policy, research methodologies." // Christina
         )
 // Tutor Names
-         reviewTutorName = arrayOf(
+        reviewTutorName = arrayOf(
             "Sipho Mthethwa", "Sipho Mthethwa", "Sipho Mthethwa",
             "Zanele Mhlongo", "Zanele Mhlongo", "Zanele Mhlongo", "Zanele Mhlongo",
             "Kabelo Phiri", "Kabelo Phiri", "Kabelo Phiri", "Kabelo Phiri", "Kabelo Phiri",
@@ -183,7 +183,7 @@ class tutorOptions_1 : Fragment() {
         )
 
 // Ratings
-         reviewRating = arrayOf(
+        reviewRating = arrayOf(
             4, 3, 4,
             5, 4, 4, 5,
             4, 5, 4, 3, 5,
@@ -196,7 +196,7 @@ class tutorOptions_1 : Fragment() {
         )
 
 // Student Names
-         reviewStudentName = arrayOf(
+        reviewStudentName = arrayOf(
             "Lungelo M.", "Nolwazi Z.", "Bongani T.",
             "Thabo K.", "Phindiwe D.", "Nomvula R.", "Sam L.",
             "John P.", "Matthew V.", "Nandi S.", "Lebo M.", "Sam G.",
@@ -209,7 +209,7 @@ class tutorOptions_1 : Fragment() {
         )
 
 // Subjects
-         reviewSubject = arrayOf(
+        reviewSubject = arrayOf(
             "Great planning", "Helpful sessions", "Clear guidance",
             "Amazing tutor", "Clear explanations", "Not very engaging", "Patient and understanding",
             "Good at programming", "Helpful with algorithms", "Strong with logic", "Confusing at times", "Knowledgeable",
@@ -222,7 +222,7 @@ class tutorOptions_1 : Fragment() {
         )
 
 // Descriptions
-         reviewDescription = arrayOf(
+        reviewDescription = arrayOf(
             "Very structured and easy to follow.", "Helped me understand concepts better.", "Simplified difficult concepts very well.",
             "Very patient and knowledgeable.", "Explained things in a simple way.", "Could be more interactive.", "Really took the time to explain things.",
             "Assisted me with coding tasks.", "Really knows his programming.", "Great tutor for programming logic.", "Could have explained more clearly.", "Explained everything with precision.",
@@ -281,4 +281,3 @@ class tutorOptions_1 : Fragment() {
     }
 
 }
-

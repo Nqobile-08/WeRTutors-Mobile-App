@@ -1,0 +1,180 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    tools:context=".AdvancedRegisterFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Section 1: Name, Email, Password, Phone -->
+        <TextView
+            android:id="@+id/section1Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Information"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/profilePicture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:contentDescription="Profile Picture"
+            android:layout_marginTop="10dp"
+            android:background="@color/black"/>
+
+        <Button
+            android:id="@+id/btnUploadProfilePic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Profile Picture"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"            />
+
+        <EditText
+            android:id="@+id/etFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Name" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/etPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:inputType="textPassword" />
+
+        <!-- Section 2: Rate, Location, Language, Description, Work Experience, Education -->
+        <TextView
+            android:id="@+id/section2Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Professional Information"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="16dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hourly Rate"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/etLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Location (Suburb, City)" />
+
+        <EditText
+            android:id="@+id/etLanguages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Languages Spoken" />
+
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tutor Description"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/etWorkExperience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Work Experience" />
+
+        <EditText
+            android:id="@+id/etEducation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Education (Courses/Certifications)" />
+
+        <EditText
+            android:id="@+id/etCoursesCertifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Relevant Courses and Certifications" />
+
+        <EditText
+            android:id="@+id/etSkills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Skills" />
+        <!-- Section 3: Subjects and Levels -->
+        <TextView
+            android:id="@+id/section3Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subjects and Levels"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="16dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etSubjects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Subjects Taught" />
+
+        <CheckBox
+            android:id="@+id/cbPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Primary Level" />
+
+        <CheckBox
+            android:id="@+id/cbSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Secondary Level" />
+
+        <CheckBox
+            android:id="@+id/cbTertiary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tertiary Level" />
+        <CheckBox
+            android:id="@+id/cbProfessional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Professional" />
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+</ScrollView>

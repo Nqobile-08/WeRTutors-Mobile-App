@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_dashboard -> selectedFragment = DashboardFragment()
                 R.id.nav_students -> selectedFragment = SchedulesFragment()
                 R.id.nav_library -> selectedFragment = LibraryFragment()
-                //R.id.nav_jobs -> selectedFragment = JobsFragment()
                 R.id.nav_logout -> selectedFragment = LogoutFragment()
                 R.id.nav_tutor_profiles -> selectedFragment = tutorOptions_1()
                 R.id.nav_create_review -> selectedFragment = CreateReviewFragment()

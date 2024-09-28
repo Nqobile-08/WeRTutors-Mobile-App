@@ -7,8 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class ReviewAdapter(private var reviewList: ArrayList<Review>) :
-    RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
+class ReviewAdapter(private val reviewList: ArrayList<Review>):RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): ReviewAdapter.ReviewViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.item_review,parent,false)
@@ -16,7 +15,7 @@ class ReviewAdapter(private var reviewList: ArrayList<Review>) :
         }
 
     override fun getItemCount(): Int {
-       return reviewList.size
+    return reviewList.size
     }
 
     override fun onBindViewHolder(holder: ReviewAdapter.ReviewViewHolder, position: Int) {
@@ -28,7 +27,6 @@ class ReviewAdapter(private var reviewList: ArrayList<Review>) :
         holder.reviewDescription.text = currentReview.description
     }
     class ReviewViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
-
         val reviewRating : TextView = itemView.findViewById(R.id.tvTutorRating)
         val reviewTutorName : TextView = itemView.findViewById(R.id.tvTutorName)
         val reviewStudentName : TextView = itemView.findViewById(R.id.tvStudentName)
