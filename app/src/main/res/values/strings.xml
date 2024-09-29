@@ -2,7 +2,7 @@
     <string name="app_name">WeRTutors</string>
     <string name="navigation_drawer_close" />
     <string name="navigation_drawer_open" />
-    <string name="gemini_api_key">AIzaSyD7nFgqvRPZ1vzeii9iFtY2a001jRMT23Y</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="john_doe">John Doe</string>
     <string name="profile_picture" />
@@ -25,30 +25,5 @@
     <string name="nav_dashboard" />
     <string name="nav_notifications" />
     <string name="type_of_tutoring" />
-    <string name="enter_number">enter number</string>
-    <string name="phonenumber">Phone number</string>
-    <string name="enter_institution">enter instiution</string>
-    <string name="tetiary_institution_adress">tertiary instution</string>
-    <string name="enter_surname">enter surname</string>
-    <string name="surname">surname</string>
-    <string name="enter_name">enter name</string>
-    <string name="name">name</string>
-    <string name="__400">400\n</string>
-    <string name="booking">Booking</string>
-    <string name="todo1">todo</string>
-    <string name="billing">billing</string>
-    <string name="todo2">todo2</string>
-    <string name="_400">_400</string>
-    <string name="tutor">tutor\n</string>
-    <string name="we_r_tutors">weretutors</string>
-    <string name="todo">todos</string>
-    <string name="sammy_snow">sammy snows</string>
-    <string name="sammy">Sammy</string>
-    <string name="job_title">Job Title</string>
-    <string name="reg" />
-    <string name="billings">Billing</string>
-    <string name="scroll" />
-    <string name="scrol" />
-    <string name="sec_time_left">sec time left</string>
-    <string name="button" />
+    <string name="default_web_client_id">512312559336-5c4oled885s7k1ro55r70muepqu7k7cr.apps.googleusercontent.com</string>
 </resources>

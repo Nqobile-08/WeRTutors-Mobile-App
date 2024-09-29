@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:src="@drawable/tutors" />
 
-    "
+
 
     <TextView
         android:layout_width="wrap_content"

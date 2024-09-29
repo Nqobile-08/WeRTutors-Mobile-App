@@ -51,10 +51,7 @@ dependencies {
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
     implementation ("com.google.android.material:material:1.5.0")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.3")
-//
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-//
+
     implementation("com.google.firebase:firebase-analytics")
 
     implementation ("com.google.android.material:material:1.10.0")
@@ -73,9 +70,9 @@ dependencies {
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.androidx.preference)
     implementation(libs.firebase.database.ktx)
-    implementation (libs.firebase.auth)
-    implementation (libs.firebase.database.vlatestversion)
-
+    implementation ("com.google.firebase:firebase-auth:latest_version")
+    implementation ("com.google.firebase:firebase-database:latest_version")
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

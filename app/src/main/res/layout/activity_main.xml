@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".Tutors.MainActivity"
+    tools:context="com.nqobza.wetutors.MainActivity"
     tools:openDrawer="start">
 
     <LinearLayout
@@ -47,7 +47,5 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
-    <!-- res/layout/activity_main.xml -->
 
 </androidx.drawerlayout.widget.DrawerLayout>
-

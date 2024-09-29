@@ -1,7 +1,5 @@
 [versions]
 agp = "8.5.2"
-firebaseAuth = "latest_version"
-firebaseDatabaseVersion = "latest_version"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -18,12 +16,10 @@ firebaseFirestoreKtx = "25.1.0"
 preference = "1.2.0"
 firebaseDatabaseKtx = "21.0.0"
 googleGmsGoogleServices = "4.4.2"
-firebaseDatabase = "21.0.0"
+firebaseAuth = "23.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuth" }
-firebase-database-vlatestversion = { module = "com.google.firebase:firebase-database", version.ref = "firebaseDatabaseVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -37,7 +33,7 @@ firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 androidx-preference = { group = "androidx.preference", name = "preference", version.ref = "preference" }
 firebase-database-ktx = { group = "com.google.firebase", name = "firebase-database-ktx", version.ref = "firebaseDatabaseKtx" }
-firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

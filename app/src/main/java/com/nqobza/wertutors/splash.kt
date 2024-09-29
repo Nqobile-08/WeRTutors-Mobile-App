@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.nqobza.wertutors.R
-import com.nqobza.wertutors.Tutors.LoginActivity
 
 
 class splash : AppCompatActivity() {
@@ -17,7 +16,7 @@ class splash : AppCompatActivity() {
         setContentView(R.layout.splash_screen)
         handler= Handler()
         handler.postDelayed({
-            val intent= Intent(this, LoginActivity::class.java)
+            val intent= Intent(this,MainActivity::class.java)
             startActivity(intent)
             finish()
         },3000)

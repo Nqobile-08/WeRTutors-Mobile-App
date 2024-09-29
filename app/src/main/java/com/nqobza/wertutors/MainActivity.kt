@@ -1,5 +1,6 @@
 package com.nqobza.wetutors
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -11,8 +12,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.nqobza.wertutors.*
 
-
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,55 +24,60 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navView = findViewById(R.id.nav_view)
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
         if (savedInstanceState == null) {
-            supportFragmentManager.commit {
-                replace(R.id.nav_host_fragment, ProfileFragment())
-            }
+            replaceFragment(ProfileFragment())
             navView.setCheckedItem(R.id.nav_profile)
         }
 
+        setupNavigationView()
+        setupBottomNavigation()
+    }
+
+    private fun setupNavigationView() {
         navView.setNavigationItemSelectedListener { menuItem ->
-            var selectedFragment: Fragment? = null
             when (menuItem.itemId) {
-                R.id.nav_profile -> selectedFragment = ProfileFragment()
-                R.id.nav_dashboard -> selectedFragment = DashboardFragment()
-                R.id.nav_students -> selectedFragment = SchedulesFragment()
-                R.id.nav_library -> selectedFragment = LibraryFragment()
-                R.id.nav_Jobs -> selectedFragment = JobsFragment()
-                R.id.nav_logout -> selectedFragment = LogoutFragment()
-            }
+                R.id.nav_profile -> replaceFragment(ProfileFragment())
+                R.id.nav_dashboard -> replaceFragment(DashboardFragment())
+                R.id.nav_students -> replaceFragment(SchedulesFragment())
+                R.id.nav_library -> replaceFragment(LibraryFragment())
+                R.id.nav_Jobs -> replaceFragment(JobsFragment())
+                R.id.nav_logout -> replaceFragment(LogoutFragment())
+                R.id.nav_communication -> {
 
-            selectedFragment?.let {
-                supportFragmentManager.commit {
-                    replace(R.id.nav_host_fragment, it)
+                    val intent = Intent(this, ChatActivity::class.java)
+                    startActivity(intent)
+                    drawerLayout.closeDrawer(navView)
+                    return@setNavigationItemSelectedListener true
                 }
-                drawerLayout.closeDrawer(navView)
-                true
-            } ?: false
+            }
+            drawerLayout.closeDrawer(navView)
+            true
         }
+    }
 
+    private fun setupBottomNavigation() {
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-            var selectedFragment: Fragment? = null
             when (item.itemId) {
-                R.id.nav_profile -> selectedFragment = ProfileFragment()
-                R.id.nav_dashboard -> selectedFragment = DashboardFragment()
-                R.id.nav_students -> selectedFragment = SchedulesFragment()
+                R.id.nav_profile -> replaceFragment(ProfileFragment())
+                R.id.nav_dashboard -> replaceFragment(DashboardFragment())
+                R.id.nav_students -> replaceFragment(SchedulesFragment())
+                else -> return@setOnNavigationItemSelectedListener false
             }
+            true
+        }
+    }
 
-            selectedFragment?.let {
-                supportFragmentManager.commit {
-                    replace(R.id.nav_host_fragment, it)
-                }
-                true
-            } ?: false
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.commit {
+            replace(R.id.nav_host_fragment, fragment)
         }
     }
 }
