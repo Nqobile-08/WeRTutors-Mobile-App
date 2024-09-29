@@ -240,14 +240,14 @@ android:padding="16dp">
         app:layout_constraintTop_toBottomOf="@id/tvLevelsAndSubjects2"
         app:layout_constraintStart_toStartOf="@id/linearLayout"/>
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvReviews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@id/linearLayout"
         android:layout_marginTop="5dp"
         tools:listitem="@layout/item_review"
         android:visibility="invisible"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

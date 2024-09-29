@@ -257,7 +257,7 @@ class tutorOptions_1 : Fragment() {
         recyclerView.adapter = adapter
 
         // Set item click listener to expand the tutor's profile that was clicked
-        adapter.setOnitemClickListener(object : TutorAdapter.onItemClickListener {
+        adapter.setOnItemClickListener(object : TutorAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
                 val intent = Intent(requireContext(), TutorExpandedActivity::class.java)
                 intent.putExtra("ProfilePic", tutorList[position].ProfilePic)
