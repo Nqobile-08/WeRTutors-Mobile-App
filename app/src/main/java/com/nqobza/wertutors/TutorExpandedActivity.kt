@@ -57,6 +57,7 @@ class TutorExpandedActivity : AppCompatActivity() {
         val tutorLevel: TextView = findViewById(R.id.tvLevels)
         val tutorSubjectsHeading: TextView = findViewById(R.id.tvLevelsAndSubjects2)
         val tutorSubjects: TextView = findViewById(R.id.tvSubjects)
+        val tutorLevels: TextView = findViewById(R.id.tvLevels)
 
         // Declaring buttons in linear layout
          btnAbout = findViewById(R.id.btnAbout)
@@ -160,8 +161,8 @@ class TutorExpandedActivity : AppCompatActivity() {
         val education = bundle?.getString("Education")
         val coursesCertification = bundle?.getString("CoursesCertifications")
         val skills = bundle?.getString("Skills")
-        val subjectsArray = bundle?.getStringArray("Subjects") // Get subjects array
-        val subjectsString = subjectsArray?.joinToString(", ") ?: "Subjects not available" // Convert to string
+        val subjects = bundle?.getString("Subjects") // Get subjects array
+        val levels = bundle?.getString("Levels") // Get subjects array
 
         // Setting tutor data
         tutorProfilePicture.setImageResource(profilePic ?: R.drawable.icon)
@@ -175,7 +176,8 @@ class TutorExpandedActivity : AppCompatActivity() {
         tutorCourses.text = coursesCertification
         tutorEducation.text = education
         tutorWork.text = workExp
-        tutorSubjects.text = subjectsString
+        tutorSubjects.text = subjects
+        tutorLevels.text = levels
 
         Log.d(TAG, "Activity created")
 

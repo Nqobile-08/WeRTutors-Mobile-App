@@ -18,6 +18,8 @@
         <item
             android:id="@+id/nav_dark_mode"
             android:title="Dark mode"/>
-
+        <item
+            android:id="@+id/nav_schedules"
+            android:title="Booking"/>
     </group>
 </menu>

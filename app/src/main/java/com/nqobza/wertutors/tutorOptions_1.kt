@@ -36,6 +36,7 @@ class tutorOptions_1 : Fragment() {
     lateinit var reviewSubject: Array<String>
     lateinit var reviewDescription: Array<String>
     lateinit var subjects: Array<String>
+    lateinit var levels: Array<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -108,15 +109,15 @@ class tutorOptions_1 : Fragment() {
 
 // Array of subjects for each tutor
          subjects = arrayOf(
-            "Algebra, Trigonometry, Geometry, Calculus",    // Sipho Mthethwa
-            "Business Management, Economics, Statistics",    // Zanele Mhlongo
-            "Python, C++, Java, Algorithms",               // Kabelo Phiri
-            "Data Science, Machine Learning, Statistics, Big Data", // Lerato Mokoena
-            "Mathematics, Physics, Engineering Mechanics",   // Sizwe Nkosi
-            "English, Mandarin, Communication Skills",       // Mbali Mkhize
-            "Mathematics, Physical Science, Biology",        // Ayanda Ndlovu
-            "History, Geography, Civics",                    // Bianca Moodley
-            "Biology, Environmental Science, Ecology"       // Christina Goncalves
+            "Algebra, Trigonometry, Geometry, Calculus",
+            "Business Management, Economics, Statistics",
+            "Python, C++, Java, Algorithms",
+            "Data Science, Machine Learning, Statistics, Big Data",
+            "Mathematics, Physics, Engineering Mechanics",
+            "English, Mandarin, Communication Skills",
+            "Mathematics, Physical Science, Biology",
+            "History, Geography, Civics",
+            "Biology, Environmental Science, Ecology"
         )
 
 // Work Experience array
@@ -157,6 +158,18 @@ class tutorOptions_1 : Fragment() {
             "Certified in Historical Research Methods and completed a course in Geography Education from Oxford Online.", // Bianca
             "Certified in Climate Change Studies from Coursera and completed courses in Biodiversity Conservation." // Christina
         )
+// Initialize levels for each tutor
+         levels = arrayOf(
+            "Secondary, Tertiary",    // Sipho Mthethwa: High school math teacher, advanced calculus and algebra.
+            "Tertiary",               // Zanele Mhlongo: Expert in business and economics, tutoring at university level.
+            "Tertiary, Professional", // Kabelo Phiri: Skilled in programming (Python, Java, C++), worked on software projects.
+            "Tertiary, Professional", // Lerato Mokoena: Data science professional, specializing in machine learning and data analysis.
+            "Secondary, Tertiary",    // Sizwe Nkosi: Experienced in mathematics, physics, and mechanical engineering principles.
+            "Primary, Secondary",     // Mbali Mkhize: Language tutor (English, Mandarin), interactive methods.
+            "Secondary",              // Ayanda Ndlovu: Mathematics and physical science tutor, simplifies complex concepts.
+            "Secondary, Tertiary",    // Bianca Moodley: History and geography expert, global cultures and historical events.
+            "Tertiary, Professional"  // Christina Goncalves: Computer engineering graduate specializing in hardware systems.
+        )
 
 // Skills array
         skills = arrayOf(
@@ -170,46 +183,6 @@ class tutorOptions_1 : Fragment() {
             "Historical analysis, geographic systems, curriculum design.", // Bianca
             "Ecological studies, environmental policy, research methodologies." // Christina
         )
-// Tutor Names
-        reviewTutorName = arrayOf(
-            "Sipho Mthethwa", "Sipho Mthethwa", "Sipho Mthethwa",
-            "Zanele Mhlongo", "Zanele Mhlongo", "Zanele Mhlongo", "Zanele Mhlongo",
-            "Kabelo Phiri", "Kabelo Phiri", "Kabelo Phiri", "Kabelo Phiri", "Kabelo Phiri",
-            "Lerato Mokoena", "Lerato Mokoena", "Lerato Mokoena", "Lerato Mokoena", "Lerato Mokoena",
-            "Sizwe Nkosi", "Sizwe Nkosi", "Sizwe Nkosi", "Sizwe Nkosi", "Sizwe Nkosi",
-            "Mbali Mkhize", "Mbali Mkhize", "Mbali Mkhize", "Mbali Mkhize", "Mbali Mkhize",
-            "Ayanda Ndlovu", "Ayanda Ndlovu", "Ayanda Ndlovu", "Ayanda Ndlovu", "Ayanda Ndlovu",
-            "Bianca Moodley", "Bianca Moodley", "Bianca Moodley", "Bianca Moodley", "Bianca Moodley",
-            "Christina Goncalves", "Christina Goncalves", "Christina Goncalves", "Christina Goncalves"
-        )
-
-// Ratings
-        reviewRating = arrayOf(
-            4, 3, 4,
-            5, 4, 4, 5,
-            4, 5, 4, 3, 5,
-            5, 4, 5, 4, 5,
-            5, 4, 5, 4, 3,
-            4, 5, 4, 4, 3,
-            3, 3, 5, 4, 3,
-            3, 4, 3, 5, 3,
-            5, 4, 4, 5
-        )
-
-// Student Names
-        reviewStudentName = arrayOf(
-            "Lungelo M.", "Nolwazi Z.", "Bongani T.",
-            "Thabo K.", "Phindiwe D.", "Nomvula R.", "Sam L.",
-            "John P.", "Matthew V.", "Nandi S.", "Lebo M.", "Sam G.",
-            "Angela R.", "Jane K.", "Thomas Z.", "David N.", "Chris B.",
-            "Michael S.", "Kevin R.", "Zinhle N.", "Lerato S.", "Andy T.",
-            "Sarah N.", "Grace L.", "Lindiwe P.", "Peter O.", "Candice T.",
-            "Nkosi Z.", "Lucas F.", "Mary J.", "Thandi N.", "Tebogo M.",
-            "Eve A.", "Jenna M.", "Philip G.", "Simphiwe S.", "Lesego N.",
-            "David G.", "Ivy B.", "James L.", "Linda N."
-        )
-
-// Subjects
         reviewSubject = arrayOf(
             "Great planning", "Helpful sessions", "Clear guidance",
             "Amazing tutor", "Clear explanations", "Not very engaging", "Patient and understanding",
@@ -248,7 +221,7 @@ class tutorOptions_1 : Fragment() {
         for (i in imageId.indices) {
             val tutor = Tutor(
                 imageId[i], name[i], rating[i], rate[i], location[i], languages[i], description[i], subjects[i],
-                workExperience[i], education[i], coursesCertifications[i], skills[i]
+                workExperience[i], education[i], coursesCertifications[i], skills[i], levels[i]
             )
             tutorList.add(tutor)
         }
@@ -273,6 +246,7 @@ class tutorOptions_1 : Fragment() {
                 intent.putExtra("CoursesCertifications", tutorList[position].CoursesCertifications)
                 intent.putExtra("Skills", tutorList[position].Skills)
                 intent.putExtra("Subjects", tutorList[position].Subjects)
+                intent.putExtra("Levels", tutorList[position].Levels)
 
                 startActivity(intent)
             }

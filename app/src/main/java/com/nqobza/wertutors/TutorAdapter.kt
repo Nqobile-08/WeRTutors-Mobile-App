@@ -42,7 +42,7 @@ class TutorAdapter(private var tutorsList: ArrayList<Tutor>) :
         holder.rvLocation.text = currentTutor.Location
         holder.rvLanguages.text = currentTutor.Language
         holder.rvDescription.text = currentTutor.Description
-        holder.rvSubject.text = currentTutor.Subjects.toString()
+        holder.rvSubject.text = currentTutor.Subjects
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
@@ -58,7 +58,9 @@ class TutorAdapter(private var tutorsList: ArrayList<Tutor>) :
             intent.putExtra("Education", currentTutor.Education)
             intent.putExtra("CoursesCertifications", currentTutor.CoursesCertifications)
             intent.putExtra("Skills", currentTutor.Skills)
-            intent.putExtra("Subjects", currentTutor.Subjects) // Pass subjects as an array
+            intent.putExtra("Subjects", currentTutor.Subjects)
+            intent.putExtra("Levels", currentTutor.Levels)
+
             context.startActivity(intent)
         }
     }
