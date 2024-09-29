@@ -5,10 +5,12 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
@@ -22,7 +24,10 @@ class TutorExpandedActivity : AppCompatActivity() {
 
     private lateinit var reviewRecyclerView: RecyclerView
     private lateinit var reviewAdapter: ReviewAdapter
-
+    private lateinit var linearLayout: LinearLayout
+    private lateinit var btnAbout: Button
+    private lateinit var btnLevelsSubjects: Button
+    private lateinit var btnReviews: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -54,10 +59,14 @@ class TutorExpandedActivity : AppCompatActivity() {
         val tutorSubjects: TextView = findViewById(R.id.tvSubjects)
 
         // Declaring buttons in linear layout
-        val btnAbout: Button = findViewById(R.id.btnAbout)
-        val btnLevelsSubjects: Button = findViewById(R.id.btnLevelsSubjects)
-        val btnReviews: Button = findViewById(R.id.btnReviews)
+         btnAbout = findViewById(R.id.btnAbout)
+         btnLevelsSubjects=findViewById(R.id.btnLevelsSubjects)
+         btnReviews=findViewById(R.id.btnReviews)
 
+        linearLayout = findViewById(R.id.linearLayout)
+        btnAbout.setOnClickListener { selectButton(btnAbout) }
+        btnLevelsSubjects.setOnClickListener { selectButton(btnLevelsSubjects) }
+        btnReviews.setOnClickListener { selectButton(btnReviews) }
         // Corresponding views
         val tvLevelsAndSubjects: TextView = findViewById(R.id.tvLevelsAndSubjects1)
         reviewRecyclerView = findViewById(R.id.rvReviews)
@@ -177,6 +186,16 @@ class TutorExpandedActivity : AppCompatActivity() {
         if (name != null) {
             loadReviewsFromFirebase(name)
         }
+    }
+
+    private fun selectButton(selectedButton: Button) {
+        // Reset the color of all buttons to black
+        btnAbout.setTextColor(ContextCompat.getColor(this, android.R.color.black))
+        btnLevelsSubjects.setTextColor(ContextCompat.getColor(this, android.R.color.black))
+        btnReviews.setTextColor(ContextCompat.getColor(this, android.R.color.black))
+
+        // Change the text color of the selected button to blue
+        selectedButton.setTextColor(ContextCompat.getColor(this, R.color.WRTBlue)) // Replace with your blue color
     }
 
     private fun loadReviewsFromFirebase(tutorName: String) {
