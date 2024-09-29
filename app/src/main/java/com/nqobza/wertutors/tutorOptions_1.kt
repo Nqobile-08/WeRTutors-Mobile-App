@@ -35,6 +35,7 @@ class tutorOptions_1 : Fragment() {
     lateinit var reviewRating: Array<Int>
     lateinit var reviewSubject: Array<String>
     lateinit var reviewDescription: Array<String>
+    lateinit var subjects: Array<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -106,16 +107,16 @@ class tutorOptions_1 : Fragment() {
         )
 
 // Array of subjects for each tutor
-        val subjects = arrayOf(
-            arrayOf("Algebra", "Trigonometry", "Geometry", "Calculus"),    // Sipho Mthethwa
-            arrayOf("Business Management", "Economics", "Statistics"),    // Zanele Mhlongo
-            arrayOf("Python", "C++", "Java", "Algorithms"),               // Kabelo Phiri
-            arrayOf("Data Science", "Machine Learning", "Statistics", "Big Data"), // Lerato Mokoena
-            arrayOf("Mathematics", "Physics", "Engineering Mechanics"),   // Sizwe Nkosi
-            arrayOf("English", "Mandarin", "Communication Skills"),       // Mbali Mkhize
-            arrayOf("Mathematics", "Physical Science", "Biology"),        // Ayanda Ndlovu
-            arrayOf("History", "Geography", "Civics"),                    // Bianca Moodley
-            arrayOf("Biology", "Environmental Science", "Ecology")        // Christina Goncalves
+         subjects = arrayOf(
+            "Algebra, Trigonometry, Geometry, Calculus",    // Sipho Mthethwa
+            "Business Management, Economics, Statistics",    // Zanele Mhlongo
+            "Python, C++, Java, Algorithms",               // Kabelo Phiri
+            "Data Science, Machine Learning, Statistics, Big Data", // Lerato Mokoena
+            "Mathematics, Physics, Engineering Mechanics",   // Sizwe Nkosi
+            "English, Mandarin, Communication Skills",       // Mbali Mkhize
+            "Mathematics, Physical Science, Biology",        // Ayanda Ndlovu
+            "History, Geography, Civics",                    // Bianca Moodley
+            "Biology, Environmental Science, Ecology"       // Christina Goncalves
         )
 
 // Work Experience array
@@ -243,7 +244,7 @@ class tutorOptions_1 : Fragment() {
         return view
     }
 
-    private fun getUserData(subjects: Array<Array<String>>) {
+    private fun getUserData(subjects: Array<String>) {
         for (i in imageId.indices) {
             val tutor = Tutor(
                 imageId[i], name[i], rating[i], rate[i], location[i], languages[i], description[i], subjects[i],
@@ -271,8 +272,6 @@ class tutorOptions_1 : Fragment() {
                 intent.putExtra("Education", tutorList[position].Education)
                 intent.putExtra("CoursesCertifications", tutorList[position].CoursesCertifications)
                 intent.putExtra("Skills", tutorList[position].Skills)
-
-                // Passing subjects data
                 intent.putExtra("Subjects", tutorList[position].Subjects)
 
                 startActivity(intent)

@@ -38,9 +38,11 @@ class TutorAdapter(private var tutorsList: ArrayList<Tutor>) :
         holder.rvProfilePic.setImageResource(currentTutor.ProfilePic)
         holder.rvTutorName.text = currentTutor.Name
         holder.rvRating.text = currentTutor.Rating.toString()
-        holder.rvRate.text = currentTutor.Rate.toString()
+        holder.rvRate.text = "R ${currentTutor.Rate}/ hour"
         holder.rvLocation.text = currentTutor.Location
         holder.rvLanguages.text = currentTutor.Language
+        holder.rvDescription.text = currentTutor.Description
+        holder.rvSubject.text = currentTutor.Subjects.toString()
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
@@ -69,6 +71,8 @@ class TutorAdapter(private var tutorsList: ArrayList<Tutor>) :
         val rvRate: TextView = itemView.findViewById(R.id.tvRate)
         val rvLocation: TextView = itemView.findViewById(R.id.tvLocation)
         val rvLanguages: TextView = itemView.findViewById(R.id.tvLanguage)
+        val rvDescription: TextView = itemView.findViewById(R.id.tvDescription)
+        val rvSubject: TextView = itemView.findViewById(R.id.tvSubjects)
 
         init {
             itemView.setOnClickListener {

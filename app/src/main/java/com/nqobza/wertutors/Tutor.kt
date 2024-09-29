@@ -2,7 +2,7 @@ package com.nqobza.wertutors
 
 import java.io.Serializable
 
-data class Tutor (
+data class Tutor(
     var ProfilePic: Int,
     var Name: String,
     var Rating: Double,
@@ -10,7 +10,7 @@ data class Tutor (
     var Location: String,
     var Language: String,
     var Description: String,
-    var Subjects: Array<String>,
+    var Subjects: String,
     var WorkExperience: String,
     var Education: String,
     var CoursesCertifications: String,
