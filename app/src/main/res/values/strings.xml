@@ -25,4 +25,5 @@
     <string name="nav_dashboard" />
     <string name="nav_notifications" />
     <string name="type_of_tutoring" />
+    <string name="default_web_client_id">512312559336-5c4oled885s7k1ro55r70muepqu7k7cr.apps.googleusercontent.com</string>
 </resources>
