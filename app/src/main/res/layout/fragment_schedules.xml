@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:text="Select a Time"
             android:textSize="16sp"
-
+android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/spinnerSubjects"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
