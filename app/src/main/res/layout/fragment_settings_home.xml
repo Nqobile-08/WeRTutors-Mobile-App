@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".SettingsHomeFragment"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Settings"
+        android:textSize="20sp"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnEditProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Profile"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/WRTBlue"
+        android:backgroundTint="@color/white"/>
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dark mode"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/WRTBlue"
+        android:backgroundTint="@color/white"/>
+    <Button
+        android:id="@+id/btnPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Payment"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/WRTBlue"
+        android:backgroundTint="@color/white"/>
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout of account"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/red"
+        android:backgroundTint="@color/white"
+        />
+
+
+
+</LinearLayout>
