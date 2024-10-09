@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Profile"
+            android:icon="@drawable/baseline_co_present_24"/>
+        <item
+            android:id="@+id/nav_dashboard"
+            android:title="Dashboard"
+            android:icon="@drawable/baseline_dashboard_24"/>
+        <item
+            android:id="@+id/nav_tutor_profile"
+            android:title="Tutor Profile"
+           />
+        <item
+            android:id="@+id/nav_schedule"
+            android:title="Schedule"
+            />
+        <item
+            android:id="@+id/nav_AiHelper"
+            android:title="Ai Helper"
+            />
+        <item
+            android:id="@+id/nav_create_review"
+            android:title="Create Review"
+            />
+        <item
+            android:id="@+id/nav_session_timer"
+            android:title="session timer"
+            />
+        <item
+            android:id="@+id/nav_setting"
+            android:title="Setting"
+            />
+        <item
+            android:id="@+id/nav_displayedMarks"
+            android:title="DisplayMarks"
+            />
+        <item
+            android:id="@+id/nav_students"
+            android:title="Students"
+            android:icon="@drawable/baseline_account_circle_24"/>
+        <item
+            android:id="@+id/nav_library"
+            android:title="Library"
+            android:icon="@drawable/baseline_book_24"/>
+        <item
+            android:id="@+id/nav_marks"
+            android:title="Enter marks"
+            android:icon="@drawable/baseline_app_settings_alt_24"/>
+        <item
+            android:id="@+id/nav_communication"
+            android:title="Communication"
+            android:icon="@drawable/baseline_app_settings_alt_24"/>
+
+        <item
+            android:id="@+id/nav_logout"
+            android:title="LogOut"
+            android:icon="@drawable/baseline_airline_seat_recline_extra_24"/>
+    </group>
+</menu>

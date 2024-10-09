@@ -14,6 +14,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 
 
 import com.ratjatji.eskhathinitutors.Tutors.MainActivity
+import com.ratjatji.eskhathinitutors.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 

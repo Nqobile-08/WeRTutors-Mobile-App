@@ -16,16 +16,22 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="20dp" />
 
-    <!-- Container for dynamically added charts -->
-    <LinearLayout
-        android:id="@+id/chartContainer"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/tvStudentName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:scaleX="0.8"
-        android:scaleY="0.8"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Container for dynamically added charts -->
+        <LinearLayout
+            android:id="@+id/chartContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scaleX="0.8"
+            android:scaleY="0.8"/>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

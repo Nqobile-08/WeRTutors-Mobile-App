@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
+import com.ratjatji.eskhathinitutors.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
 

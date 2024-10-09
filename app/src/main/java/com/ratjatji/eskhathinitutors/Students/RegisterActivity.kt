@@ -1,13 +1,13 @@
 package com.ratjatji.eskhathinitutors.Students
-
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import android.content.Intent
 import com.google.firebase.auth.FirebaseAuth
-
-
 import com.ratjatji.eskhathinitutors.LoginActivity
+
+import com.ratjatji.eskhathinitutors.databinding.ActivityRegisterBinding
+
 
 class RegisterActivity : AppCompatActivity() {
 

@@ -18,6 +18,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -46,6 +50,7 @@ dependencies {
     implementation ("com.google.android.material:material:1.5.0")
 
     implementation ("androidx.constraintlayout:constraintlayout:2.1.3")
+
 
     implementation("com.google.firebase:firebase-analytics")
 

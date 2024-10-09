@@ -10,17 +10,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.ratjatji.eskhathinitutors.ChatActivity
 import com.ratjatji.eskhathinitutors.CreateReviewFragment
 import com.ratjatji.eskhathinitutors.DisplayMarksFragment
+import com.ratjatji.eskhathinitutors.LoadMarksFragment
 import com.ratjatji.eskhathinitutors.ProfileFragment
 import com.ratjatji.eskhathinitutors.R
-
 import com.ratjatji.eskhathinitutors.SettingsHomeFragment
 import com.ratjatji.eskhathinitutors.WeRTutorsAi
-import com.ratjatji.eskhathinitutors.showTutorFragment
 import com.ratjatji.eskhathinitutors.tutorOptions_1
-import com.ratjatji.eskhathinitutors.LoadMarksFragment
-import com.ratjatji.eskhathinitutors.ChatActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -50,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             var selectedFragment: Fragment? = null
             when (menuItem.itemId) {
 
-                R.id.nav_dashboard -> selectedFragment = DashboardFragment()
+                R.id.nav_dashboard -> selectedFragment = QuickNavFragment()
                 R.id.nav_tutor_profile -> selectedFragment = tutorOptions_1()
                 R.id.nav_schedule -> selectedFragment = SchedulesFragment()
                 R.id.nav_create_review -> selectedFragment = CreateReviewFragment()
@@ -84,7 +82,7 @@ class MainActivity : AppCompatActivity() {
             var selectedFragment: Fragment? = null
             when (item.itemId) {
 
-                R.id.nav_dashboard -> selectedFragment = DashboardFragment()
+                R.id.nav_dashboard -> selectedFragment = QuickNavFragment()
                 R.id.nav_profile -> selectedFragment = ProfileFragment()
                 R.id.nav_students -> selectedFragment = SchedulesFragment()
                 //  R.id.nav_setting -> selectedFragment = Setting()

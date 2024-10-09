@@ -1,15 +1,13 @@
+
+
 package com.ratjatji.eskhathinitutors
 
-import android.app.Fragment
-import android.content.ContentValues.TAG
 import android.content.Intent
-
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -43,7 +41,6 @@ class tutorOptions_1 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d(TAG, "onCreateView started")
         val view = inflater.inflate(R.layout.tutor_options_1, container, false)
 
         recyclerView = view.findViewById(R.id.rvTutors)
@@ -177,19 +174,19 @@ class tutorOptions_1 : Fragment() {
         tutorList = arrayListOf()
         getUserData(subjects)
 
-        Log.d(TAG, "onCreateView completed")
+
         return view
     }
 
     private fun getUserData(subjects: Array<String>) {
-        Log.d(TAG, "getUserData started")
+
         for (i in imageId.indices) {
             val tutor = Tutors1(
                 imageId[i], name[i], rating[i], rate[i], location[i], languages[i], description[i], subjects[i],
                 workExperience[i], education[i], coursesCertifications[i], skills[i], levels[i]
             )
             tutorList.add(tutor)
-            Log.d(TAG, "Added tutor: ${name[i]}")
+
         }
 
         // Adapter setup
@@ -199,7 +196,7 @@ class tutorOptions_1 : Fragment() {
         // Set item click listener to expand the tutor's profile that was clicked
         adapter.setOnItemClickListener(object : TutorAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
-                Log.d(TAG, "Tutor clicked: ${tutorList[position].Name}")
+
                 val intent = Intent(context, TutorExpandedActivity::class.java)
                 intent.putExtra("TUTOR_NAME", tutorList[position].Name)
                 intent.putExtra("ProfilePic", tutorList[position].ProfilePic)
@@ -216,14 +213,14 @@ class tutorOptions_1 : Fragment() {
                 intent.putExtra("Subjects", tutorList[position].Subjects)
                 intent.putExtra("Levels", tutorList[position].Levels)
 
-                Log.d(TAG, "Intent extras added. Starting TutorExpandedActivity")
+
                 try {
                     startActivity(intent)
                 } catch (e: Exception) {
-                    Log.e(TAG, "Error starting TutorExpandedActivity", e)
+
                 }
             }
         })
-        Log.d(TAG, "getUserData completed")
+
     }
 }

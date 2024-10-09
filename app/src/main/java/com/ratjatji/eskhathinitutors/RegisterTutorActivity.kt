@@ -5,20 +5,19 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-
 import com.google.firebase.database.FirebaseDatabase
-
+import com.ratjatji.eskhathinitutors.databinding.RegistertutorBinding
 
 class RegisterTutorActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var binding: RegisterTutorActivity
+    private lateinit var binding: RegistertutorBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Initialize ViewBinding
-        binding = RegisterTutorActivity.
+        binding = RegistertutorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
