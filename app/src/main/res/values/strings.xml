@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">WeRTutors</string>
+    <string name="navigation_drawer_close" />
+    <string name="navigation_drawer_open" />
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="john_doe">John Doe</string>
+
+    <string name="Wertutors" />
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="nav_profile" />
+    <string name="nav_dashboard" />
+    <string name="nav_notifications" />
+    <string name="type_of_tutoring" />
+    <string name="enter_number">enter number</string>
+    <string name="phonenumber">Phone number</string>
+    <string name="enter_institution">enter instiution</string>
+    <string name="tetiary_institution_adress">tertiary instution</string>
+    <string name="enter_surname">enter surname</string>
+    <string name="surname">surname</string>
+    <string name="enter_name">enter name</string>
+    <string name="name">name</string>
+    <string name="__400">400\n</string>
+    <string name="booking">Booking</string>
+    <string name="todo1">todo</string>
+    <string name="billing">billing</string>
+    <string name="todo2">todo2</string>
+    <string name="_400">_400</string>
+    <string name="tutor">tutor\n</string>
+    <string name="we_r_tutors">weretutors</string>
+    <string name="todo">todos</string>
+    <string name="sammy_snow">sammy snows</string>
+    <string name="sammy">Sammy</string>
+    <string name="job_title">Job Title</string>
+    <string name="reg" />
+    <string name="billings">Billing</string>
+    <string name="scroll" />
+    <string name="scrol" />
+    <string name="sec_time_left">sec time left</string>
+    <string name="button" />
+    <string name="api_key">AIzaSyD7nFgqvRPZ1vzeii9iFtY2a001jRMT23Y</string>
+    <string name="default_web_client_id">default_webclient_id</string>
+    <string name="enter_tertiary_institution_address_optional" />
+    <string name="enter_suburbs" />
+    <string name="enter_residential_address" />
+    <string name="enter_phone_number" />
+    <string name="change_profile_image" />
+    <string name="update" />
+    <string name="profile_picture">Profile Picture</string>
+</resources>
