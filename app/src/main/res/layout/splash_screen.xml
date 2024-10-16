@@ -5,7 +5,10 @@
     android:id="@+id/ingLogo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:animationCache="true"
     android:background="@color/white"
+    android:layoutAnimation="@android:anim/fade_in"
     android:orientation="vertical"
     tools:context=".splash">
 

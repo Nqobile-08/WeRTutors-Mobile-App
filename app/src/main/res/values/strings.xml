@@ -10,7 +10,8 @@
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
-
+    <string name="hello_world">Hello</string>
+    <string name="welcome_message">Welcome</string>
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
     <string name="reply_title">Default reply action</string>

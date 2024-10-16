@@ -1,32 +1,38 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     android:backgroundTint="#03A9F4"
-
+    tools:context="Tutors.QuickNavFragment"
     tools:ignore="ExtraText">
 
     <!-- Top View Section -->
-
-
-    <!-- Central Image -->
-    <ImageView
-        android:id="@+id/central_image"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginEnd="31dp"
-        android:src="@drawable/tutors"
+    <View
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="208dp"
+        android:background="@drawable/custom_button_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_default="wrap"
-
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_default="wrap" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="344dp"
+        android:layout_height="173dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/tutors"
+        app:layout_constraintBottom_toBottomOf="@+id/topview"
+        app:layout_constraintEnd_toEndOf="@+id/topview"
+        app:layout_constraintStart_toStartOf="@+id/topview"
+        app:layout_constraintTop_toTopOf="@+id/topview" />
 
     <!-- Profile Section -->
 
@@ -39,17 +45,17 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="Quick Navigation"
+
+        android:layout_marginTop="15dp"
         android:textAlignment="gravity"
         android:textColor="#0B0101"
-        android:layout_marginTop="25dp"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@+id/central_image"
+        app:layout_constraintTop_toBottomOf="@+id/topview"
         app:layout_constraintVertical_bias="0.0" />
 
 
@@ -65,11 +71,13 @@
 
         <!-- Individual Cards for Features -->
         <com.google.android.material.card.MaterialCardView
+
             android:id="@+id/sessionCard"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="8dp"
             app:cardCornerRadius="12dp"
+
             app:cardElevation="4dp">
 
             <LinearLayout
@@ -90,10 +98,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="Session"
-                    android:textSize="15dp"
                     android:textStyle="bold"
-                    tools:ignore="TextSizeCheck" />
+                    android:textSize="16dp"
+                    android:text="Session" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -107,8 +114,7 @@
             app:cardElevation="4dp">
 
             <LinearLayout
-
-                android:layout_width="match_parent"
+                android:layout_width="97dp"
                 android:layout_height="match_parent"
                 android:background="#00BCD4"
                 android:gravity="center"
@@ -126,9 +132,9 @@
                     android:layout_marginTop="8dp"
                     android:gravity="center"
                     android:text="Billing"
-                    android:textSize="15dp"
-                    android:textStyle="bold"
-                    tools:ignore="TextSizeCheck" />
+                    android:textSize="16dp"
+
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -149,6 +155,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/progress" />
@@ -157,11 +164,11 @@
                     android:id="@+id/tvProgressTracker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
                     android:gravity="center"
-                    android:text="Progress  Tracker"
-                    android:textSize="15dp"
                     android:textStyle="bold"
-                    tools:ignore="TextSizeCheck" />
+                    android:textSize="16dp"
+                    android:text="Progress Tracker" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -174,7 +181,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="-25dp"
+        android:layout_marginTop="-15dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:columnCount="3"
@@ -214,10 +221,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="Settings"
-                    android:textSize="15dp"
                     android:textStyle="bold"
-                    tools:ignore="TextSizeCheck" />
+                    android:textSize="16dp"
+                    android:text="Settings" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -229,6 +235,7 @@
             android:layout_height="100dp"
             android:layout_margin="8dp"
             app:cardCornerRadius="12dp"
+
             app:cardElevation="4dp">
 
             <LinearLayout
@@ -249,10 +256,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="Profile"
-                    android:textSize="15dp"
                     android:textStyle="bold"
-                    tools:ignore="TextSizeCheck" />
+                    android:textSize="16dp"
+                    android:text="Profile" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -284,10 +290,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="Jobs"
-                    android:textSize="15dp"
                     android:textStyle="bold"
-                    tools:ignore="TextSizeCheck" />
+                    android:textSize="16dp"
+                    android:text="Jobs" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

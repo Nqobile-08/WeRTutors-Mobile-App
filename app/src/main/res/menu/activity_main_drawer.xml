@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_profile"
-            android:title="Profile"
-            android:icon="@drawable/baseline_co_present_24"/>
+
         <item
             android:id="@+id/nav_dashboard"
             android:title="Dashboard"
             android:icon="@drawable/baseline_dashboard_24"/>
         <item
             android:id="@+id/nav_tutor_profile"
+            android:icon="@drawable/tutorprofile"
             android:title="Tutor Profile"
            />
         <item
             android:id="@+id/nav_schedule"
+            android:icon="@drawable/calender"
             android:title="Schedule"
             />
         <item
             android:id="@+id/nav_AiHelper"
+            android:icon="@drawable/baseline_android_24"
             android:title="Ai Helper"
             />
         <item
@@ -27,32 +27,29 @@
             />
         <item
             android:id="@+id/nav_session_timer"
+            android:icon="@drawable/timer"
             android:title="session timer"
+
             />
         <item
             android:id="@+id/nav_setting"
+            android:icon="@drawable/baseline_app_settings_alt_24"
             android:title="Setting"
             />
         <item
             android:id="@+id/nav_displayedMarks"
             android:title="DisplayMarks"
             />
-        <item
-            android:id="@+id/nav_students"
-            android:title="Students"
-            android:icon="@drawable/baseline_account_circle_24"/>
-        <item
-            android:id="@+id/nav_library"
-            android:title="Library"
-            android:icon="@drawable/baseline_book_24"/>
+
+
         <item
             android:id="@+id/nav_marks"
             android:title="Enter marks"
-            android:icon="@drawable/baseline_app_settings_alt_24"/>
+            android:icon="@drawable/marks"/>
         <item
             android:id="@+id/nav_communication"
             android:title="Communication"
-            android:icon="@drawable/baseline_app_settings_alt_24"/>
+            android:icon="@drawable/chatting"/>
 
         <item
             android:id="@+id/nav_logout"

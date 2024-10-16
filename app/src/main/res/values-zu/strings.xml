@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">WeRTutors</string>
+    <string name="navigation_drawer_close">Vala isikhwama sokuzulazula</string>
+    <string name="navigation_drawer_open">Vula isikhwama sokuzulazula</string>
+
+    <string name="hello_blank_fragment">Sawubona isiqeshana esingenalutho</string>
+    <string name="john_doe">John Doe</string>
+
+    <string name="Wertutors">WeRTutors</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Imiyalezo</string>
+    <string name="sync_header">Ukuvumelanisa</string>
+    <string name="hello_world">Sawubona</string>
+    <string name="welcome_message">Siyakwamukela</string>
+    <!-- Messages Preferences -->
+    <string name="signature_title">Umsayino wakho</string>
+    <string name="reply_title">Isenzo sokuphendula okuzenzakalelayo</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Ukuvumelanisa i-imeyili njalo</string>
+    <string name="attachment_title">Landa izithasiselo ezingenayo</string>
+    <string name="attachment_summary_on">Landa ngokuzenzakalelayo izithasiselo ze-imeyili ezingenayo</string>
+    <string name="attachment_summary_off">Landa izithasiselo kuphela uma ziceliwe ngesandla</string>
+    <string name="nav_profile">Iphrofayela</string>
+    <string name="nav_dashboard">I-Dashboard</string>
+    <string name="nav_notifications">Izaziso</string>
+    <string name="type_of_tutoring">Uhlobo lokufundisa</string>
+    <string name="enter_number">Faka inombolo</string>
+    <string name="phonenumber">Inombolo yocingo</string>
+    <string name="enter_institution">Faka isikhungo</string>
+    <string name="tetiary_institution_adress">Ikheli lesikhungo semfundo ephakeme</string>
+    <string name="enter_surname">Faka isibongo</string>
+    <string name="surname">Isibongo</string>
+    <string name="enter_name">Faka igama</string>
+    <string name="name">Igama</string>
+    <string name="__400">400\n</string>
+    <string name="booking">Ukubhuka</string>
+    <string name="todo1">okuzenzakalelayo</string>
+    <string name="billing">Ukubhala izikweletu</string>
+    <string name="todo2">okuzenzakalelayo 2</string>
+    <string name="_400">_400</string>
+    <string name="tutor">Umfundisi\n</string>
+    <string name="we_r_tutors">WeRTutors</string>
+    <string name="todo">Okuzenzakalelayo</string>
+    <string name="sammy_snow">Sammy Snows</string>
+    <string name="sammy">Sammy</string>
+    <string name="job_title">Isihloko somsebenzi</string>
+    <string name="reg">Reg</string>
+    <string name="billings">Ukubhala izikweletu</string>
+    <string name="scroll">Songa</string>
+    <string name="scrol">Songa</string>
+    <string name="sec_time_left">Imizuzwana esele</string>
+    <string name="button">Inkinobho</string>
+    <string name="api_key">Ikhodi yokhiye ye-API</string>
+    <string name="default_web_client_id">Isazisi somklamo wewebhu esizenzakalelayo</string>
+    <string name="enter_tertiary_institution_address_optional">Faka ikheli lesikhungo (Uyazikhethela)</string>
+    <string name="enter_suburbs">Faka amadolobha</string>
+    <string name="enter_residential_address">Faka ikheli lokuhlala</string>
+    <string name="enter_phone_number">Faka inombolo yocingo</string>
+    <string name="change_profile_image">Shintsha isithombe sephrofayela</string>
+    <string name="update">Buyekeza</string>
+    <string name="profile_picture">Isithombe sephrofayela</string>
+</resources>

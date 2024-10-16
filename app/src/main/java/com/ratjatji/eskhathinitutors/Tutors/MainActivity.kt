@@ -1,5 +1,7 @@
 package com.ratjatji.eskhathinitutors.Tutors
 
+
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -14,17 +16,21 @@ import com.ratjatji.eskhathinitutors.ChatActivity
 import com.ratjatji.eskhathinitutors.CreateReviewFragment
 import com.ratjatji.eskhathinitutors.DisplayMarksFragment
 import com.ratjatji.eskhathinitutors.LoadMarksFragment
+import com.ratjatji.eskhathinitutors.NotificationHelper
 import com.ratjatji.eskhathinitutors.ProfileFragment
 import com.ratjatji.eskhathinitutors.R
 import com.ratjatji.eskhathinitutors.SettingsHomeFragment
 import com.ratjatji.eskhathinitutors.WeRTutorsAi
 import com.ratjatji.eskhathinitutors.tutorOptions_1
+import java.util.Locale
 
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loadLocale()
+
         setContentView(R.layout.activity_main)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
@@ -43,6 +49,7 @@ class MainActivity : AppCompatActivity() {
             }
             navView.setCheckedItem(R.id.nav_dashboard)
         }
+        NotificationHelper.createNotificationChannels(this)
 
         navView.setNavigationItemSelectedListener { menuItem ->
             var selectedFragment: Fragment? = null
@@ -95,5 +102,18 @@ class MainActivity : AppCompatActivity() {
                 true
             } ?: false
         }
+
+    }private fun loadLocale() {
+     val sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        val languageCode = sharedPreferences.getString("My_Lang", "en")
+        setAppLocale(this, languageCode ?: "en")
+    }
+
+    private fun setAppLocale(context: Context, languageCode: String) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+        val config = context.resources.configuration
+        config.setLocale(locale)
+        context.resources.updateConfiguration(config, context.resources.displayMetrics)
     }
 }

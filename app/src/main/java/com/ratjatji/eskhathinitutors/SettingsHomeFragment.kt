@@ -27,7 +27,7 @@ class SettingsHomeFragment : Fragment() {
         val btnLogout: Button = view.findViewById(R.id.btnLogout)
         val btnSettings: Button = view.findViewById(R.id.btnSettings)
         val btnPayment: Button = view.findViewById(R.id.btnPayment)
-
+        val btnLanguageSelection: Button = view.findViewById(R.id.btnLanguageSelection)
         // Set onClickListeners for the buttons
         btnEditProfile.setOnClickListener {
             val fragment = ProfileFragment()
@@ -37,7 +37,13 @@ class SettingsHomeFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
-
+btnLanguageSelection.setOnClickListener {
+            val fragment = LanguageSelectionFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
         btnLogout.setOnClickListener {
             val intent = Intent(activity, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // Clear task to prevent back navigation

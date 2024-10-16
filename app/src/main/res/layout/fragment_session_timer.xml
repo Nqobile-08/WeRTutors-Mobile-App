@@ -109,9 +109,9 @@
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
 
-                android:backgroundTint="#03A9F4"
+                android:backgroundTint="@color/WRTBlue"
                 android:text="Start"
-                android:textColorLink="#03A9F4" />
+                android:textColorLink="@color/WRTBlue" />
 
             <Button
                 android:id="@+id/stopSessionButton"
@@ -119,9 +119,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:backgroundTint="#03A9F4"
-                android:textColorLink="#03A9F4"
-                android:text="Stop" />
+                android:backgroundTint="@color/WRTBlue"
+                android:textColorLink="@color/WRTBlue"
+                android:text="Stop"
+                android:textColor="@color/white"
+                />
 
         </LinearLayout>
 
@@ -150,10 +152,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit Session"
-            android:backgroundTint="#03A9F4"
-            android:textColorLink="#03A9F4"
+            android:backgroundTint="@color/WRTBlue"
+            android:textColorLink="@color/WRTBlue"
             android:layout_below="@id/notesInput"
-            android:layout_marginTop="24dp"/>
+            android:layout_marginTop="24dp"
+            android:textColor="@color/white"
+            />
 
     </RelativeLayout>
 </ScrollView>

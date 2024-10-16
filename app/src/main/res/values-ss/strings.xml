@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WeRTutors</string>
+    <string name="navigation_drawer_close">Vala isikhwama sokuzulazula</string>
+    <string name="navigation_drawer_open">Vula isikhwama sokuzulazula</string>
+
+    <string name="hello_blank_fragment">Sawubona isiqeshana esingenalutho</string>
+    <string name="john_doe">John Doe</string>
+
+    <string name="Wertutors">WeRTutors</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Imiyalezo</string>
+    <string name="sync_header">Ukuvumelanisa</string>
+    <string name="hello_world">Hello</string>
+    <string name="welcome_message">Welcome</string>
+    <!-- Messages Preferences -->
+    <string name="signature_title">Umsayino wakho</string>
+    <string name="reply_title">Isenzo sokuphendula okuzenzakalelayo</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Ukuvumelanisa i-imeyili njalo</string>
+    <string name="attachment_title">Landa izithasiselo ezingenayo</string>
+    <string name="attachment_summary_on">Landa ngokuzenzakalelayo izithasiselo ze-imeyili ezingenayo</string>
+    <string name="attachment_summary_off">Landa izithasiselo kuphela uma ziceliwe ngesandla</string>
+    <string name="nav_profile">Iphrofayela</string>
+    <string name="nav_dashboard">I-Dashboard</string>
+    <string name="nav_notifications">Izaziso</string>
+    <string name="type_of_tutoring">Uhlobo lokufundisa</string>
+    <string name="enter_number">faka inombolo</string>
+    <string name="phonenumber">Inombolo yocingo</string>
+    <string name="enter_institution">faka isikhungo</string>
+    <string name="tetiary_institution_adress">ikheli lesikhungo semfundo ephakeme</string>
+    <string name="enter_surname">faka isibongo</string>
+    <string name="surname">isibongo</string>
+    <string name="enter_name">faka igama</string>
+    <string name="name">igama</string>
+    <string name="__400">400\n</string>
+    <string name="booking">Booking</string>
+    <string name="todo1">todo</string>
+    <string name="billing">billing</string>
+    <string name="todo2">todo2</string>
+    <string name="_400">_400</string>
+    <string name="tutor">tutor\n</string>
+    <string name="we_r_tutors">weretutors</string>
+    <string name="todo">todos</string>
+    <string name="sammy_snow">sammy snows</string>
+    <string name="sammy">Sammy</string>
+    <string name="job_title">Job Title</string>
+    <string name="reg" />
+    <string name="billings">Billing</string>
+    <string name="scroll" />
+    <string name="scrol" />
+    <string name="sec_time_left">sec time left</string>
+    <string name="button" />
+    <string name="api_key">AIzaSyD7nFgqvRPZ1vzeii9iFtY2a001jRMT23Y</string>
+    <string name="default_web_client_id">default_webclient_id</string>
+    <string name="enter_tertiary_institution_address_optional" />
+    <string name="enter_suburbs" />
+    <string name="enter_residential_address" />
+    <string name="enter_phone_number" />
+    <string name="change_profile_image" />
+    <string name="update" />
+    <string name="profile_picture">Profile Picture</string>
+
+
+</resources>

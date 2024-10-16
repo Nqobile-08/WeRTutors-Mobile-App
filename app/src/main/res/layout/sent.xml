@@ -17,6 +17,7 @@
             android:background="@drawable/sent_message_background"
             android:textColor="@android:color/black"
             android:text="This is send message"
+            android:drawableEnd="@drawable/check"
             android:padding="10dp"
             android:textSize="18sp"/>
     </RelativeLayout>

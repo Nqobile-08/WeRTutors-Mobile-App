@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.ratjatji.eskhathinitutors.Tutors.QuickNavFragment
 import com.ratjatji.eskhathinitutors.Tutors.SchedulesFragment
 
 
@@ -43,7 +44,7 @@ class StudentMenu :AppCompatActivity() {
             var selectedFragment: Fragment? = null
             when (menuItem.itemId) {
 
-                R.id.nav_dashboard -> selectedFragment = DashboardFragment()
+                R.id.nav_dashboard -> selectedFragment = QuickNavFragment()
                 R.id.nav_profile -> selectedFragment = ProfileFragment()
 
 
@@ -67,7 +68,7 @@ class StudentMenu :AppCompatActivity() {
             var selectedFragment: Fragment? = null
             when (item.itemId) {
 
-                R.id.nav_dashboard -> selectedFragment = DashboardFragment()
+                R.id.nav_dashboard -> selectedFragment = QuickNavFragment()
                 R.id.nav_profile -> selectedFragment = ProfileFragment()
                 R.id.nav_students -> selectedFragment = SchedulesFragment()
                 //  R.id.nav_setting -> selectedFragment = Setting()
