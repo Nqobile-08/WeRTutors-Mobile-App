@@ -1,8 +1,6 @@
 package com.ratjatji.eskhathinitutors
 
-
 import android.os.Bundle
-import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,6 +37,14 @@ class WeRTutorsAi : Fragment() {
         tvConversation = view.findViewById(R.id.conversationTextView)
         progressBar = view.findViewById(R.id.progressBar)
         scrollView = view.findViewById(R.id.scrollView)
+
+        // Set initial message for AI introduction
+        val initialMessage = "Welcome to the Eskhathini AI Tutoring App! 🎓\n" +
+                "I am your virtual tutor, here to assist you with all your educational needs. " +
+                "Whether you need help with specific subjects, studying strategies, or understanding difficult concepts, " +
+                "I'm here to provide tutoring support and academic guidance. " +
+                "Ask me anything related to tutoring, and let's work together to improve your learning experience! 📚\n\n"
+        tvConversation.text = initialMessage
 
         // Initialize Gemini API
         val apiKey = getString(R.string.api_key) // Replace with your actual API key

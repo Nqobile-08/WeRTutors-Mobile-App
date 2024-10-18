@@ -23,6 +23,7 @@
             />
         <item
             android:id="@+id/nav_create_review"
+            android:icon="@drawable/viewmarks"
             android:title="Create Review"
             />
         <item
@@ -38,6 +39,7 @@
             />
         <item
             android:id="@+id/nav_displayedMarks"
+            android:icon="@drawable/displaymarks"
             android:title="DisplayMarks"
             />
 

@@ -1,6 +1,7 @@
 package com.ratjatji.eskhathinitutors.Tutors
 
 import android.animation.ObjectAnimator
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -8,16 +9,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import com.ratjatji.eskhathinitutors.R
 import com.google.android.material.slider.Slider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.ratjatji.eskhathinitutors.R
 import java.util.concurrent.TimeUnit
 
 class SessionTimer : Fragment() {
@@ -30,15 +35,23 @@ class SessionTimer : Fragment() {
     private lateinit var stopSessionButton: Button
     private lateinit var submitSessionButton: Button
     private lateinit var notesInput: EditText
+    private lateinit var commentInput: EditText
     private lateinit var timeSlider: Slider
     private lateinit var selectedTimeDisplay: TextView
     private lateinit var sessionProgress: ProgressBar
+    private lateinit var sessionDurationSpinner: Spinner
+    private lateinit var linkedStudentsSpinner: Spinner
+    private lateinit var sessionTypeSpinner: Spinner
+    private lateinit var practicalWorkSpinner: Spinner
+    private lateinit var uploadProofButton: Button
+    private lateinit var addMoreTimeButton: Button
 
     private var startTime: Long = 0L
     private var running = false
     private var sessionDuration: Long = 0L
     private var remainingTime: Long = 0L
     private val handler = Handler(Looper.getMainLooper())
+    private var selectedFileUri: Uri? = null
 
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
@@ -49,7 +62,6 @@ class SessionTimer : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_session_timer, container, false)
 
         auth = FirebaseAuth.getInstance()
@@ -58,6 +70,7 @@ class SessionTimer : Fragment() {
         initializeViews(view)
         setupListeners()
         displayCurrentUser()
+        setupSpinners()
 
         return view
     }
@@ -71,22 +84,59 @@ class SessionTimer : Fragment() {
         stopSessionButton = view.findViewById(R.id.stopSessionButton)
         submitSessionButton = view.findViewById(R.id.submitSessionButton)
         notesInput = view.findViewById(R.id.notesInput)
+        commentInput = view.findViewById(R.id.commentInput)
         timeSlider = view.findViewById(R.id.timeSlider)
         selectedTimeDisplay = view.findViewById(R.id.selectedTimeDisplay)
         sessionProgress = view.findViewById(R.id.sessionProgress)
+        sessionDurationSpinner = view.findViewById(R.id.sessionDurationSpinner)
+        linkedStudentsSpinner = view.findViewById(R.id.linkedStudentsSpinner)
+        sessionTypeSpinner = view.findViewById(R.id.sessionTypeSpinner)
+        practicalWorkSpinner = view.findViewById(R.id.practicalWorkSpinner)
+        uploadProofButton = view.findViewById(R.id.uploadProofButton)
+        addMoreTimeButton = view.findViewById(R.id.addMoreTimeButton)
 
         stopSessionButton.isEnabled = false
         submitSessionButton.isEnabled = false
+        addMoreTimeButton.isEnabled = false
     }
 
     private fun setupListeners() {
         startSessionButton.setOnClickListener { startSession() }
         stopSessionButton.setOnClickListener { stopSession() }
-        submitSessionButton.setOnClickListener { submitSession() }
+        submitSessionButton.setOnClickListener { validateAndSubmitSession() }
+        addMoreTimeButton.setOnClickListener { addMoreTime() }
+        uploadProofButton.setOnClickListener { getFile.launch("*/*") }
 
         timeSlider.addOnChangeListener { _, value, _ ->
             sessionDuration = TimeUnit.MINUTES.toMillis(value.toLong())
             updateSelectedTimeDisplay()
+        }
+
+        sessionDurationSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                // Update session duration based on spinner selection
+                val selectedDuration = parent.getItemAtPosition(position) as String
+                sessionDuration = when (selectedDuration) {
+                    "15 mins" -> TimeUnit.MINUTES.toMillis(15)
+                    "30 mins" -> TimeUnit.MINUTES.toMillis(30)
+                    "45 mins" -> TimeUnit.MINUTES.toMillis(45)
+                    "1 hour" -> TimeUnit.HOURS.toMillis(1)
+                    "1 hour 15 mins" -> TimeUnit.MINUTES.toMillis(75)
+                    "1 hour 30 mins" -> TimeUnit.MINUTES.toMillis(90)
+                    "1 hour 45 mins" -> TimeUnit.MINUTES.toMillis(105)
+                    "2 hours" -> TimeUnit.HOURS.toMillis(2)
+                    "2 hours 15 mins" -> TimeUnit.MINUTES.toMillis(135)
+                    "2 hours 30 mins" -> TimeUnit.MINUTES.toMillis(150)
+                    "2 hours 45 mins" -> TimeUnit.MINUTES.toMillis(165)
+                    "3 hours" -> TimeUnit.HOURS.toMillis(3)
+                    else -> 0L
+                }
+                updateSelectedTimeDisplay()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Do nothing
+            }
         }
     }
 
@@ -121,6 +171,7 @@ class SessionTimer : Fragment() {
         sessionStatus.text = "Status: Running"
         startSessionButton.isEnabled = false
         stopSessionButton.isEnabled = true
+        addMoreTimeButton.isEnabled = true
         timeSlider.isEnabled = false
 
         startProgressAnimation()
@@ -142,7 +193,8 @@ class SessionTimer : Fragment() {
                 "startTime" to startTime,
                 "duration" to sessionDuration,
                 "status" to "running",
-                "tutorName" to (user.displayName ?: user.email)
+                "tutorName" to (user.displayName ?: user.email),
+                "tutorEmail" to (user.email ?: "Unknown")
             )
             sessionRef.setValue(sessionData)
                 .addOnSuccessListener {
@@ -190,6 +242,20 @@ class SessionTimer : Fragment() {
         updateSessionStatusInFirebase("stopped")
     }
 
+    private fun addMoreTime() {
+        val additionalTime = TimeUnit.MINUTES.toMillis(15)
+        sessionDuration += additionalTime
+        remainingTime += additionalTime
+
+        updateSelectedTimeDisplay()
+        Toast.makeText(requireContext(), "15 minutes added to the session.", Toast.LENGTH_SHORT).show()
+
+        if (!running) {
+            running = true
+            handler.post(updateTimer)
+        }
+    }
+
     private fun updateSessionStatusInFirebase(status: String) {
         val user = auth.currentUser
         if (user != null) {
@@ -202,15 +268,32 @@ class SessionTimer : Fragment() {
         }
     }
 
-    private fun submitSession() {
-        val notes = notesInput.text.toString()
-        val elapsedTime = sessionDuration - remainingTime
-        val sessionSummary = "Session completed in ${formatTime(elapsedTime)} with notes: $notes"
-
-        submitSessionToFirebase(notes, elapsedTime)
+    private val getFile = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        if (uri != null) {
+            selectedFileUri = uri
+            Toast.makeText(requireContext(), "File selected: ${uri.lastPathSegment}", Toast.LENGTH_SHORT).show()
+        }
     }
 
-    private fun submitSessionToFirebase(notes: String, elapsedTime: Long) {
+    private fun validateAndSubmitSession() {
+        val notes = notesInput.text.toString()
+        if (notes.split("\\s+".toRegex()).size < 80) {
+            Toast.makeText(requireContext(), "Please enter at least 80 words for session notes", Toast.LENGTH_SHORT).show()
+            return
+        }
+        submitSession()
+    }
+
+    private fun submitSession() {
+        val notes = notesInput.text.toString()
+        val comment = commentInput.text.toString()
+        val elapsedTime = System.currentTimeMillis() - startTime
+        val sessionSummary = "Session completed in ${formatTime(elapsedTime)} with notes: $notes"
+
+        submitSessionToFirebase(notes, comment, elapsedTime)
+    }
+
+    private fun submitSessionToFirebase(notes: String, comment: String, elapsedTime: Long) {
         val user = auth.currentUser
         if (user != null) {
             val sessionRef = database.reference.child("tutor_sessions").child(user.uid).limitToLast(1)
@@ -219,7 +302,9 @@ class SessionTimer : Fragment() {
                     val sessionUpdates = hashMapOf<String, Any>(
                         "notes" to notes,
                         "elapsedTime" to elapsedTime,
-                        "status" to "completed"
+                        "actualDuration" to sessionDuration,
+                        "status" to "completed",
+                        "comment" to comment
                     )
                     sessionSnapshot.ref.updateChildren(sessionUpdates)
                         .addOnSuccessListener {
@@ -240,8 +325,10 @@ class SessionTimer : Fragment() {
         timerDisplay.text = "00:00:00"
         sessionStatus.text = "Status: Ready"
         notesInput.text.clear()
+        commentInput.text.clear()
         startSessionButton.isEnabled = true
         submitSessionButton.isEnabled = false
+        addMoreTimeButton.isEnabled = false
         timeSlider.isEnabled = true
         sessionDuration = 0L
         updateSelectedTimeDisplay()
@@ -253,5 +340,39 @@ class SessionTimer : Fragment() {
         val minutes = TimeUnit.MILLISECONDS.toMinutes(time) % 60
         val seconds = TimeUnit.MILLISECONDS.toSeconds(time) % 60
         return String.format("%02d:%02d:%02d", hours, minutes, seconds)
+    }
+
+    private fun setupSpinners() {
+        val durationOptions = arrayOf(
+            "15 mins", "30 mins", "45 mins", "1 hour", "1 hour 15 mins", "1 hour 30 mins",
+            "1 hour 45 mins", "2 hours", "2 hours 15 mins", "2 hours 30 mins",
+            "2 hours 45 mins", "3 hours"
+        )
+        sessionDurationSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, durationOptions)
+
+        val sessionTypes = arrayOf("Online", "In-Person")
+        sessionTypeSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, sessionTypes)
+
+        val practicalOptions = arrayOf("Yes", "No")
+        practicalWorkSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, practicalOptions)
+
+        fetchLinkedStudents()
+    }
+
+    private fun fetchLinkedStudents() {
+        val user = auth.currentUser
+        if (user != null) {
+            val studentsRef = database.reference.child("tutor_students").child(user.uid)
+            studentsRef.get().addOnSuccessListener { dataSnapshot ->
+                val studentsList = mutableListOf<String>()
+                for (studentSnapshot in dataSnapshot.children) {
+                    val studentName = studentSnapshot.child("name").value as? String
+                    if (studentName != null) {
+                        studentsList.add(studentName)
+                    }
+                }
+                linkedStudentsSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, studentsList)
+            }
+        }
     }
 }
