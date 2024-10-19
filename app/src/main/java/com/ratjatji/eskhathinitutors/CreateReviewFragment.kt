@@ -1,11 +1,13 @@
 package com.ratjatji.eskhathinitutors
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -18,8 +20,14 @@ class CreateReviewFragment : Fragment() {
     private lateinit var etReviewDescription: EditText
     private lateinit var btnSubmitReview: Button
     private lateinit var ratingText: TextView
+    private lateinit var recyclerView: RecyclerView
 
+    private lateinit var BadReviewList: ArrayList<BadReview>
     private lateinit var dbRef: DatabaseReference
+
+    lateinit var reviewId: Array<Int>
+    lateinit var goodReviewOption: Array<String>
+    lateinit var badReviewOption: Array<String>
 
     private val tutorOptions = listOf(
         Tutor("Sipho Mthethwa", listOf("Algebra", "Trigonometry", "Geometry", "Calculus")),
@@ -38,6 +46,35 @@ class CreateReviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_create_review, container, false)
+
+        var badReviewOptions = arrayOf(
+            "Incompatible teaching style",
+            "Late arrival",
+            "Lack of subject expertise",
+            "Overload of information",
+            "Inadequate preparations",
+            "Unprofessional behaviour",
+            "Ineffective communication",
+            "Struggles to adapt",
+            "Difficulty with virtual lessons"
+        )
+
+        var goodReviewOptions = arrayOf(
+            "Effective communication", "strong subject knowledge", "arrived on time", "Explains topics well",
+            "Preparation & organisation", "Adaptability", "Provides additional work & resources", "Good time management",
+            "Professional", "Continuous assessment", "Encouraging")
+
+        var reviewID = arrayOf(
+            R.drawable.si,
+            R.drawable.icon,
+            R.drawable.ka,
+            R.drawable.le,
+            R.drawable.icon,
+            R.drawable.le,
+            R.drawable.th,
+            R.drawable.bi,
+            R.drawable.ch
+        )
 
         spinnerTutors = view.findViewById(R.id.spinnerTutors)
         spinnerCourses = view.findViewById(R.id.spinnerCourses)
@@ -85,10 +122,36 @@ class CreateReviewFragment : Fragment() {
         btnSubmitReview.setOnClickListener {
             saveReviewData()
         }
-
+        BadReviewList = arrayListOf()
+        //getReviewData()
         return view
     }
+    private fun getReviewData(badReviewOptions: Array<String>) {
 
+        for (i in reviewId.indices) {
+            val badReview = BadReview(
+                reviewId[i],
+                badReviewOptions[i])
+            BadReviewList.add(badReview)
+
+        }
+
+        // Adapter setup
+        val adapter = ReviewDescriptionAdapter(BadReviewList)
+        recyclerView.adapter = adapter
+
+        // Set item click listener to expand the tutor's profile that was clicked
+        adapter.setOnItemClickListener(object : ReviewDescriptionAdapter.onItemClickListener {
+            override fun onItemClick(position: Int) {
+
+                try {
+                } catch (e: Exception) {
+
+                }
+            }
+        })
+
+    }
     private fun clearFields() {
         spinnerTutors.setSelection(0)
         spinnerCourses.setSelection(0)

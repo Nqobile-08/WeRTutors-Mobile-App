@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_logout -> selectedFragment = LogoutFragment()
                 R.id.nav_AiHelper -> selectedFragment = WeRTutorsAi()
                 R.id.nav_marks -> selectedFragment = LoadMarksFragment()
-                R.id.nav_displayedMarks -> selectedFragment = DisplayMarksFragment()
+                R.id.nav_view_marks -> selectedFragment = DisplayMarksFragment()
                 R.id.nav_communication -> {
 
                     val intent = Intent(this, ChatActivity::class.java)

@@ -36,6 +36,7 @@ class tutorOptions_1 : Fragment() {
     lateinit var reviewDescription: Array<String>
     lateinit var subjects: Array<String>
     lateinit var levels: Array<String>
+    lateinit var sessionTypes: Array<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -145,15 +146,15 @@ class tutorOptions_1 : Fragment() {
         )
 
         levels = arrayOf(
-            "Secondary, Tertiary",
-            "Tertiary",
-            "Tertiary, Professional",
-            "Tertiary, Professional",
-            "Secondary, Tertiary",
-            "Primary, Secondary",
-            "Secondary",
-            "Secondary, Tertiary",
-            "Tertiary, Professional"
+            "Secondary school, Tertiary school",
+            "Tertiary school",
+            "Tertiary school, Professional school",
+            "Tertiary school, Professional school",
+            "Secondary school, Tertiary school",
+            "Primary school, Secondary school",
+            "Secondary school",
+            "Secondary school, Tertiary school",
+            "Tertiary school, Professional school"
         )
 
         skills = arrayOf(
@@ -166,6 +167,10 @@ class tutorOptions_1 : Fragment() {
             "Critical thinking, problem-solving techniques, foundational mathematics.",
             "Historical analysis, geographic systems, curriculum design.",
             "Ecological studies, environmental policy, research methodologies."
+        )
+        sessionTypes = arrayOf(
+            "In-person session",
+            "Virtual session"
         )
 
         recyclerView.layoutManager = LinearLayoutManager(context)
