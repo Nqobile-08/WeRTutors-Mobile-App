@@ -1,61 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-
         <item
             android:id="@+id/nav_dashboard"
             android:title="Dashboard"
             android:icon="@drawable/baseline_dashboard_24"/>
         <item
             android:id="@+id/nav_tutor_profile"
-            android:icon="@drawable/tutorprofile"
-            android:title="Tutor Profile"
-           />
-        <item
-            android:id="@+id/nav_schedule"
-            android:icon="@drawable/calender"
-            android:title="Schedule"
+            android:title="View tutor"
+            android:icon="@drawable/ic_tutors"
             />
+
         <item
             android:id="@+id/nav_AiHelper"
-            android:icon="@drawable/baseline_android_24"
             android:title="Ai Helper"
+            android:icon="@drawable/ic_ai"
             />
         <item
             android:id="@+id/nav_create_review"
-            android:icon="@drawable/viewmarks"
             android:title="Create Review"
+            android:icon="@drawable/ic_rating_2"
             />
         <item
             android:id="@+id/nav_session_timer"
-            android:icon="@drawable/timer"
             android:title="session timer"
-
+            android:icon="@drawable/ic_timer"
             />
         <item
             android:id="@+id/nav_setting"
-            android:icon="@drawable/baseline_app_settings_alt_24"
             android:title="Setting"
+            android:icon="@drawable/settings"
             />
-        <item
-            android:id="@+id/nav_displayedMarks"
-            android:icon="@drawable/displaymarks"
-            android:title="DisplayMarks"
-            />
-
-
         <item
             android:id="@+id/nav_marks"
             android:title="Enter marks"
-            android:icon="@drawable/marks"/>
+            android:icon="@drawable/ic_add_marks"
+            />
+        <item
+            android:id="@+id/nav_view_marks"
+            android:title="View marks"
+            android:icon="@drawable/ic_view_marks_2"
+            />
         <item
             android:id="@+id/nav_communication"
             android:title="Communication"
-            android:icon="@drawable/chatting"/>
+            android:icon="@drawable/ic_chat"/>
 
         <item
             android:id="@+id/nav_logout"
             android:title="LogOut"
             android:icon="@drawable/baseline_airline_seat_recline_extra_24"/>
-    </group>
+        <item
+            android:id="@+id/nav_students"
+            android:title="Students"
+            android:icon="@drawable/baseline_account_circle_24"/>
+        <item
+            android:id="@+id/nav_library"
+            android:title="Library"
+            android:icon="@drawable/baseline_book_24"/>
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Profile"
+            android:icon="@drawable/baseline_co_present_24"/>
+        <item
+            android:id="@+id/nav_schedule"
+            android:title="Schedule"
+            android:icon="@drawable/calender"
+            /></group>
 </menu>

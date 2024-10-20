@@ -100,17 +100,22 @@ class PaymentAddCardFragment : Fragment() {
     }
 
     private fun isValidCardNumber(cardNumber: String): Boolean {
-        var sum = 0
-        var isSecondDigitEven = false
-        for (i in cardNumber.length - 1 downTo 0) {
-            var digit = Character.getNumericValue(cardNumber[i])
-            if (isSecondDigitEven) {
-                digit *= 2
-            }
-            sum += digit / 10 + digit % 10
-            isSecondDigitEven = !isSecondDigitEven
+
+        if(cardNumber.length <= 16){
+            return false
         }
-        return sum % 10 == 0
+        return true
+//        var sum = 0
+//        var isSecondDigitEven = false
+//        for (i in cardNumber.length - 1 downTo 0) {
+//            var digit = Character.getNumericValue(cardNumber[i])
+//            if (isSecondDigitEven) {
+//                digit *= 2
+//            }
+//            sum += digit / 10 + digit % 10
+//            isSecondDigitEven = !isSecondDigitEven
+//        }
+//        return sum % 10 == 0
     }
 
     private fun isVisa(firstDigits: String): Boolean {
