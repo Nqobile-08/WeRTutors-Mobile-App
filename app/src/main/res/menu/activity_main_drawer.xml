@@ -7,8 +7,9 @@
             android:icon="@drawable/baseline_dashboard_24"/>
         <item
             android:id="@+id/nav_tutor_profile"
-            android:title="Tutor Profile"
+            android:title="View tutors"
             android:icon="@drawable/ic_tutors"
+            
            />
 
         <item
@@ -19,7 +20,7 @@
         <item
             android:id="@+id/nav_create_review"
             android:title="Create Review"
-            android:icon="@drawable/ic_review"
+            android:icon="@drawable/ic_rating_2"
             />
         <item
             android:id="@+id/nav_session_timer"
@@ -34,12 +35,12 @@
         <item
             android:id="@+id/nav_marks"
             android:title="Enter marks"
-            android:icon="@drawable/ic_load_marks"
+            android:icon="@drawable/ic_add_marks"
             />
         <item
             android:id="@+id/nav_view_marks"
             android:title="View marks"
-            android:icon="@drawable/ic_view_marks"
+            android:icon="@drawable/ic_view_marks_2"
             />
         <item
             android:id="@+id/nav_communication"
