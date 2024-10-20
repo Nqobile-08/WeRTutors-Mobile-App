@@ -29,7 +29,7 @@
         android:layout_marginTop="5dp"
         android:src="@drawable/ic_location"
         app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
-        app:layout_constraintTop_toBottomOf="@+id/tvTutorName"/>
+        app:layout_constraintTop_toBottomOf="@+id/imgStar"/>
 
     <ImageView
         android:id="@+id/ivLanguage"
@@ -48,13 +48,14 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toEndOf="@+id/ivLocation"
-        app:layout_constraintTop_toBottomOf="@+id/tvTutorName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvRating" />
 
     <TextView
         android:id="@+id/tvTutorName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:text="Tutor Name"
         app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
@@ -102,10 +103,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Rating"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="260dp"
+        app:layout_constraintStart_toEndOf="@id/imgStar"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTutorName" />
 
     <ImageView
         android:id="@+id/imgStar"
@@ -113,8 +115,9 @@
         android:layout_height="20dp"
         android:src="@drawable/ic_star"
         android:layout_marginLeft="5dp"
-        app:layout_constraintStart_toEndOf="@+id/tvRating"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+        app:layout_constraintTop_toBottomOf="@+id/tvTutorName"/>
     <ImageView
         android:id="@+id/ivProfilePic"
         android:layout_width="100dp"
