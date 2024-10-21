@@ -43,7 +43,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/tvTutor"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
         <TextView
             android:id="@+id/tvCourse"
@@ -109,10 +110,14 @@
             android:text="Please select one or more positives"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvRatingText" />
-
+<ImageView
+    android:layout_width="25dp"
+    android:layout_height="25dp"
+    android:src="@drawable/ic_drop_down"
+    app:layout_constraintStart_toEndOf="@+id/tvPositives"
+    app:layout_constraintTop_toTopOf="@id/tvPositives"/>
         <TextView
             android:id="@+id/tvGoodReviewWarningText"
             android:layout_width="wrap_content"
@@ -125,7 +130,7 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <com.google.android.material.chip.ChipGroup
-            android:id="@+id/my_chip_group"
+            android:id="@+id/cp_good_remarks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
         app:chipSpacingHorizontal="8dp"
@@ -192,15 +197,99 @@
         </com.google.android.material.chip.ChipGroup>
 
         <TextView
-            android:id="@+id/tvSubject"
+            android:id="@+id/tvIssues"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Review subject"
+            android:layout_marginTop="16dp"
+            android:text="Please select one or more issues"
             android:textSize="18sp"
             android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cp_good_remarks" />
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_drop_down"
+            app:layout_constraintStart_toEndOf="@+id/tvIssues"
+            app:layout_constraintTop_toTopOf="@id/tvIssues"/>
+        <TextView
+            android:id="@+id/tvBadReviewWarningText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:text="Select between 1 and 5 negative remarks"
+            app:layout_constraintTop_toBottomOf="@+id/tvIssues"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cp_bad_remarks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipSpacingHorizontal="8dp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/tvBadReviewWarningText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <com.google.android.material.chip.Chip
+                style="@style/ChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Incompatible teaching style"/>
+            <com.google.android.material.chip.Chip
+                style="@style/ChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Late arrival"/>
+            <com.google.android.material.chip.Chip
+                style="@style/ChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lack of subject expertise"/>
+            <com.google.android.material.chip.Chip
+                style="@style/ChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Overload of information"/>
+            <com.google.android.material.chip.Chip
+                style="@style/ChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inadequate preparations"/>
+            <com.google.android.material.chip.Chip
+                style="@style/ChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unprofessional behaviour"/>
+            <com.google.android.material.chip.Chip
+                style="@style/ChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ineffective communication"/>
+            <com.google.android.material.chip.Chip
+                style="@style/ChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Struggles to adapt"/>
+            <com.google.android.material.chip.Chip
+                style="@style/ChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Difficulty with virtual lessons"/>
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tvSubject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/my_chip_group"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="Review Subject"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/cp_bad_remarks"
+            app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
         <EditText
             android:id="@+id/etReviewSubject"

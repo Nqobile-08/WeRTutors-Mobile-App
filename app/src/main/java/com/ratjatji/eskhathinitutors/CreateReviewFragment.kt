@@ -21,11 +21,13 @@ class CreateReviewFragment : Fragment() {
     private lateinit var etReviewDescription: EditText
     private lateinit var btnSubmitReview: Button
     private lateinit var ratingText: TextView
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var chipContainer: ChipGroup
-    //private lateinit var badReviewChipGroup: ChipGroup
+    private lateinit var goodRemarksChipContainer: ChipGroup
     private lateinit var tvGoodReviewWarningText: TextView
     private lateinit var tvPositives: TextView
+    private lateinit var badRemarksChipContainer: ChipGroup
+    private lateinit var tvBadReviewWarningText: TextView
+    private lateinit var tvIssues: TextView
+    private lateinit var tvSubject: TextView
 
     private lateinit var dbRef: DatabaseReference
 
@@ -64,13 +66,22 @@ class CreateReviewFragment : Fragment() {
         etReviewDescription = view.findViewById(R.id.etReviewDescription)
         btnSubmitReview = view.findViewById(R.id.btnSubmitReview)
         ratingText = view.findViewById(R.id.tvRatingText)
-        chipContainer = view.findViewById<ChipGroup>(R.id.my_chip_group) // Assign your ChipGroup here
+        goodRemarksChipContainer = view.findViewById(R.id.cp_good_remarks)
         tvGoodReviewWarningText = view.findViewById(R.id.tvGoodReviewWarningText)
         tvPositives = view.findViewById(R.id.tvPositives)
+        tvSubject = view.findViewById(R.id.tvSubject)
+
+        badRemarksChipContainer = view.findViewById(R.id.cp_bad_remarks)
+        tvBadReviewWarningText = view.findViewById(R.id.tvBadReviewWarningText)
+        tvIssues = view.findViewById(R.id.tvIssues)
 
         // Initially hide the chips and related views
-        chipContainer.visibility = View.GONE
+        goodRemarksChipContainer.visibility = View.GONE
         tvPositives.visibility = View.GONE
+        tvGoodReviewWarningText.visibility = View.GONE
+
+        goodRemarksChipContainer.visibility = View.GONE
+        tvPositives.visibility = View.VISIBLE
         tvGoodReviewWarningText.visibility = View.GONE
     }
 
@@ -105,22 +116,33 @@ class CreateReviewFragment : Fragment() {
                 else -> " "
             }
 
-            // Show chips and related views when rating is given
-            if (rating >= 4) {
-                chipContainer.visibility = View.VISIBLE
-                tvPositives.visibility = View.VISIBLE
-                tvGoodReviewWarningText.visibility = View.VISIBLE
-            } else {
-                chipContainer.visibility = View.GONE
-                tvPositives.visibility = View.GONE
-                tvGoodReviewWarningText.visibility = View.GONE
-            }
         }
     }
 
     private fun setupChips() {
-        chipContainer.setOnCheckedStateChangeListener { group, checkedIds ->
-            val checkedGReviewList = checkedIds.map { id -> view?.findViewById<Chip>(id)?.text.toString() }
+        // Toggle good remarks chip group visibility when tvPositives is clicked
+        tvPositives.setOnClickListener {
+            if (goodRemarksChipContainer.visibility == View.VISIBLE) {
+                goodRemarksChipContainer.visibility = View.GONE
+            } else {
+                goodRemarksChipContainer.visibility = View.VISIBLE
+            }
+        }
+
+        // Toggle bad remarks chip group visibility when tvIssues is clicked
+        tvIssues.setOnClickListener {
+            if (badRemarksChipContainer.visibility == View.VISIBLE) {
+                badRemarksChipContainer.visibility = View.GONE
+            } else {
+                badRemarksChipContainer.visibility = View.VISIBLE
+            }
+        }
+
+        // Good review chip container listener
+        goodRemarksChipContainer.setOnCheckedStateChangeListener { group, checkedIds ->
+            val checkedGReviewList = checkedIds.map { id ->
+                view?.findViewById<Chip>(id)?.text.toString()
+            }
 
             when {
                 checkedIds.isEmpty() -> tvGoodReviewWarningText.text = "No good reviews selected"
@@ -129,6 +151,22 @@ class CreateReviewFragment : Fragment() {
                     group.findViewById<Chip>(checkedIds.last()).isChecked = false
                 }
                 else -> tvGoodReviewWarningText.text = ""
+            }
+        }
+
+        // Bad review chip container listener
+        badRemarksChipContainer.setOnCheckedStateChangeListener { group, checkedIds ->
+            val checkedBReviewList = checkedIds.map { id ->
+                view?.findViewById<Chip>(id)?.text.toString()
+            }
+
+            when {
+                checkedIds.isEmpty() -> tvBadReviewWarningText.text = "No bad reviews selected"
+                checkedIds.size > 5 -> {
+                    tvBadReviewWarningText.text = "Maximum 5 reviews allowed"
+                    group.findViewById<Chip>(checkedIds.last()).isChecked = false
+                }
+                else -> tvBadReviewWarningText.text = ""
             }
         }
     }
@@ -177,8 +215,7 @@ class CreateReviewFragment : Fragment() {
         ratingBar.rating = 0f
         etReviewSubject.text.clear()
         etReviewDescription.text.clear()
-        //badReviewChipGroup.clearCheck()
-        chipContainer.visibility = View.GONE
+        goodRemarksChipContainer.visibility = View.GONE
         tvPositives.visibility = View.GONE
         tvGoodReviewWarningText.visibility = View.GONE
     }
