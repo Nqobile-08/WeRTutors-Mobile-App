@@ -44,6 +44,7 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
     implementation ("com.diogobernardino:williamchart:3.10.1")
+    implementation ("andoidx.biometric:biometric-ktx:1.2.0-alpha05")
 
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
 

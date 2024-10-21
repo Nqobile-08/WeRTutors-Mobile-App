@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,6 +38,8 @@ class tutorOptions_1 : Fragment() {
     lateinit var subjects: Array<String>
     lateinit var levels: Array<String>
     lateinit var sessionTypes: Array<String>
+    private lateinit var icFilter: ImageView
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -179,10 +182,16 @@ class tutorOptions_1 : Fragment() {
         tutorList = arrayListOf()
         getUserData(subjects)
 
-
+//        icFilter = view.findViewById(R.id.ic_filter)
+//        icFilter.setOnClickListener {
+//            val fragment = FilterStudentFragment()
+//            val transaction = parentFragmentManager.beginTransaction()
+//            transaction.replace(R.id.filte, fragment)  // Replace fragment_container with your container's ID
+//            transaction.addToBackStack(null)
+//            transaction.commit()
+//        }
         return view
     }
-
     private fun getUserData(subjects: Array<String>) {
 
         for (i in imageId.indices) {

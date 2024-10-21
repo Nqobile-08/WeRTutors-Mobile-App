@@ -16,6 +16,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSearchBar" />
 
+    <ImageView
+        android:id="@+id/ic_search"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintEnd_toStartOf="@id/etSearchBar"
+        app:layout_constraintTop_toTopOf="@id/etSearchBar"
+        android:src="@drawable/ic_search"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        />
     <EditText
         android:id="@+id/etSearchBar"
         android:layout_width="wrap_content"
@@ -26,5 +36,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/ic_filter"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/etSearchBar"
+        app:layout_constraintTop_toTopOf="@id/etSearchBar"
+        android:src="@drawable/ic_filter"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

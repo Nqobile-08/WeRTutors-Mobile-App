@@ -13,6 +13,7 @@ import com.google.android.material.navigation.NavigationView
 import com.ratjatji.eskhathinitutors.ChatActivity
 import com.ratjatji.eskhathinitutors.CreateReviewFragment
 import com.ratjatji.eskhathinitutors.DisplayMarksFragment
+import com.ratjatji.eskhathinitutors.FilterFragment
 import com.ratjatji.eskhathinitutors.LoadMarksFragment
 import com.ratjatji.eskhathinitutors.ProfileFragment
 import com.ratjatji.eskhathinitutors.R
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_AiHelper -> selectedFragment = WeRTutorsAi()
                 R.id.nav_marks -> selectedFragment = LoadMarksFragment()
                 R.id.nav_view_marks -> selectedFragment = DisplayMarksFragment()
+                R.id.nav_filter -> selectedFragment = FilterFragment()
                 R.id.nav_communication -> {
 
                     val intent = Intent(this, ChatActivity::class.java)

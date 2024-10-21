@@ -1,10 +1,17 @@
 package com.ratjatji.eskhathinitutors
 
+import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.hardware.biometrics.BiometricPrompt
+import android.os.Build
 import android.os.Bundle
+import android.os.CancellationSignal
+import android.support.annotation.RequiresApi
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -22,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var binding: ActivityLoginBinding
 
+    //@RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -81,6 +89,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
 
     // Launch Google Sign-In Intent

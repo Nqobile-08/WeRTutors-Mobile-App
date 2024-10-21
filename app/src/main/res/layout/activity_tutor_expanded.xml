@@ -10,6 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_share"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            />
 <TextView
     android:id="@+id/tvLocation"
     android:layout_width="0dp"
