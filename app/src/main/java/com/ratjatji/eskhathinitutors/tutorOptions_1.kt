@@ -4,19 +4,26 @@ package com.ratjatji.eskhathinitutors
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.util.Locale.filter
 
 
 class tutorOptions_1 : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var etSearchBar: EditText
     private lateinit var tutorList: ArrayList<Tutors1>
+    private lateinit var filteredTutorList: ArrayList<Tutors1>
+    private lateinit var adapter: TutorAdapter
 
     //Tutor profile declarations
     lateinit var imageId: Array<Int>
@@ -48,6 +55,7 @@ class tutorOptions_1 : Fragment() {
         val view = inflater.inflate(R.layout.tutor_options_1, container, false)
 
         recyclerView = view.findViewById(R.id.rvTutors)
+        etSearchBar = view.findViewById(R.id.etSearchBar)
 
         imageId = arrayOf(
             R.drawable.si,
@@ -180,61 +188,84 @@ class tutorOptions_1 : Fragment() {
         recyclerView.setHasFixedSize(true)
 
         tutorList = arrayListOf()
-        getUserData(subjects)
+        filteredTutorList = arrayListOf()
 
-//        icFilter = view.findViewById(R.id.ic_filter)
-//        icFilter.setOnClickListener {
-//            val fragment = FilterStudentFragment()
-//            val transaction = parentFragmentManager.beginTransaction()
-//            transaction.replace(R.id.filte, fragment)  // Replace fragment_container with your container's ID
-//            transaction.addToBackStack(null)
-//            transaction.commit()
-//        }
+        getUserData()
+
+        etSearchBar.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                filter(s.toString())
+            }
+        })
         return view
     }
-    private fun getUserData(subjects: Array<String>) {
-
+    private fun getUserData() {
         for (i in imageId.indices) {
             val tutor = Tutors1(
                 imageId[i], name[i], rating[i], rate[i], location[i], languages[i], description[i], subjects[i],
                 workExperience[i], education[i], coursesCertifications[i], skills[i], levels[i]
             )
             tutorList.add(tutor)
-
         }
 
-        // Adapter setup
-        val adapter = TutorAdapter(tutorList)
+        // Initialize filteredTutorList with all tutors
+        filteredTutorList.addAll(tutorList)
+
+        // Initialize adapter with filteredTutorList
+        adapter = TutorAdapter(filteredTutorList)
         recyclerView.adapter = adapter
 
-        // Set item click listener to expand the tutor's profile that was clicked
         adapter.setOnItemClickListener(object : TutorAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
-
                 val intent = Intent(context, TutorExpandedActivity::class.java)
-                intent.putExtra("TUTOR_NAME", tutorList[position].Name)
-                intent.putExtra("ProfilePic", tutorList[position].ProfilePic)
-                intent.putExtra("Name", tutorList[position].Name)
-                intent.putExtra("Rating", tutorList[position].Rating.toString())
-                intent.putExtra("Rate", tutorList[position].Rate.toString())
-                intent.putExtra("Location", tutorList[position].Location)
-                intent.putExtra("Language", tutorList[position].Language)
-                intent.putExtra("Description", tutorList[position].Description)
-                intent.putExtra("WorkExperience", tutorList[position].WorkExperience)
-                intent.putExtra("Education", tutorList[position].Education)
-                intent.putExtra("CoursesCertifications", tutorList[position].CoursesCertifications)
-                intent.putExtra("Skills", tutorList[position].Skills)
-                intent.putExtra("Subjects", tutorList[position].Subjects)
-                intent.putExtra("Levels", tutorList[position].Levels)
+                // Use filteredTutorList instead of tutorList for the selected position
+                val selectedTutor = filteredTutorList[position]
 
+                intent.putExtra("TUTOR_NAME", selectedTutor.Name)
+                intent.putExtra("ProfilePic", selectedTutor.ProfilePic)
+                intent.putExtra("Name", selectedTutor.Name)
+                intent.putExtra("Rating", selectedTutor.Rating.toString())
+                intent.putExtra("Rate", selectedTutor.Rate.toString())
+                intent.putExtra("Location", selectedTutor.Location)
+                intent.putExtra("Language", selectedTutor.Language)
+                intent.putExtra("Description", selectedTutor.Description)
+                intent.putExtra("WorkExperience", selectedTutor.WorkExperience)
+                intent.putExtra("Education", selectedTutor.Education)
+                intent.putExtra("CoursesCertifications", selectedTutor.CoursesCertifications)
+                intent.putExtra("Skills", selectedTutor.Skills)
+                intent.putExtra("Subjects", selectedTutor.Subjects)
+                intent.putExtra("Levels", selectedTutor.Levels)
 
                 try {
                     startActivity(intent)
                 } catch (e: Exception) {
-
+                    // Consider adding error handling here
+                    e.printStackTrace()
                 }
             }
         })
-
     }
+    // Filter method to search through tutors
+    private fun filter(query: String) {
+        filteredTutorList.clear()
+
+        if (query.isEmpty()) {
+            filteredTutorList.addAll(tutorList)
+        } else {
+            val searchQuery = query.lowercase()
+            tutorList.filterTo(filteredTutorList) { tutor ->
+                tutor.Name.lowercase().contains(searchQuery) ||
+                        tutor.Location.lowercase().contains(searchQuery) ||
+                        tutor.Language.lowercase().contains(searchQuery) ||
+                        tutor.Description.lowercase().contains(searchQuery) ||
+                        tutor.Subjects.lowercase().contains(searchQuery) ||
+                        tutor.Levels.lowercase().contains(searchQuery)
+            }
+        }
+
+        adapter.notifyDataSetChanged()
+    }
+
 }

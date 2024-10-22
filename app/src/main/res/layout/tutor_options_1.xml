@@ -14,34 +14,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSearchBar" />
+        app:layout_constraintTop_toBottomOf="@+id/inputLayout" />
 
     <ImageView
         android:id="@+id/ic_search"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:layout_constraintEnd_toStartOf="@id/etSearchBar"
-        app:layout_constraintTop_toTopOf="@id/etSearchBar"
-        android:src="@drawable/ic_search"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        />
-    <EditText
-        android:id="@+id/etSearchBar"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_search"
+        app:layout_constraintEnd_toStartOf="@id/inputLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/inputLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Filter by tutor or subject name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ic_search">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSearchBar"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:hint="Filter by tutor, subject or location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <ImageView
         android:id="@+id/ic_filter"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:layout_constraintStart_toEndOf="@id/etSearchBar"
-        app:layout_constraintTop_toTopOf="@id/etSearchBar"
+        app:layout_constraintStart_toEndOf="@id/inputLayout"
+        app:layout_constraintTop_toTopOf="@id/inputLayout"
         android:src="@drawable/ic_filter"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
