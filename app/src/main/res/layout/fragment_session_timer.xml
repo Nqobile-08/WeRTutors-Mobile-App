@@ -15,7 +15,8 @@
             android:src="@drawable/tutors"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/sessionTitle"
@@ -44,6 +45,33 @@
             android:layout_below="@id/tutorName"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"/>
+        <LinearLayout
+            android:id="@+id/tempLinearLayout"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_play"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_pause"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_stop"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_extend_time"/>
+
+
+            </LinearLayout>
+
 
         <TextView
             android:id="@+id/timerDisplay"

@@ -107,16 +107,18 @@
 
 
         <!-- CalendarView to select the date -->
+
+        <!-- EditText for entering additional appointment details -->
         <CalendarView
             android:id="@+id/calendarView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/spinnerSessionType"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerSessionType" />
 
-        <!-- EditText for entering additional appointment details -->
         <EditText
             android:id="@+id/appointmentEditText"
             android:layout_width="0dp"
@@ -133,10 +135,11 @@
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Appointment"
+            android:text="Request session"
             android:backgroundTint="@color/WRTBlue"
             app:layout_constraintTop_toBottomOf="@id/appointmentEditText"
             app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="16dp" />
 
         <!-- Button to remove appointment -->
@@ -144,7 +147,7 @@
             android:id="@+id/removeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Remove Appointment"
+            android:text="Cancel request"
             android:backgroundTint="@color/WRTBlue"
             app:layout_constraintTop_toBottomOf="@id/appointmentEditText"
             app:layout_constraintStart_toEndOf="@id/addButton"

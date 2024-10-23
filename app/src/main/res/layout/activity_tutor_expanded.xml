@@ -48,8 +48,25 @@
     android:layout_marginLeft="10dp"
     android:textSize="20dp"
     android:text="Rating"
+    android:textColor="@color/gold"
     app:layout_constraintStart_toEndOf="@+id/tvTutorName"
     app:layout_constraintTop_toTopOf="@+id/tvTutorName" />
+<RatingBar
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toEndOf="@+id/tvTutorName"
+    app:layout_constraintTop_toTopOf="parent"
+    android:numStars="5"/>
+        <TextView
+            android:id="@+id/tvRatingCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:text="(x)"
+
+            app:layout_constraintStart_toEndOf="@+id/tvRating"
+            app:layout_constraintTop_toTopOf="@+id/tvTutorName" />
 
 <ImageView
     android:id="@+id/ivLanguage"

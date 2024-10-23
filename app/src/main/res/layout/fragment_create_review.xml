@@ -34,6 +34,7 @@
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/tvReviewTitle"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             />
 
         <Spinner
@@ -55,7 +56,8 @@
             android:textSize="18sp"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/spinnerTutors"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <Spinner
             android:id="@+id/spinnerCourses"
@@ -75,21 +77,23 @@
             android:textSize="18sp"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/spinnerCourses"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <RatingBar
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="1.0"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvRating"
-            app:layout_constraintStart_toStartOf="parent"
             android:backgroundTint="@color/black"
+            android:numStars="5"
             android:progressTint="@color/WRTBlue"
+            android:scaleX="0.8"
             android:scaleY="0.8"
-            android:scaleX="0.8"/>
+            android:stepSize="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRating" />
 
         <TextView
             android:id="@+id/tvRatingText"
@@ -100,7 +104,8 @@
             android:textStyle="bold"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/tvPositives"
@@ -111,6 +116,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvRatingText" />
 <ImageView
     android:layout_width="25dp"
@@ -133,7 +139,6 @@
             android:id="@+id/cp_good_remarks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-        app:chipSpacingHorizontal="8dp"
             android:layout_marginTop="8dp"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/tvGoodReviewWarningText"
@@ -205,6 +210,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cp_good_remarks" />
         <ImageView
             android:layout_width="25dp"
@@ -281,7 +287,7 @@
 
         <TextView
             android:id="@+id/tvSubject"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Review Subject"
@@ -289,7 +295,9 @@
             android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@id/cp_bad_remarks"
             app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+
+            />
 
         <EditText
             android:id="@+id/etReviewSubject"
@@ -311,7 +319,8 @@
             android:textSize="18sp"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/etReviewSubject"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <EditText
             android:id="@+id/etReviewDescription"

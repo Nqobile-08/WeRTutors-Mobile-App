@@ -161,13 +161,13 @@ class tutorOptions_1 : Fragment() {
         levels = arrayOf(
             "Secondary school, Tertiary school",
             "Tertiary school",
-            "Tertiary school, Professional school",
-            "Tertiary school, Professional school",
+            "Tertiary school, Professional ",
+            "Tertiary school, Professional ",
             "Secondary school, Tertiary school",
             "Primary school, Secondary school",
             "Secondary school",
             "Secondary school, Tertiary school",
-            "Tertiary school, Professional school"
+            "Tertiary school, Professional "
         )
 
         skills = arrayOf(

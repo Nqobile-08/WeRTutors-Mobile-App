@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-         <item
+        <item
             android:id="@+id/nav_dashboard"
             android:title="Dashboard"
             android:icon="@drawable/baseline_dashboard_24"/>
@@ -17,7 +16,7 @@
             />
         <item
             android:id="@+id/nav_create_review"
-            android:title="Create review"
+            android:title="Review student"
             android:icon="@drawable/ic_rating_2"
             />
         <item
@@ -31,33 +30,19 @@
             android:icon="@drawable/settings"
             />
         <item
-            android:id="@+id/nav_marks"
-            android:title="Enter marks"
-            android:icon="@drawable/ic_add_marks"
-            />
-        <item
-            android:id="@+id/nav_view_marks"
-            android:title="View marks"
-            android:icon="@drawable/ic_view_marks_2"
-            />
-        <item
             android:id="@+id/nav_communication"
             android:title="Communication"
             android:icon="@drawable/ic_chat"/>
 
         <item
             android:id="@+id/nav_logout"
-            android:title="Log out"
+            android:title="LogOut"
             android:icon="@drawable/baseline_airline_seat_recline_extra_24"/>
         <item
             android:id="@+id/nav_profile"
             android:title="Profile *"
             android:icon="@drawable/baseline_co_present_24"/>
-        <item
-            android:id="@+id/nav_filter"
-            android:title="filter *"
-            android:icon="@drawable/ic_filter"
-            />
+
         <item
             android:id="@+id/nav_JobPost"
             android:icon="@drawable/jobspost"
