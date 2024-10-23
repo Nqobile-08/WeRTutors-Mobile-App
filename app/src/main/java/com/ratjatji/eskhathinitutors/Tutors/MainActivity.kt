@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.ratjatji.eskhathinitutors.ATSFragment
 import com.ratjatji.eskhathinitutors.ChatActivity
 import com.ratjatji.eskhathinitutors.CreateReviewFragment
 import com.ratjatji.eskhathinitutors.DisplayMarksFragment
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_setting -> selectedFragment = SettingsHomeFragment()
                 R.id.nav_logout -> selectedFragment = LogoutFragment()
                 R.id.nav_AiHelper -> selectedFragment = WeRTutorsAi()
+                R.id.nav_ATS -> selectedFragment = ATSFragment()
                 R.id.nav_marks -> selectedFragment = LoadMarksFragment()
                 R.id.nav_displayedMarks -> selectedFragment = DisplayMarksFragment()
                 R.id.nav_communication -> {

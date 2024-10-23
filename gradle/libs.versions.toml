@@ -1,5 +1,6 @@
 [versions]
 agp = "8.5.2"
+constraintlayoutVersion = "2.1.3"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -15,10 +16,14 @@ firebaseAuthKtx = "23.0.0"
 firebaseStorageKtx = "21.0.1"
 firebaseFirestoreKtx = "25.1.0"
 generativeai = "0.9.0"
+materialVersion = "1.5.0"
+pdfbox = "2.0.24"
+pdfboxAndroid = "2.0.22.1"
 preferenceKtx = "1.2.1"
 compiler = "3.2.0-alpha11"
 
 [libraries]
+androidx-constraintlayout-v213 = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayoutVersion" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -35,6 +40,9 @@ firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-fires
 generativeai = { group = "com.google.ai.client.generativeai", name = "generativeai", version.ref = "generativeai" }
 androidx-preference-ktx = { group = "androidx.preference", name = "preference-ktx", version.ref = "preferenceKtx" }
 androidx-compiler = { group = "androidx.databinding", name = "compiler", version.ref = "compiler" }
+material-v150 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
+pdfbox = { module = "org.apache.pdfbox:pdfbox", version.ref = "pdfbox" }
+pdfbox-android = { module = "com.tom_roush:pdfbox-android", version.ref = "pdfboxAndroid" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -16,6 +16,7 @@
         android:id="@+id/nav_JobPost"
         android:icon="@drawable/jobspost"
         android:title="Jobs Post" />
+
     <item
     android:id="@+id/nav_MngStudents"
     android:icon="@drawable/managestudents"

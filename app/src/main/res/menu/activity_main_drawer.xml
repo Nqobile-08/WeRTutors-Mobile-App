@@ -7,6 +7,10 @@
             android:title="Dashboard"
             android:icon="@drawable/baseline_dashboard_24"/>
         <item
+            android:id="@+id/nav_ATS"
+            android:icon="@drawable/jobspost"
+            android:title="ATS" />
+        <item
             android:id="@+id/nav_tutor_profile"
             android:icon="@drawable/tutorprofile"
             android:title="Tutor Profile"
