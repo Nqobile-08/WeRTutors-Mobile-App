@@ -52,6 +52,8 @@ class tutorOptions_1 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        requireActivity().title = "View tutors"
         val view = inflater.inflate(R.layout.tutor_options_1, container, false)
 
         recyclerView = view.findViewById(R.id.rvTutors)

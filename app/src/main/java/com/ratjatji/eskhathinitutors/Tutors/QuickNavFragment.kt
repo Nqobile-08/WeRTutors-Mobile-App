@@ -31,11 +31,13 @@ class QuickNavFragment : Fragment() {
     }
 
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_quick_nav, container, false)
+        requireActivity().title = "Quick Navigation"
     }
 
     companion object {

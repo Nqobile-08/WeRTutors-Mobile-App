@@ -54,6 +54,7 @@ class CreateReviewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().title = "Review a tutor"
         val view = inflater.inflate(R.layout.fragment_create_review, container, false)
 
         // Initialize Firebase Auth and Database references

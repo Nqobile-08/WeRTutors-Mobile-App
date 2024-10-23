@@ -33,7 +33,7 @@ class WeRTutorsAi : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_we_r_tutors_ai, container, false)
-
+        requireActivity().title = "AI helper"
         etUserInput = view.findViewById(R.id.inputEditText)
         btnSend = view.findViewById(R.id.sendButton)
         tvConversation = view.findViewById(R.id.conversationTextView)

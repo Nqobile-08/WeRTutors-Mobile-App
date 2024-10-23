@@ -19,6 +19,7 @@ class SettingsHomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().title = "Settings"
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_settings_home, container, false)
 

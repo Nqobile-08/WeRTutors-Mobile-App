@@ -47,6 +47,7 @@ class SchedulesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().title = "Book a tutor"
         val view = inflater.inflate(R.layout.fragment_schedules, container, false)
 
         auth = FirebaseAuth.getInstance()

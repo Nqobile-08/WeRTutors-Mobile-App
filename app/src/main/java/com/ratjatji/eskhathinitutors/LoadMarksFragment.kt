@@ -33,6 +33,7 @@ class LoadMarksFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().title = "Load marks"
         val view = inflater.inflate(R.layout.fragment_load_marks, container, false)
 
         // Initialize Firebase Auth

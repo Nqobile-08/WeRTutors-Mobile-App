@@ -26,7 +26,7 @@ class PaymentAddCardFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_payment_add_card, container, false)
-
+        requireActivity().title = "Enter card details"
         // Initialize views
         etCardNumber = view.findViewById(R.id.etCardNumber)
         etExpiryDate = view.findViewById(R.id.etExpiryDate)

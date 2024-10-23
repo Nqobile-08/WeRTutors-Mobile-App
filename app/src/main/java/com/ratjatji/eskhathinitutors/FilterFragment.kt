@@ -33,6 +33,7 @@ class FilterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().title = "Filter tutors"
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_filter, container, false)
     }

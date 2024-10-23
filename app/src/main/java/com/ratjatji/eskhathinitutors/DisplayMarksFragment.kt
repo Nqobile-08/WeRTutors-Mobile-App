@@ -37,6 +37,7 @@ class DisplayMarksFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().title = "View your progress"
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_display_marks, container, false)
 

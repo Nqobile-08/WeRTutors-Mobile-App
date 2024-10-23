@@ -49,6 +49,7 @@ class SessionTimer : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().title = "Session timer"
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_session_timer, container, false)
 
