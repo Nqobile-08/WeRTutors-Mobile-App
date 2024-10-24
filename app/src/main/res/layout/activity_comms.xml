@@ -28,6 +28,7 @@
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
+    <!-- Chat RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecycleView"
         android:layout_width="match_parent"
@@ -36,6 +37,7 @@
         android:layout_below="@id/toolbar"
         android:background="#F5F5F5" />
 
+    <!-- Message input and send button layout -->
     <LinearLayout
         android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
@@ -68,4 +70,5 @@
             app:tint="#FFFFFF"
             app:srcCompat="@drawable/ic_send" />
     </LinearLayout>
+
 </RelativeLayout>

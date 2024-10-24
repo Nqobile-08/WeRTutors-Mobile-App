@@ -38,6 +38,15 @@ class LoginActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
 
+        // Check if the user is already logged in
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            // If the user is logged in, go to MainActivity directly
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))  // Add your client ID

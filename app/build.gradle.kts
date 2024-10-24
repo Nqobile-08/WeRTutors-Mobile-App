@@ -76,6 +76,7 @@ dependencies {
     implementation(libs.generativeai)
     implementation(libs.androidx.preference.ktx)
     implementation(libs.androidx.compiler)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

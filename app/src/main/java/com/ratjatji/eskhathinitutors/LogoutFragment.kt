@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-
+import com.google.firebase.auth.FirebaseAuth
 
 class LogoutFragment : Fragment() {
 
@@ -20,12 +20,18 @@ class LogoutFragment : Fragment() {
         // Find the logout button
         val logoutButton: Button = view.findViewById(R.id.btn_logout)
 
-        // Set onClickListener to redirect to LoginActivity
+        // Set onClickListener to logout and redirect to LoginActivity
         logoutButton.setOnClickListener {
+            // Sign out the user from Firebase
+            FirebaseAuth.getInstance().signOut()
+
+            // Redirect to LoginActivity and clear the back stack
             val intent = Intent(activity, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // Clear task to prevent back navigation
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
-            activity?.finish() // Close the current activity
+
+            // Close the current activity
+            activity?.finish()
         }
 
         return view

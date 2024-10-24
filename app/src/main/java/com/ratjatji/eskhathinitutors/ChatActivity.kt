@@ -38,10 +38,10 @@ class ChatActivity : AppCompatActivity() {
 // In ChatActivity where you set up the RecyclerView and Adapter
         adapter.setOnItemClickListener { selectedUser ->
             val intent = Intent(this@ChatActivity, commsAct::class.java)
+
+            // Pass user details to commsAct
             intent.putExtra("name", selectedUser.name)
             intent.putExtra("uid", selectedUser.uid)
-
-
 
             // Log for debugging
             Log.d("ChatActivity", "Sending name: ${selectedUser.name}, uid: ${selectedUser.uid}")
@@ -77,21 +77,21 @@ class ChatActivity : AppCompatActivity() {
             })
 
         // Fetch Students
-        mDbref.reference.child("Users").child("Students")
+       mDbref.reference.child("Users").child("Students")
             .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
+               override fun onDataChange(snapshot: DataSnapshot) {
                     for (postSnapshot in snapshot.children) {
-                        val student = postSnapshot.getValue(Student::class.java)
+                       val student = postSnapshot.getValue(Student::class.java)
                         if (student != null && auth.currentUser?.uid != student.uid) {
                             userList.add(student)  // Add student to userList
-                        }
-                    }
+                       }
+                   }
                     adapter.notifyDataSetChanged()
-                }
+               }
 
-                override fun onCancelled(error: DatabaseError) {
-                    Log.e("ChatActivity", "Error fetching students: ${error.message}")
-                }
+               override fun onCancelled(error: DatabaseError) {
+                   Log.e("ChatActivity", "Error fetching students: ${error.message}")
+               }
             })
+   }
     }
-}

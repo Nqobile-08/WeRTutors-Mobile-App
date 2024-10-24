@@ -30,7 +30,6 @@ class commsAct : AppCompatActivity() {
         val name = intent.getStringExtra("name")
         val receiverUid = intent.getStringExtra("uid")
 
-
         val senderUid = FirebaseAuth.getInstance().currentUser?.uid
 
 
