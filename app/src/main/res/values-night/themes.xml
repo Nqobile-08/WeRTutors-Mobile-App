@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EskhathiniTutors" parent="Theme.Material3.DayNight.NoActionBar">
+
+    </style>
+    <style name = "RoundCorners" parent ="">
+    <item name = "cornerFamily"> rounded</item>
+    <item name = "cornerSize"> 10dp</item>
+    <item name = "color"> @color/white</item>
+</style>
+</resources>
