@@ -44,7 +44,10 @@
             android:id="@+id/nav_communication"
             android:title="Communication"
             android:icon="@drawable/ic_chat"/>
-
+        <item
+            android:id="@+id/nav_cal"
+            android:title="cal"
+            android:icon="@drawable/ic_scheduled_session"/>
         <item
             android:id="@+id/nav_logout"
             android:title="Log out"

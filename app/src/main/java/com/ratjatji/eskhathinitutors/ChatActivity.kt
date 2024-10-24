@@ -77,21 +77,21 @@ class ChatActivity : AppCompatActivity() {
             })
 
         // Fetch Students
-//        mDbref.reference.child("Users").child("Students")
-//            .addValueEventListener(object : ValueEventListener {
-//                override fun onDataChange(snapshot: DataSnapshot) {
-//                    for (postSnapshot in snapshot.children) {
-//                        val student = postSnapshot.getValue(Student::class.java)
-//                        if (student != null && auth.currentUser?.uid != student.uid) {
-//                            userList.add(student)  // Add student to userList
-//                        }
-//                    }
-//                    adapter.notifyDataSetChanged()
-//                }
-//
-//                override fun onCancelled(error: DatabaseError) {
-//                    Log.e("ChatActivity", "Error fetching students: ${error.message}")
-//                }
-//            })
-//    }
-}}
+        mDbref.reference.child("Users").child("Students")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (postSnapshot in snapshot.children) {
+                        val student = postSnapshot.getValue(Student::class.java)
+                        if (student != null && auth.currentUser?.uid != student.uid) {
+                            userList.add(student)  // Add student to userList
+                        }
+                    }
+                    adapter.notifyDataSetChanged()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("ChatActivity", "Error fetching students: ${error.message}")
+                }
+            })
+    }
+}

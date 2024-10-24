@@ -17,6 +17,7 @@ import com.ratjatji.eskhathinitutors.FilterFragment
 import com.ratjatji.eskhathinitutors.LoadMarksFragment
 import com.ratjatji.eskhathinitutors.ProfileFragment
 import com.ratjatji.eskhathinitutors.R
+import com.ratjatji.eskhathinitutors.ScheduleCalendarFragment
 import com.ratjatji.eskhathinitutors.SettingsHomeFragment
 import com.ratjatji.eskhathinitutors.WeRTutorsAi
 import com.ratjatji.eskhathinitutors.tutorOptions_1
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_marks -> selectedFragment = LoadMarksFragment()
                 R.id.nav_view_marks -> selectedFragment = DisplayMarksFragment()
                 R.id.nav_filter -> selectedFragment = FilterFragment()
+                R.id.nav_cal -> selectedFragment = ScheduleCalendarFragment()
                 R.id.nav_communication -> {
 
                     val intent = Intent(this, ChatActivity::class.java)
