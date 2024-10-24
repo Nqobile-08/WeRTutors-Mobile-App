@@ -24,6 +24,12 @@
         android:layout_marginBottom="8dp"
         android:textColor="@color/WRTBlue"
         android:backgroundTint="@color/white"/>
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/icon"
+        />
+
 
     <Button
         android:id="@+id/btnSettings"
@@ -33,6 +39,12 @@
         android:layout_marginBottom="8dp"
         android:textColor="@color/WRTBlue"
         android:backgroundTint="@color/white"/>
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_dark_mode"
+        />
+
     <Button
         android:id="@+id/btnPayment"
         android:layout_width="match_parent"
@@ -41,6 +53,12 @@
         android:layout_marginBottom="8dp"
         android:textColor="@color/WRTBlue"
         android:backgroundTint="@color/white"/>
+    <ImageView
+    android:layout_width="20dp"
+    android:layout_height="20dp"
+    android:src="@drawable/ic_card"
+    />
+
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
@@ -50,7 +68,6 @@
         android:textColor="@color/red"
         android:backgroundTint="@color/white"
         />
-
 
 
 </LinearLayout>

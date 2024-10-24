@@ -34,6 +34,9 @@ class SchedulesFragment : Fragment() {
     private val appointments = mutableMapOf<String, String>()
     private val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
+    // Add variable to store selected date
+    private var selectedCalendarDate: Calendar = Calendar.getInstance()
+
     private var selectedTutor: TutorBooking? = null
 
     private lateinit var auth: FirebaseAuth
@@ -41,6 +44,12 @@ class SchedulesFragment : Fragment() {
 
     companion object {
         private const val TAG = "SchedulesFragment"
+        private val AVAILABLE_DAYS = listOf(
+            Calendar.MONDAY,
+            Calendar.TUESDAY,
+            Calendar.WEDNESDAY,
+            Calendar.THURSDAY
+        )
     }
 
     override fun onCreateView(
@@ -59,13 +68,26 @@ class SchedulesFragment : Fragment() {
         setupTutorSpinner()
 
         calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            val selectedDate = dateFormat.format(Calendar.getInstance().apply {
+            // Update the selected date when user selects a new date
+            selectedCalendarDate = Calendar.getInstance().apply {
                 set(year, month, dayOfMonth)
-            }.time)
+            }
 
-            // Display existing appointment for selected date
-            val existingAppointment = appointments[selectedDate]
-            appointmentEditText.setText(existingAppointment)
+            val selectedDate = dateFormat.format(selectedCalendarDate.time)
+            val dayOfWeek = selectedCalendarDate.get(Calendar.DAY_OF_WEEK)
+
+            if (AVAILABLE_DAYS.contains(dayOfWeek)) {
+                // Display existing appointment for selected date
+                val existingAppointment = appointments[selectedDate]
+                appointmentEditText.setText(existingAppointment)
+            } else {
+                appointmentEditText.setText("")
+                Toast.makeText(
+                    requireContext(),
+                    "Tutors are only available Monday to Thursday",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
         addButton.setOnClickListener {
@@ -79,29 +101,11 @@ class SchedulesFragment : Fragment() {
         return view
     }
 
-    private fun initializeViews(view: View) {
-        calendarView = view.findViewById(R.id.calendarView)
-        appointmentEditText = view.findViewById(R.id.appointmentEditText)
-        addButton = view.findViewById(R.id.addButton)
-        removeButton = view.findViewById(R.id.removeButton)
-        appointmentsTextView = view.findViewById(R.id.appointmentsTextView)
-        tutorSpinner = view.findViewById(R.id.spinnerTutors)
-        subjectSpinner = view.findViewById(R.id.spinnerSubjects)
-        timeSpinner = view.findViewById(R.id.spinnerTimes)
-        sessionTypeSpinner = view.findViewById(R.id.spinnerSessionType)
-    }
-
     private fun addAppointment() {
-        val selectedDate = dateFormat.format(Calendar.getInstance().apply {
-            timeInMillis = calendarView.date
-        }.time)
+        val selectedDate = dateFormat.format(selectedCalendarDate.time)
+        val selectedDayOfWeek = selectedCalendarDate.get(Calendar.DAY_OF_WEEK)
 
-        val calendar = Calendar.getInstance().apply {
-            timeInMillis = calendarView.date
-        }
-        val selectedDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
-
-        if (selectedTutor != null && selectedTutor!!.availableDays.contains(selectedDayOfWeek)) {
+        if (AVAILABLE_DAYS.contains(selectedDayOfWeek)) {
             val appointment = appointmentEditText.text.toString()
 
             if (appointment.isNotBlank()) {
@@ -110,9 +114,10 @@ class SchedulesFragment : Fragment() {
                 Toast.makeText(requireContext(), "Appointment cannot be empty", Toast.LENGTH_SHORT).show()
             }
         } else {
-            Toast.makeText(requireContext(), "This tutor is not available on the selected day", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Tutors are only available Monday to Thursday", Toast.LENGTH_SHORT).show()
         }
     }
+
     private fun saveAppointmentToFirebase(selectedDate: String, appointment: String) {
         val currentUser = auth.currentUser
         if (currentUser != null) {
@@ -127,7 +132,6 @@ class SchedulesFragment : Fragment() {
 
                 val tutorName = selectedTutor?.name ?: "Unknown Tutor"
 
-                // Add the status field and set it to "Pending"
                 val appointmentData = hashMapOf(
                     "date" to selectedDate,
                     "tutor" to tutorName,
@@ -135,7 +139,7 @@ class SchedulesFragment : Fragment() {
                     "time" to timeSpinner.selectedItem.toString(),
                     "sessionType" to sessionTypeSpinner.selectedItem.toString(),
                     "details" to appointment,
-                    "status" to "Pending"  // Add status field here
+                    "status" to "Pending"
                 )
 
                 Log.d(TAG, "Attempting to save appointment: $appointmentData")
@@ -161,16 +165,14 @@ class SchedulesFragment : Fragment() {
             Toast.makeText(requireContext(), "User not logged in", Toast.LENGTH_SHORT).show()
         }
     }
+
     private fun removeAppointment() {
-        val selectedDate = dateFormat.format(Calendar.getInstance().apply {
-            timeInMillis = calendarView.date
-        }.time)
+        val selectedDate = dateFormat.format(selectedCalendarDate.time)
 
         val currentUser = auth.currentUser
         if (currentUser != null) {
             val userId = currentUser.uid
 
-            // Fetch the user's name from the database
             database.reference.child("Users").child("Students").child(userId).child("name")
                 .get()
                 .addOnSuccessListener { dataSnapshot ->
@@ -220,6 +222,37 @@ class SchedulesFragment : Fragment() {
             Toast.makeText(requireContext(), "User not logged in", Toast.LENGTH_SHORT).show()
         }
     }
+
+    private fun updateAppointmentsTextView() {
+        val appointmentsText = StringBuilder("Appointments:\n")
+        for ((date, appointment) in appointments) {
+            val tutorName = selectedTutor?.name ?: "No Tutor Selected"
+            val selectedSubject = subjectSpinner.selectedItem.toString()
+            val selectedTime = timeSpinner.selectedItem.toString()
+            val selectedSessionType = sessionTypeSpinner.selectedItem.toString()
+
+            appointmentsText.append("\nTutor: $tutorName\n")
+            appointmentsText.append("Date: $date\n")
+            appointmentsText.append("Time: $selectedTime\n")
+            appointmentsText.append("Subject: $selectedSubject\n")
+            appointmentsText.append("Session Type: $selectedSessionType\n")
+            appointmentsText.append("Details: $appointment\n")
+        }
+        appointmentsTextView.text = appointmentsText.toString()
+    }
+
+    private fun initializeViews(view: View) {
+        calendarView = view.findViewById(R.id.calendarView)
+        appointmentEditText = view.findViewById(R.id.appointmentEditText)
+        addButton = view.findViewById(R.id.addButton)
+        removeButton = view.findViewById(R.id.removeButton)
+        appointmentsTextView = view.findViewById(R.id.appointmentsTextView)
+        tutorSpinner = view.findViewById(R.id.spinnerTutors)
+        subjectSpinner = view.findViewById(R.id.spinnerSubjects)
+        timeSpinner = view.findViewById(R.id.spinnerTimes)
+        sessionTypeSpinner = view.findViewById(R.id.spinnerSessionType)
+    }
+
     private fun setupTutorSpinner() {
         val tutorNames = tutorOptions.map { it.name }
         val adapter =
@@ -237,7 +270,6 @@ class SchedulesFragment : Fragment() {
                 selectedTutor = tutorOptions[position]
                 updateSubjectSpinner(selectedTutor!!.subjects)
                 updateTimeSpinner(selectedTutor!!.availableTimeSlots)
-                updateCalendarAvailability(selectedTutor!!.availableDays)
                 val sessionTypes = listOf("In-person session", "Virtual session")
                 updateSessionTypeSpinner(sessionTypes)
             }
@@ -265,50 +297,5 @@ class SchedulesFragment : Fragment() {
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, sessionTypes)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         sessionTypeSpinner.adapter = adapter
-    }
-
-    private fun updateCalendarAvailability(availableDays: List<Int>) {
-        // Disable days that are not available
-        calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            val calendar = Calendar.getInstance().apply {
-                set(year, month, dayOfMonth)
-            }
-            val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
-
-            if (!availableDays.contains(dayOfWeek)) {
-                Toast.makeText(
-                    requireContext(),
-                    "This tutor is not available on this day",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
-    }
-
-    private fun updateAppointmentsTextView() {
-
-        val appointmentsText = StringBuilder("Appointments:\n")
-        for ((date, appointment) in appointments) {
-            // Get the selected tutor's name
-            val tutorName = selectedTutor?.name ?: "No Tutor Selected"
-
-            // Get the selected subject
-            val selectedSubject = subjectSpinner.selectedItem.toString()
-
-            // Get the selected time
-            val selectedTime = timeSpinner.selectedItem.toString()
-
-            // Get the session type
-            val selectedSessionType = sessionTypeSpinner.selectedItem.toString()
-
-            // Append all the details to the appointmentsTextView
-            appointmentsText.append("\nTutor: $tutorName\n")
-            appointmentsText.append("Date: $date\n")
-            appointmentsText.append("Time: $selectedTime\n")
-            appointmentsText.append("Subject: $selectedSubject\n")
-            appointmentsText.append("Session Type: $selectedSessionType\n")
-            appointmentsText.append("Details: $appointment\n")
-        }
-        appointmentsTextView.text = appointmentsText.toString()
     }
 }
