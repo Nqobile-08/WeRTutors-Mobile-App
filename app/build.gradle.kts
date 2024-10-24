@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("com.google.gms.google-services")
+    alias(libs.plugins.googleFirebaseCrashlytics)
 }
 
 android {
@@ -104,7 +105,9 @@ android {
     implementation(libs.generativeai)
     implementation(libs.androidx.preference.ktx)
     implementation(libs.androidx.compiler)
-    testImplementation(libs.junit)
+        implementation(libs.firebase.crashlytics)
+        implementation(libs.firebase.storage)
+        testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.google.firebase:firebase-auth:latest_version")

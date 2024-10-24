@@ -23,6 +23,7 @@ class SettingsHomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_settings_home, container, false)
 
         // Find buttons by their IDs
+        NotificationHelper.createNotificationChannels(requireContext())
         val btnEditProfile: Button = view.findViewById(R.id.btnEditProfile)
         val btnLogout: Button = view.findViewById(R.id.btnLogout)
         val btnSettings: Button = view.findViewById(R.id.btnSettings)
@@ -48,6 +49,7 @@ btnLanguageSelection.setOnClickListener {
             val intent = Intent(activity, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // Clear task to prevent back navigation
             startActivity(intent)
+            NotificationHelper.sendNotification(requireContext(), "LoggedOut", "LoggedOut", "You have been logged out")
             activity?.finish() // Close the current activity
         }
         btnSettings.setOnClickListener {

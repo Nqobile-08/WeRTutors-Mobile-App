@@ -32,6 +32,11 @@ object NotificationHelper {
                     "progress_reports",
                     "Progress Reports",
                     NotificationManager.IMPORTANCE_DEFAULT
+                ),
+                NotificationChannel(
+                    "startSessionButton",
+                    "Sessionstarted",
+                    NotificationManager.IMPORTANCE_DEFAULT
                 )
             )
 
@@ -45,7 +50,7 @@ object NotificationHelper {
     fun sendNotification(context: Context, channelId: String, title: String, message: String) {
         // Step 1: Build the notification
         val builder = NotificationCompat.Builder(context, channelId)
-            .setSmallIcon(R.drawable.logo)  // Step 2: Set your notification icon here (replace with your icon)
+            .setSmallIcon(R.drawable.adnotifications)  // Step 2: Set your notification icon here (replace with your icon)
             .setContentTitle(title)                    // Step 3: Title of the notification
             .setContentText(message)                   // Step 4: The main text message
             .setPriority(NotificationCompat.PRIORITY_HIGH) // Step 5: Set the notification priority

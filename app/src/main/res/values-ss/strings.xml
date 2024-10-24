@@ -61,6 +61,24 @@
     <string name="change_profile_image" />
     <string name="update" />
     <string name="profile_picture">Profile Picture</string>
+    <string name="review_session">Ukuhlola Iseshini</string>
+    <string name="select_tutor">Khetha Umfundisi</string>
+    <string name="select_course">Khetha Isifundo</string>
+    <string name="rate_session">Linganisela Iseshini</string>
+    <string name="review_subject">Isihloko Sokuhlola</string>
+    <string name="enter_review_subject">Faka isihloko sokuhlola kwakho</string>
+    <string name="review_description">Incazelo Yokuhlola</string>
+    <string name="enter_review_description">Faka incazelo yokuhlola</string>
 
+
+    <string name="submit">Thumela</string>
+    <string name="empty_string"> </string>
+    <string name="very_poor">Kuyaphoxa kakhulu</string>
+    <string name="poor">Kuyaphoxa</string>
+    <string name="decent">Kuyamukeleka</string>
+    <string name="good">Kuhle</string>
+    <string name="great">Kuhle Kakhulu</string>
+    <string name="please_fill_all_fields">Sicela ugcwalise zonke izinkambu</string>
+    <string name="review_submitted_successfully">Ukuhlola kuthunyelwe ngempumelelo</string>
 
 </resources>

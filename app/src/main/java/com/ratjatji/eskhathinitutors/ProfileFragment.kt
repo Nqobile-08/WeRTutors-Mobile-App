@@ -51,7 +51,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
-
+        NotificationHelper.createNotificationChannels(requireContext())
         // Initialize Firebase and check for current user
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
@@ -86,7 +86,11 @@ class ProfileFragment : Fragment() {
 
     private fun setupListeners(view: View) {
         changeProfilePhotoButton.setOnClickListener { pickImage() }
-        view.findViewById<Button>(R.id.btnUpdate).setOnClickListener { updateUserData() }
+        view.findViewById<Button>(R.id.btnUpdate).setOnClickListener { updateUserData()
+            NotificationHelper.sendNotification(requireContext(),
+                "Profile Updated", "Profile Updated",
+                "Your Profile has been updated successfully.")
+        }
     }
 
     private fun loadUserData() {
@@ -130,6 +134,9 @@ class ProfileFragment : Fragment() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_PICK_CODE)
+        NotificationHelper.sendNotification(requireContext(),
+            "Profile Picture Changed", "Profile picture changed",
+            "Your picture has been changed successfully.")
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

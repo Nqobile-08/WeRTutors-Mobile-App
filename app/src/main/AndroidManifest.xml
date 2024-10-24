@@ -37,6 +37,9 @@
             android:name=".RegisterTutorActivity"
             android:exported="false" />
         <activity
+            android:name=".LanguageSelectionFragment"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity

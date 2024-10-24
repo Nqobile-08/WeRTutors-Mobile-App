@@ -21,6 +21,10 @@ pdfbox = "2.0.24"
 pdfboxAndroid = "2.0.22.1"
 preferenceKtx = "1.2.1"
 compiler = "3.2.0-alpha11"
+firebaseCrashlytics = "19.2.1"
+googleGmsGoogleServices = "4.4.2"
+googleFirebaseCrashlytics = "3.0.2"
+firebaseStorage = "21.0.1"
 
 [libraries]
 androidx-constraintlayout-v213 = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayoutVersion" }
@@ -43,8 +47,12 @@ androidx-compiler = { group = "androidx.databinding", name = "compiler", version
 material-v150 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 pdfbox = { module = "org.apache.pdfbox:pdfbox", version.ref = "pdfbox" }
 pdfbox-android = { module = "com.tom_roush:pdfbox-android", version.ref = "pdfboxAndroid" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebaseCrashlytics" }
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+googleGmsGoogleServices = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+googleFirebaseCrashlytics = { id = "com.google.firebase.crashlytics", version.ref = "googleFirebaseCrashlytics" }
 

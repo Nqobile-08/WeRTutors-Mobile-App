@@ -67,15 +67,20 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_ATS -> selectedFragment = ATSFragment()
                 R.id.nav_marks -> selectedFragment = LoadMarksFragment()
                 R.id.nav_displayedMarks -> selectedFragment = DisplayMarksFragment()
+                R.id.nav_tutor -> selectedFragment = NotificationsFragment()
                 R.id.nav_communication -> {
 
                     val intent = Intent(this, ChatActivity::class.java)
                     startActivity(intent)
                     drawerLayout.closeDrawer(navView)
                     return@setNavigationItemSelectedListener true
+
+
                 }
 
             }
+            // Creates a button that mimics a crash when pressed
+
 
             selectedFragment?.let {
                 supportFragmentManager.commit {

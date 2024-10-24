@@ -8,7 +8,7 @@
         android:id="@+id/tvReviewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Review Session"
+        android:text="@string/review_session"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginTop="16dp"
@@ -20,7 +20,7 @@
         android:id="@+id/tvTutor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Tutor"
+        android:text="@string/select_tutor"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_marginTop="10dp"
@@ -42,7 +42,7 @@
         android:id="@+id/tvCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Course"
+        android:text="@string/select_course"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_marginTop="10dp"
@@ -58,14 +58,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tvCourse"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.8"
-        />
+        app:layout_constraintWidth_percent="0.8" />
 
     <TextView
         android:id="@+id/tvRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rate Session"
+        android:text="@string/rate_session"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_marginTop="10dp"
@@ -87,11 +86,12 @@
         android:progressTint="@color/WRTBlue"
         android:scaleY="0.8"
         android:scaleX="0.8"/>
+
     <TextView
         android:id="@+id/tvRatingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" "
+        android:text="@string/empty_string"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
@@ -103,7 +103,7 @@
         android:id="@+id/tvSubject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Review subject"
+        android:text="@string/review_subject"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
@@ -115,7 +115,7 @@
         android:id="@+id/etReviewSubject"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Enter the subject of your review"
+        android:hint="@string/enter_review_subject"
         android:layout_marginTop="5dp"
         android:inputType="text"
         app:layout_constraintTop_toBottomOf="@+id/tvSubject"
@@ -127,7 +127,7 @@
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Review description"
+        android:text="@string/review_description"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_marginTop="10dp"
@@ -139,7 +139,7 @@
         android:id="@+id/etReviewDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Enter the description for the description"
+        android:hint="@string/enter_review_description"
         android:layout_marginTop="5dp"
         android:inputType="textMultiLine"
         android:minLines="3"
@@ -152,12 +152,11 @@
         android:id="@+id/btnSubmitReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="@string/submit"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/WRTBlue"
         app:layout_constraintTop_toBottomOf="@+id/etReviewDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

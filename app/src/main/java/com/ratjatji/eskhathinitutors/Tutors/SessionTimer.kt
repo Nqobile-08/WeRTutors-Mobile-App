@@ -22,6 +22,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.slider.Slider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.ratjatji.eskhathinitutors.NotificationHelper
 import com.ratjatji.eskhathinitutors.R
 import java.util.concurrent.TimeUnit
 
@@ -66,6 +67,9 @@ class SessionTimer : Fragment() {
 
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
+
+        // Create notification channels
+        NotificationHelper.createNotificationChannels(requireContext())
 
         initializeViews(view)
         setupListeners()
@@ -176,6 +180,9 @@ class SessionTimer : Fragment() {
 
         startProgressAnimation()
         createSessionInFirebase()
+
+        // Send notification
+        NotificationHelper.sendNotification(requireContext(), "session_reminders", "Session Started", "Your session has started successfully.")
     }
 
     private fun startProgressAnimation() {
@@ -240,6 +247,9 @@ class SessionTimer : Fragment() {
         progressAnimator.cancel()
 
         updateSessionStatusInFirebase("stopped")
+
+        // Send notification
+        NotificationHelper.sendNotification(requireContext(), "session_reminders", "Session Stopped", "Your session has been stopped.")
     }
 
     private fun addMoreTime() {
@@ -291,6 +301,9 @@ class SessionTimer : Fragment() {
         val sessionSummary = "Session completed in ${formatTime(elapsedTime)} with notes: $notes"
 
         submitSessionToFirebase(notes, comment, elapsedTime)
+
+        // Send notification
+        NotificationHelper.sendNotification(requireContext(), "session_reminders", "Session Submitted", "Your session has been submitted successfully.")
     }
 
     private fun submitSessionToFirebase(notes: String, comment: String, elapsedTime: Long) {

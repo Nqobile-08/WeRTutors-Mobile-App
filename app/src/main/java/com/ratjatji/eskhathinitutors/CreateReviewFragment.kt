@@ -4,7 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RatingBar
+import android.widget.Spinner
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -46,6 +53,9 @@ class CreateReviewFragment : Fragment() {
         etReviewDescription = view.findViewById(R.id.etReviewDescription)
         btnSubmitReview = view.findViewById(R.id.btnSubmitReview)
         ratingText = view.findViewById(R.id.tvRatingText)
+
+        // Create notification channels
+        NotificationHelper.createNotificationChannels(requireContext())
 
         // Step 1: Populate the Tutor spinner
         val tutorNames = tutorOptions.map { it.name }
@@ -123,6 +133,8 @@ class CreateReviewFragment : Fragment() {
                 .addOnCompleteListener {
                     Toast.makeText(requireContext(), "Review submitted successfully", Toast.LENGTH_LONG).show()
                     clearFields()
+                    // Send notification
+                    NotificationHelper.sendNotification(requireContext(), "review_notifications", "Review Submitted", "Your review has been submitted successfully.")
                 }.addOnFailureListener { err ->
                     Toast.makeText(requireContext(), "${err.message}", Toast.LENGTH_LONG).show()
                 }

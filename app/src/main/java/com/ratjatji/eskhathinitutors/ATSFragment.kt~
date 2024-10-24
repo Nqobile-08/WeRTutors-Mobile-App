@@ -112,7 +112,6 @@ class ATSFragment : Fragment() {
                 val page = pdfDocument.getPage(i)
                 val text = PdfTextExtractor.getTextFromPage(page)
                 pdfText.append(text).append("\n")
-
             }
 
             pdfDocument.close()

@@ -61,4 +61,21 @@
     <string name="change_profile_image" />
     <string name="update" />
     <string name="profile_picture">Profile Picture</string>
+    <string name="review_session">Review Session</string>
+    <string name="select_tutor">Select Tutor</string>
+    <string name="select_course">Select Course</string>
+    <string name="rate_session">Rate Session</string>
+    <string name="review_subject">Review Subject</string>
+    <string name="enter_review_subject">Enter the subject of your review</string>
+    <string name="review_description">Review Description</string>
+    <string name="enter_review_description">Enter the description for the review</string>
+    <string name="submit">Submit</string>
+    <string name="empty_string"> </string>
+    <string name="very_poor">Very Poor</string>
+    <string name="poor">Poor</string>
+    <string name="decent">Decent</string>
+    <string name="good">Good</string>
+    <string name="great">Great</string>
+    <string name="please_fill_all_fields">Please fill all fields</string>
+    <string name="review_submitted_successfully">Review submitted successfully</string>
 </resources>

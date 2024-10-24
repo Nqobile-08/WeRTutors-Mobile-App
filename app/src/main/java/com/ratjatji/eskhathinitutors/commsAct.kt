@@ -8,7 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class commsAct : AppCompatActivity() {
 
@@ -23,6 +27,7 @@ class commsAct : AppCompatActivity() {
     private var senderRoom: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        NotificationHelper.createNotificationChannels(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comms)
 
@@ -92,6 +97,8 @@ class commsAct : AppCompatActivity() {
                     .setValue(messageObject).addOnSuccessListener {
                         mDbref.child("chats").child(receiverRoom!!).child("messages").push()
                             .setValue(messageObject)
+                        NotificationHelper.sendNotification(this, "Chat Message",
+                            "Chat message", "New message from $name")
                     }
 
                 // Clear the message input box after sending

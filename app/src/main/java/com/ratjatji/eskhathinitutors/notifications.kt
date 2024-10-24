@@ -58,7 +58,7 @@ class NotificationsFragment : Fragment() {
         )
 
         val notification = NotificationCompat.Builder(requireContext(), channelId)
-            .setSmallIcon(R.drawable.tutors)
+            .setSmallIcon(R.drawable.adnotifications)
             .setContentTitle("New Activity")
             .setContentText("You have new activity to check!")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
