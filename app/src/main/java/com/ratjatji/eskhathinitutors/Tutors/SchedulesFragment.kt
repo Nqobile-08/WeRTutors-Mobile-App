@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.Logger
 import com.google.firebase.database.ValueEventListener
 import com.ratjatji.eskhathinitutors.R
 import com.ratjatji.eskhathinitutors.TutorBooking
@@ -57,6 +58,7 @@ class SchedulesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         requireActivity().title = "Book a tutor"
+        FirebaseDatabase.getInstance().setLogLevel(Logger.Level.DEBUG)
         val view = inflater.inflate(R.layout.fragment_schedules, container, false)
 
         auth = FirebaseAuth.getInstance()

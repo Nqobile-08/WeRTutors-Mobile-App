@@ -44,11 +44,11 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
     implementation ("com.diogobernardino:williamchart:3.10.1")
-//    implementation ("andoidx.biometric:biometric-ktx:1.2.0-alpha05")
-
+    implementation ("androidx.biometric:biometric:1.1.0")
+    implementation ("com.google.firebase:firebase-firestore-ktx:24.7.1")
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
     implementation ("com.applandeo:material-calendar-view:1.9.2")
-
+    implementation ("androidx.security:security-crypto:1.1.0-alpha06")
     implementation ("com.google.android.material:material:1.5.0")
 
     implementation ("androidx.constraintlayout:constraintlayout:2.1.3")

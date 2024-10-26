@@ -115,7 +115,7 @@ class ScheduleCalendarFragment : Fragment() {
 
                             val calendarDay = CalendarDay(calendar)
                             calendarDay.labelColor = R.color.red
-                            calendarDay.imageResource = R.drawable.ic_book
+
                             calendars.add(calendarDay)
 
                             // Store event details
