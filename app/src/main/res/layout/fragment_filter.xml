@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Level Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Level"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Primary School"
+            android:buttonTint="@color/checkbox_selector" />
+
+        <CheckBox
+            android:id="@+id/checkBoxSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Secondary School"
+            android:buttonTint="@color/checkbox_selector" />
+
+        <CheckBox
+            android:id="@+id/checkBoxTertiary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tertiary"
+            android:buttonTint="@color/checkbox_selector" />
+
+        <CheckBox
+            android:id="@+id/checkBoxProfessional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Professional"
+            android:buttonTint="@color/checkbox_selector" />
+
+        <!-- Rating Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rating"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <CheckBox
+            android:id="@+id/checkBox3Star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 Star+"
+            android:buttonTint="@color/checkbox_selector" />
+
+        <CheckBox
+            android:id="@+id/checkBox4Star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 Star+"
+            android:buttonTint="@color/checkbox_selector" />
+
+        <CheckBox
+            android:id="@+id/checkBox5Star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5 Star"
+            android:buttonTint="@color/checkbox_selector" />
+
+        <!-- Gender Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioNoPreference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Preference"
+                android:buttonTint="@color/radio_selector" />
+
+            <RadioButton
+                android:id="@+id/radioMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:buttonTint="@color/radio_selector" />
+
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:buttonTint="@color/radio_selector" />
+        </RadioGroup>
+
+        <!-- Language Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Language"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <EditText
+            android:id="@+id/editTextLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type Language"
+            android:inputType="text" />
+
+        <!-- Show Results Button -->
+        <Button
+            android:id="@+id/buttonShowResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show Results"
+            android:layout_marginTop="24dp" />
+
+    </LinearLayout>
+
+</ScrollView>
