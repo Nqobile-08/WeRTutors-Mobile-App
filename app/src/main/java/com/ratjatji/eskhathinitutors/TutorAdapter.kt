@@ -44,6 +44,7 @@ class TutorAdapter(private var tutorsList: ArrayList<Tutors1>) :
         holder.rvLanguages.text = currentTutor.Language
         holder.rvDescription.text = currentTutor.Description
         holder.rvSubject.text = currentTutor.Subjects
+        holder.rvRatingCount.text = "(${currentTutor.RatingCount.toString()} reviews)"
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
@@ -61,6 +62,7 @@ class TutorAdapter(private var tutorsList: ArrayList<Tutors1>) :
             intent.putExtra("Skills", currentTutor.Skills)
             intent.putExtra("Subjects", currentTutor.Subjects)
             intent.putExtra("Levels", currentTutor.Levels)
+            intent.putExtra("RatingCount", currentTutor.RatingCount)
 
             context.startActivity(intent)
         }
@@ -76,6 +78,7 @@ class TutorAdapter(private var tutorsList: ArrayList<Tutors1>) :
         val rvLanguages: TextView = itemView.findViewById(R.id.tvLanguage)
         val rvDescription: TextView = itemView.findViewById(R.id.tvDescription)
         val rvSubject: TextView = itemView.findViewById(R.id.tvSubjects)
+        val rvRatingCount: TextView = itemView.findViewById(R.id.tvRatingCount)
 
         init {
             itemView.setOnClickListener {

@@ -2,6 +2,7 @@ package com.ratjatji.eskhathinitutors
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -34,27 +35,22 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
         biometricHelper = BiometricHelper(this)
-        // Configure Google Sign In
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
-
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        // Setup biometric authentication
         setupBiometricAuth()
 
-        // Handle Google Sign-In button click
         binding.btnLoginGoogle.setOnClickListener {
-            signInWithGoogle()
+            //signInWithGoogle()
         }
 
-        // Register buttons
         binding.btnRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
@@ -65,7 +61,6 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Email/Password login
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString().trim()
             val password = binding.edtPass.text.toString().trim()
@@ -82,49 +77,44 @@ class LoginActivity : AppCompatActivity() {
 
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                 if (it.isSuccessful) {
-                    val intent = Intent(this, MainActivity::class.java)
-                    finish()
-                    startActivity(intent)
+                    Log.d("LoginActivity", "Sign-in successful")
                     checkBiometricAvailability(email, password)
                 } else {
-                    Toast.makeText(this, "Login unsuccessful. Try again!", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(this, "Login unsuccessful. Try again!", Toast.LENGTH_SHORT).show()
                 }
-            }
-            binding.btnFingerPrintScan.setOnClickListener {
-                biometricHelper.authenticateWithBiometric()
             }
         }
 
-        // Fingerprint button click
         binding.btnFingerPrintScan.setOnClickListener {
             showBiometricPrompt()
         }
     }
+
     private fun checkBiometricAvailability(email: String, password: String) {
+        Log.d("LoginActivity", "Checking biometric availability")
         val biometricManager = BiometricManager.from(this)
         when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG)) {
             BiometricManager.BIOMETRIC_SUCCESS -> {
-                // Check if user has already set up biometrics
+                Log.d("LoginActivity", "Biometrics available")
                 db.collection("userBiometrics")
                     .document(auth.currentUser?.uid ?: "")
                     .get()
                     .addOnSuccessListener { document ->
                         if (!document.exists() || document.toObject(BiometricHelper.UserBiometricData::class.java)?.isBiometricEnabled != true) {
-                            // Biometrics available but not set up - show setup prompt
+                            Log.d("LoginActivity", "Biometrics not set up; showing setup prompt")
                             showBiometricSetupPrompt(email, password)
                         } else {
-                            // Biometrics already set up - proceed to main activity
+                            Log.d("LoginActivity", "Biometrics already set up; proceeding to main activity")
                             proceedToMainActivity()
                         }
                     }
                     .addOnFailureListener {
-                        // In case of error, proceed to main activity
+                        Log.d("LoginActivity", "Error fetching biometric setup data; proceeding to main activity")
                         proceedToMainActivity()
                     }
             }
             else -> {
-                // If biometrics are not available, proceed to main activity
+                Log.d("LoginActivity", "Biometrics not available; proceeding to main activity")
                 proceedToMainActivity()
             }
         }
@@ -135,7 +125,6 @@ class LoginActivity : AppCompatActivity() {
             .setTitle("Set Up Fingerprint Login")
             .setMessage("Would you like to set up fingerprint login for faster access next time?")
             .setPositiveButton("Yes") { _, _ ->
-                // Initialize biometric enrollment
                 setupBiometricEnrollment(email, password)
             }
             .setNegativeButton("Skip") { _, _ ->
@@ -149,22 +138,17 @@ class LoginActivity : AppCompatActivity() {
         val prompt = BiometricPrompt(this, executor,
             object : BiometricPrompt.AuthenticationCallback() {
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
-                    super.onAuthenticationSucceeded(result)
-                    // Save biometric enrollment in Firestore
+                    Log.d("LoginActivity", "Biometric enrollment authentication succeeded")
                     saveBiometricEnrollment(email, password)
                 }
 
                 override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-                    super.onAuthenticationError(errorCode, errString)
-                    Toast.makeText(this@LoginActivity,
-                        "Biometric setup failed: $errString", Toast.LENGTH_SHORT).show()
+                    Log.d("LoginActivity", "Biometric enrollment authentication error: $errString")
                     proceedToMainActivity()
                 }
 
                 override fun onAuthenticationFailed() {
-                    super.onAuthenticationFailed()
-                    Toast.makeText(this@LoginActivity,
-                        "Biometric authentication failed", Toast.LENGTH_SHORT).show()
+                    Log.d("LoginActivity", "Biometric enrollment authentication failed")
                 }
             })
 
@@ -182,7 +166,6 @@ class LoginActivity : AppCompatActivity() {
         val biometricData = BiometricHelper.UserBiometricData(
             isBiometricEnabled = true,
             email = email,
-            // Note: In a production app, you should encrypt the password
             password = password
         )
 
@@ -190,34 +173,17 @@ class LoginActivity : AppCompatActivity() {
             .document(userId)
             .set(biometricData)
             .addOnSuccessListener {
-                Toast.makeText(this, "Fingerprint login set up successfully", Toast.LENGTH_SHORT).show()
+                Log.d("LoginActivity", "Biometric enrollment saved successfully")
                 proceedToMainActivity()
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Failed to save biometric settings", Toast.LENGTH_SHORT).show()
+                Log.d("LoginActivity", "Failed to save biometric settings")
                 proceedToMainActivity()
             }
     }
 
-//    private fun proceedToMainActivity() {
-//        val intent = Intent(this, MainActivity::class.java)
-//        finish()
-//        startActivity(intent)}
-//    private fun showEnableBiometricDialog(email: String, password: String) {
-//        AlertDialog.Builder(this)
-//            .setTitle("Enable Biometric Login")
-//            .setMessage("Would you like to enable fingerprint login for future use?")
-//            .setPositiveButton("Yes") { _, _ ->
-//                biometricHelper.enableBiometricLogin(email, password)
-//                proceedToMainActivity()
-//            }
-//            .setNegativeButton("No") { _, _ ->
-//                proceedToMainActivity()
-//            }
-//            .show()
-//    }
-
     private fun proceedToMainActivity() {
+        Log.d("LoginActivity", "Proceeding to MainActivity")
         val intent = Intent(this, MainActivity::class.java)
         finish()
         startActivity(intent)
@@ -225,31 +191,18 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setupBiometricAuth() {
         executor = ContextCompat.getMainExecutor(this)
-
         biometricPrompt = BiometricPrompt(this, executor,
             object : BiometricPrompt.AuthenticationCallback() {
-                override fun onAuthenticationSucceeded(
-                    result: BiometricPrompt.AuthenticationResult
-                ) {
-                    super.onAuthenticationSucceeded(result)
+                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                     fingerPrintAction()
                 }
 
-                override fun onAuthenticationError(
-                    errorCode: Int,
-                    errString: CharSequence
-                ) {
-                    super.onAuthenticationError(errorCode, errString)
-                    Toast.makeText(this@LoginActivity,
-                        "Authentication error: $errString", Toast.LENGTH_SHORT)
-                        .show()
+                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                    Log.d("LoginActivity", "Authentication error: $errString")
                 }
 
                 override fun onAuthenticationFailed() {
-                    super.onAuthenticationFailed()
-                    Toast.makeText(this@LoginActivity,
-                        "Authentication failed", Toast.LENGTH_SHORT)
-                        .show()
+                    Log.d("LoginActivity", "Authentication failed")
                 }
             })
 
@@ -263,55 +216,21 @@ class LoginActivity : AppCompatActivity() {
     private fun showBiometricPrompt() {
         val biometricManager = BiometricManager.from(this)
         when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG)) {
-            BiometricManager.BIOMETRIC_SUCCESS ->
+            BiometricManager.BIOMETRIC_SUCCESS -> {
+                Log.d("LoginActivity", "Biometric prompt shown")
                 biometricPrompt.authenticate(promptInfo)
+            }
             BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE ->
-                Toast.makeText(this, "No biometric features available on this device",
-                    Toast.LENGTH_SHORT).show()
+                Log.d("LoginActivity", "No biometric hardware available")
             BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE ->
-                Toast.makeText(this, "Biometric features are currently unavailable",
-                    Toast.LENGTH_SHORT).show()
+                Log.d("LoginActivity", "Biometric hardware unavailable")
             BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED ->
-                Toast.makeText(this, "No biometric credentials are enrolled",
-                    Toast.LENGTH_SHORT).show()
+                Log.d("LoginActivity", "No biometric credentials enrolled")
         }
     }
 
     private fun fingerPrintAction() {
-        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
-
-    // Google Sign-In related code remains the same
-    private val googleSignInLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-        if (task.isSuccessful) {
-            val account = task.result
-            firebaseAuthWithGoogle(account.idToken)
-        } else {
-            Toast.makeText(this, "Google sign-in failed", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun signInWithGoogle() {
-        val signInIntent = googleSignInClient.signInIntent
-        googleSignInLauncher.launch(signInIntent)
-    }
-
-    private fun firebaseAuthWithGoogle(idToken: String?) {
-        val credential = GoogleAuthProvider.getCredential(idToken, null)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    Toast.makeText(this, "Firebase Authentication failed", Toast.LENGTH_SHORT).show()
-                }
-            }
+        Log.d("LoginActivity", "Fingerprint authentication successful")
+        proceedToMainActivity()
     }
 }

@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.CalendarView
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -28,6 +31,7 @@ class TutorExpandedActivity : AppCompatActivity() {
     private lateinit var btnAbout: Button
     private lateinit var btnLevelsSubjects: Button
     private lateinit var btnReviews: Button
+    private lateinit var btnBooking: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -37,6 +41,7 @@ class TutorExpandedActivity : AppCompatActivity() {
         val tutorProfilePicture: ImageView = findViewById(R.id.ivProfilePic)
         val tutorName: TextView = findViewById(R.id.tvTutorName)
         val tutorRating: TextView = findViewById(R.id.tvRating)
+        val tutorRatingCount: TextView = findViewById(R.id.tvRatingCount)
         val tutorRate: TextView = findViewById(R.id.tvRate)
         val tutorLocation: TextView = findViewById(R.id.tvLocation)
         val tutorLanguages: TextView = findViewById(R.id.tvLanguage)
@@ -59,10 +64,24 @@ class TutorExpandedActivity : AppCompatActivity() {
         val tutorSubjects: TextView = findViewById(R.id.tvSubjects)
         val tutorLevels: TextView = findViewById(R.id.tvLevels)
 
+        //Declaring tutor booking
+        val txtSubject: TextView = findViewById(R.id.textViewSubject)
+        val spinnerSubjects : Spinner = findViewById(R.id.spinnerSubjects)
+        val txtTime: TextView = findViewById(R.id.textViewTime)
+        val spnTimes : Spinner= findViewById(R.id.spinnerTimes)
+        val txtSelectType : TextView= findViewById(R.id.txtSelectType)
+        val spinnerSessionType: Spinner = findViewById(R.id.spinnerSessionType)
+        val calendar : CalendarView= findViewById(R.id.calendarView)
+        val etAppointment : EditText = findViewById(R.id.appointmentEditText)
+        val txtAppointment: TextView = findViewById(R.id.appointmentsTextView)
+        val btnAdd : Button= findViewById(R.id.addButton)
+        val btnRemove : Button= findViewById(R.id.removeButton)
+
         // Declaring buttons in linear layout
         btnAbout = findViewById(R.id.btnAbout)
         btnLevelsSubjects=findViewById(R.id.btnLevelsSubjects)
         btnReviews=findViewById(R.id.btnReviews)
+        btnBooking=findViewById(R.id.btnBooking)
 
         linearLayout = findViewById(R.id.linearLayout)
         btnAbout.setOnClickListener { selectButton(btnAbout) }
@@ -88,6 +107,18 @@ class TutorExpandedActivity : AppCompatActivity() {
         tutorSubjectsHeading.visibility = View.GONE
         tutorSubjects.visibility = View.GONE
 
+        txtSubject.visibility = View.GONE
+        spinnerSubjects.visibility = View.GONE
+        txtTime.visibility = View.GONE
+        spnTimes.visibility = View.GONE
+        txtSelectType.visibility = View.GONE
+        spinnerSessionType.visibility = View.GONE
+        calendar.visibility = View.GONE
+        etAppointment.visibility = View.GONE
+        txtAppointment.visibility = View.GONE
+        btnAdd.visibility = View.GONE
+        btnRemove.visibility = View.GONE
+
         reviewRecyclerView.visibility = View.GONE
 
         // OnClickListeners for buttons
@@ -108,6 +139,18 @@ class TutorExpandedActivity : AppCompatActivity() {
             tutorSubjects.visibility = View.GONE
 
             reviewRecyclerView.visibility = View.GONE
+
+            txtSubject.visibility = View.GONE
+            spinnerSubjects.visibility = View.GONE
+            txtTime.visibility = View.GONE
+            spnTimes.visibility = View.GONE
+            txtSelectType.visibility = View.GONE
+            spinnerSessionType.visibility = View.GONE
+            calendar.visibility = View.GONE
+            etAppointment.visibility = View.GONE
+            txtAppointment.visibility = View.GONE
+            btnAdd.visibility = View.GONE
+            btnRemove.visibility = View.GONE
         }
 
         btnLevelsSubjects.setOnClickListener {
@@ -125,6 +168,18 @@ class TutorExpandedActivity : AppCompatActivity() {
             tutorLevel.visibility = View.VISIBLE
             tutorSubjectsHeading.visibility = View.VISIBLE
             tutorSubjects.visibility = View.VISIBLE
+
+            txtSubject.visibility = View.GONE
+            spinnerSubjects.visibility = View.GONE
+            txtTime.visibility = View.GONE
+            spnTimes.visibility = View.GONE
+            txtSelectType.visibility = View.GONE
+            spinnerSessionType.visibility = View.GONE
+            calendar.visibility = View.GONE
+            etAppointment.visibility = View.GONE
+            txtAppointment.visibility = View.GONE
+            btnAdd.visibility = View.GONE
+            btnRemove.visibility = View.GONE
 
             reviewRecyclerView.visibility = View.GONE
         }
@@ -145,9 +200,51 @@ class TutorExpandedActivity : AppCompatActivity() {
             tutorSubjectsHeading.visibility = View.GONE
             tutorSubjects.visibility = View.GONE
 
+            txtSubject.visibility = View.GONE
+            spinnerSubjects.visibility = View.GONE
+            txtTime.visibility = View.GONE
+            spnTimes.visibility = View.GONE
+            txtSelectType.visibility = View.GONE
+            spinnerSessionType.visibility = View.GONE
+            calendar.visibility = View.GONE
+            etAppointment.visibility = View.GONE
+            txtAppointment.visibility = View.GONE
+            btnAdd.visibility = View.GONE
+            btnRemove.visibility = View.GONE
+
             reviewRecyclerView.visibility = View.VISIBLE
         }
 
+        btnBooking.setOnClickListener {
+            tutorCoursesHeading.visibility = View.GONE
+            tutorCourses.visibility = View.GONE
+            tutorSkillsHeading.visibility = View.GONE
+            tutorSkills.visibility = View.GONE
+            tutorEducationHeading.visibility = View.GONE
+            tutorEducation.visibility = View.GONE
+            tutorWorkHeading.visibility = View.GONE
+            tutorWork.visibility = View.GONE
+
+            tvLevelsAndSubjects.visibility = View.GONE
+            tutorLevelHeading.visibility = View.GONE
+            tutorLevel.visibility = View.GONE
+            tutorSubjectsHeading.visibility = View.GONE
+            tutorSubjects.visibility = View.GONE
+
+            txtSubject.visibility = View.VISIBLE
+            spinnerSubjects.visibility = View.VISIBLE
+            txtTime.visibility = View.VISIBLE
+            spnTimes.visibility = View.VISIBLE
+            txtSelectType.visibility = View.VISIBLE
+            spinnerSessionType.visibility = View.VISIBLE
+            calendar.visibility = View.VISIBLE
+            etAppointment.visibility = View.VISIBLE
+            txtAppointment.visibility = View.VISIBLE
+            btnAdd.visibility = View.VISIBLE
+            btnRemove.visibility = View.VISIBLE
+
+            reviewRecyclerView.visibility = View.GONE
+        }
         // Retrieving data from intent
         val bundle: Bundle? = intent.extras
         val name = bundle?.getString("TUTOR_NAME")
@@ -161,8 +258,9 @@ class TutorExpandedActivity : AppCompatActivity() {
         val education = bundle?.getString("Education")
         val coursesCertification = bundle?.getString("CoursesCertifications")
         val skills = bundle?.getString("Skills")
-        val subjects = bundle?.getString("Subjects") // Get subjects array
-        val levels = bundle?.getString("Levels") // Get subjects array
+        val subjects = bundle?.getString("Subjects")
+        val levels = bundle?.getString("Levels")
+        val ratingCount = bundle?.getString("RatingCount")
 
         // Setting tutor data
         tutorProfilePicture.setImageResource(profilePic ?: R.drawable.icon)
@@ -178,6 +276,7 @@ class TutorExpandedActivity : AppCompatActivity() {
         tutorWork.text = workExp
         tutorSubjects.text = subjects
         tutorLevels.text = levels
+        tutorRatingCount.text = ratingCount
 
         Log.d(TAG, "Activity created")
 
@@ -195,6 +294,7 @@ class TutorExpandedActivity : AppCompatActivity() {
         btnAbout.setTextColor(ContextCompat.getColor(this, android.R.color.black))
         btnLevelsSubjects.setTextColor(ContextCompat.getColor(this, android.R.color.black))
         btnReviews.setTextColor(ContextCompat.getColor(this, android.R.color.black))
+        btnBooking.setTextColor(ContextCompat.getColor(this, android.R.color.black))
 
         // Change the text color of the selected button to blue
         selectedButton.setTextColor(ContextCompat.getColor(this, R.color.WRTBlue)) // Replace with your blue color

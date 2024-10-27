@@ -14,6 +14,11 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.util.Locale.filter
 
 
@@ -24,6 +29,7 @@ class tutorOptions_1 : Fragment() {
     private lateinit var tutorList: ArrayList<Tutors1>
     private lateinit var filteredTutorList: ArrayList<Tutors1>
     private lateinit var adapter: TutorAdapter
+    private lateinit var database: DatabaseReference
 
     //Tutor profile declarations
     lateinit var imageId: Array<Int>
@@ -52,9 +58,9 @@ class tutorOptions_1 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        requireActivity().title = "View tutors"
         val view = inflater.inflate(R.layout.tutor_options_1, container, false)
+        requireActivity().title = "View tutors"
+        database = FirebaseDatabase.getInstance().reference.child("student_reviews")
 
         recyclerView = view.findViewById(R.id.rvTutors)
         etSearchBar = view.findViewById(R.id.etSearchBar)
@@ -203,26 +209,83 @@ class tutorOptions_1 : Fragment() {
         })
         return view
     }
+    private fun fetchTutorRating(tutorName: String, callback: (Double,Int) -> Unit) {
+        database.child(tutorName).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                var totalRating = 0.0
+                var numberOfReviews = 0
+
+                for (reviewSnapshot in snapshot.children) {
+                    val rating = reviewSnapshot.child("rating").getValue(Int::class.java) ?: 0
+                    totalRating += rating
+                    numberOfReviews++
+                }
+
+                val averageRating = if (numberOfReviews > 0) {
+                    (totalRating / numberOfReviews).round(2)
+                } else {
+                    0.0
+                }
+
+                callback(averageRating, numberOfReviews)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                callback(0.0, 0)
+            }
+        })
+    }
+
+    private fun Double.round(decimals: Int): Double {
+        var multiplier = 1.0
+        repeat(decimals) { multiplier *= 10 }
+        return kotlin.math.round(this * multiplier) / multiplier
+    }
+
     private fun getUserData() {
+        var completedTutors = 0
+        val totalTutors = name.size
+
         for (i in imageId.indices) {
-            val tutor = Tutors1(
-                imageId[i], name[i], rating[i], rate[i], location[i], languages[i], description[i], subjects[i],
-                workExperience[i], education[i], coursesCertifications[i], skills[i], levels[i]
-            )
-            tutorList.add(tutor)
+            fetchTutorRating(name[i]) { averageRating, reviewCount ->
+                val tutor = Tutors1(
+                    imageId[i],
+                    name[i],
+                    averageRating, // Use the calculated average rating from Firebase
+                    rate[i],
+                    location[i],
+                    languages[i],
+                    description[i],
+                    subjects[i],
+                    workExperience[i],
+                    education[i],
+                    coursesCertifications[i],
+                    skills[i],
+                    levels[i],
+reviewCount
+                )
+                tutorList.add(tutor)
+                completedTutors++
+
+                // Only set up the adapter once all tutors are loaded
+                if (completedTutors == totalTutors) {
+                    // Sort tutors by rating (optional)
+                    tutorList.sortByDescending { it.Rating }
+                    filteredTutorList.clear()
+                    filteredTutorList.addAll(tutorList)
+
+                    adapter = TutorAdapter(filteredTutorList)
+                    recyclerView.adapter = adapter
+                    setupAdapterClickListener()
+                }
+            }
         }
+    }
 
-        // Initialize filteredTutorList with all tutors
-        filteredTutorList.addAll(tutorList)
-
-        // Initialize adapter with filteredTutorList
-        adapter = TutorAdapter(filteredTutorList)
-        recyclerView.adapter = adapter
-
+    private fun setupAdapterClickListener() {
         adapter.setOnItemClickListener(object : TutorAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
                 val intent = Intent(context, TutorExpandedActivity::class.java)
-                // Use filteredTutorList instead of tutorList for the selected position
                 val selectedTutor = filteredTutorList[position]
 
                 intent.putExtra("TUTOR_NAME", selectedTutor.Name)
@@ -239,11 +302,11 @@ class tutorOptions_1 : Fragment() {
                 intent.putExtra("Skills", selectedTutor.Skills)
                 intent.putExtra("Subjects", selectedTutor.Subjects)
                 intent.putExtra("Levels", selectedTutor.Levels)
+                intent.putExtra("RatingCount", selectedTutor.RatingCount)
 
                 try {
                     startActivity(intent)
                 } catch (e: Exception) {
-                    // Consider adding error handling here
                     e.printStackTrace()
                 }
             }

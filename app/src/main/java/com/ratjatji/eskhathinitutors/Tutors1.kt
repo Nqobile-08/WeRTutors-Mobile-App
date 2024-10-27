@@ -15,5 +15,6 @@ data class Tutors1(
     var Education: String,
     var CoursesCertifications: String,
     var Skills: String,
-    var Levels: String
+    var Levels: String,
+    var RatingCount: Int = 0
 ): Serializable
