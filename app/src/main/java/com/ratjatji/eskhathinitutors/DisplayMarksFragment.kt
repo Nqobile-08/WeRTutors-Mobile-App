@@ -115,6 +115,7 @@ class DisplayMarksFragment : Fragment() {
         }
 
         val barChartView = BarChartView(requireContext()).apply {
+
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 700
@@ -124,7 +125,9 @@ class DisplayMarksFragment : Fragment() {
             )
             labelsFormatter = { String.format("%.1f%%", it) }
             labelsColor = android.graphics.Color.BLACK
-            animation.duration = 1500L
+            labelsSize = 40f
+
+                        animation.duration = 1500L
             labelsFormatter = { String.format("%.1f%%", it) }
         }
         // Add heading for bar chart
@@ -142,7 +145,7 @@ class DisplayMarksFragment : Fragment() {
         for ((subject, marks) in groupedMarks) {
             // Create subject heading
             val subjectHeading = TextView(requireContext()).apply {
-                text = "${subject.capitalize()} progress "
+                text = "${subject.capitalize()} progress"
                 textSize = 18f
                 setPadding(16, 32, 16, 16)
             }
@@ -153,9 +156,10 @@ class DisplayMarksFragment : Fragment() {
                 val average = marks.map { it.mark }.average()
                 val highest = marks.maxOf { it.mark }
                 val lowest = marks.minOf { it.mark }
+                val count = marks.size
                 text = String.format(
-                    "Average: %.1f%% | Highest: %.1f%% | Lowest: %.1f%%",
-                    average, highest, lowest
+                    "Average: %.1f%% | Highest: %.1f%% | Lowest: %.1f%% | Number of assessments entered: %d",
+                    average, highest, lowest, count
                 )
                 textSize = 14f
                 setPadding(16, 0, 16, 16)
@@ -170,10 +174,8 @@ class DisplayMarksFragment : Fragment() {
                 )
 
                 labelsFormatter = { String.format("%.1f%%", it) }
-                labelsSize = 22f
+                labelsSize = 30f //28
                 labelsColor = android.graphics.Color.BLACK
-                // Enable grid lines for better readability
-                // This will show the default grid lines (not configurable)
                 animation.duration = 1500L
                 labelsFormatter = { String.format("%.0f%%", it) }
 
@@ -191,6 +193,15 @@ class DisplayMarksFragment : Fragment() {
 
             chartContainer.addView(lineChartView)
             lineChartView.show(lineData)
+
+            // Add a gap between line charts
+            val spaceView = View(requireContext()).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    65  // Set the height of the gap here (e.g., 50 pixels)
+                )
+            }
+            chartContainer.addView(spaceView)
         }
     }
     private fun String.toMonthDay(): String {

@@ -183,7 +183,8 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
         android:layout_marginTop="10dp"
         android:text="Work Experience"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/tvAboutTutorWorkExp"
@@ -191,7 +192,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorWorkExpHeading"
         android:layout_marginTop="5dp"
-        android:text="Work experience info"/>
+        android:text="Work experience info"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/tvAboutTutorEducationHeading"
@@ -200,6 +202,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorWorkExp"
         android:layout_marginTop="20dp"
         android:text="Education"
+        android:visibility="invisible"
         android:textStyle="bold"/>
     <TextView
         android:id="@+id/tvAboutTutorEducation"
@@ -207,6 +210,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorEducationHeading"
         android:layout_marginTop="5dp"
+        android:visibility="invisible"
         android:text="education info"/>
 
     <TextView
@@ -216,6 +220,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorEducation"
         android:layout_marginTop="20dp"
         android:text="Courses and Certifications"
+        android:visibility="invisible"
         android:textStyle="bold"/>
     <TextView
         android:id="@+id/tvAboutTutorCourses"
@@ -223,6 +228,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorCoursesHeading"
         android:layout_marginTop="5dp"
+        android:visibility="invisible"
         android:text="courses info"/>
     <TextView
         android:id="@+id/tvAboutTutorSkillsHeading"
@@ -231,6 +237,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorCourses"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
+        android:visibility="invisible"
         android:text="Skills"/>
 
     <TextView
@@ -239,6 +246,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tvAboutTutorSkillsHeading"
         android:layout_marginTop="5dp"
+        android:visibility="invisible"
         android:text="skills info"/>
 
     <TextView
@@ -255,6 +263,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Levels"
+        android:visibility="invisible"
         android:layout_marginTop="5dp"
         app:layout_constraintTop_toBottomOf="@id/tvLevelsAndSubjects1"
         app:layout_constraintStart_toStartOf="@id/horizontalScrollView"/>
@@ -273,6 +282,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Subjects"
+        android:visibility="invisible"
         android:layout_marginTop="5dp"
         app:layout_constraintTop_toBottomOf="@id/tvLevelsAndSubjects2"
         app:layout_constraintStart_toStartOf="@id/horizontalScrollView"/>
@@ -299,8 +309,7 @@
             app:layout_constraintTop_toBottomOf="@id/horizontalScrollView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"
-            android:visibility="invisible"/>
+            android:layout_marginTop="16dp"/>
 
         <!-- Spinner for selecting a subject -->
         <Spinner
@@ -311,8 +320,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintWidth_percent="0.8"
-            android:layout_marginTop="5dp"
-            android:visibility="invisible"/>
+            android:layout_marginTop="5dp"/>
 
         <!-- Title for selecting a time -->
         <TextView
@@ -325,8 +333,7 @@
             app:layout_constraintTop_toBottomOf="@id/spinnerSubjects"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"
-            android:visibility="invisible"/>
+            android:layout_marginTop="16dp"/>
 
         <!-- Spinner for selecting a time -->
         <Spinner
@@ -337,8 +344,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintWidth_percent="0.8"
-            android:layout_marginTop="5dp"
-            android:visibility="invisible"/>
+            android:layout_marginTop="5dp"/>
 
         <TextView
             android:id="@+id/txtSelectType"
@@ -350,8 +356,7 @@
             app:layout_constraintTop_toBottomOf="@id/spinnerTimes"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"
-            android:visibility="invisible"/>
+            android:layout_marginTop="16dp"/>
 
         <!-- Spinner for selecting a time -->
         <Spinner
@@ -362,8 +367,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintWidth_percent="0.8"
-            android:layout_marginTop="5dp"
-            android:visibility="invisible"/>
+            android:layout_marginTop="5dp"/>
 
         <!-- EditText for entering additional appointment details -->
         <CalendarView
@@ -374,8 +378,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spinnerSessionType"
-            android:visibility="invisible"/>
+            app:layout_constraintTop_toBottomOf="@id/spinnerSessionType"/>
 
         <EditText
             android:id="@+id/appointmentEditText"
@@ -386,8 +389,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="16dp"
             android:hint="Enter appointment details"
-            android:minHeight="48dp"
-            android:visibility="invisible"/>
+            android:minHeight="48dp"/>
 
         <!-- Button to add appointment -->
         <Button
@@ -399,8 +401,7 @@
             app:layout_constraintTop_toBottomOf="@id/appointmentEditText"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="16dp"
-            android:visibility="invisible"/>
+            android:layout_marginTop="16dp"/>
 
         <!-- Button to remove appointment -->
         <Button
@@ -412,8 +413,7 @@
             app:layout_constraintTop_toBottomOf="@id/appointmentEditText"
             app:layout_constraintStart_toEndOf="@id/addButton"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:visibility="invisible"/>
+            android:layout_marginTop="16dp"/>
 
         <!-- TextView to display appointments -->
         <TextView
@@ -426,8 +426,7 @@
             app:layout_constraintTop_toBottomOf="@id/removeButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"
-            android:visibility="invisible"/>
+            android:layout_marginTop="16dp"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
