@@ -54,9 +54,8 @@
             android:title="Profile *"
             android:icon="@drawable/baseline_co_present_24"/>
         <item
-            android:id="@+id/nav_filter"
-            android:title="filter *"
-            android:icon="@drawable/ic_filter"
+            android:id="@+id/nav_nav"
+            android:title="Nav"
             />
         <item
             android:id="@+id/nav_JobPost"

@@ -43,18 +43,34 @@
         <activity
             android:name=".Tutors.RegisterTutorActivity"
             android:exported="false" />
+
         <activity
             android:name=".Tutors.EditProfileActivity"
             android:exported="false" />
-        <activity
-            android:name=".Tutors.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+          <activity
+                android:name=".Tutors.MainActivity"
+                android:exported="true">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+           </activity>
+        <service
+            android:name=".ChatMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
+        </service>
+
+         <activity
+            android:name=".SplashWin"
+            android:exported="false">
+
         </activity>
+
     </application>
 
 </manifest>

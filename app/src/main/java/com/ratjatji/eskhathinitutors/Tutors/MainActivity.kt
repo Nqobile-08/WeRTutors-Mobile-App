@@ -18,6 +18,7 @@ import com.ratjatji.eskhathinitutors.LoadMarksFragment
 import com.ratjatji.eskhathinitutors.ProfileFragment
 import com.ratjatji.eskhathinitutors.R
 import com.ratjatji.eskhathinitutors.SettingsHomeFragment
+import com.ratjatji.eskhathinitutors.SplashWin
 import com.ratjatji.eskhathinitutors.WeRTutorsAi
 import com.ratjatji.eskhathinitutors.tutorOptions_1
 
@@ -59,7 +60,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_AiHelper -> selectedFragment = WeRTutorsAi()
                 R.id.nav_marks -> selectedFragment = LoadMarksFragment()
                 R.id.nav_view_marks -> selectedFragment = DisplayMarksFragment()
-                R.id.nav_filter -> selectedFragment = FilterFragment()
+                R.id.nav_nav -> {
+
+                    val intent = Intent(this, SplashWin::class.java)
+                    startActivity(intent)
+                    drawerLayout.closeDrawer(navView)
+                    return@setNavigationItemSelectedListener true
+                }
                 R.id.nav_communication -> {
 
                     val intent = Intent(this, ChatActivity::class.java)

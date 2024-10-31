@@ -1,25 +1,17 @@
 package com.ratjatji.eskhathinitutors
 
-import android.content.DialogInterface
+import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.hardware.biometrics.BiometricPrompt
-import android.os.Build
+import android.net.ConnectivityManager
 import android.os.Bundle
-import android.os.CancellationSignal
-import android.support.annotation.RequiresApi
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-
-
-
 import com.ratjatji.eskhathinitutors.Tutors.MainActivity
 import com.ratjatji.eskhathinitutors.databinding.ActivityLoginBinding
 
@@ -29,37 +21,35 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var binding: ActivityLoginBinding
 
-    //@RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initialize Firebase Auth
+        // Initialize Firebase Auth and SharedPreferences
         auth = FirebaseAuth.getInstance()
+        val sharedPreferences = getSharedPreferences("user_credentials", Context.MODE_PRIVATE)
 
-        // Configure Google Sign In
+        // Configure Google Sign-In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))  // Add your client ID
+            .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        // Handle Google Sign-In button click
+        // Google Sign-In button
         binding.btnLoginGoogle.setOnClickListener {
             signInWithGoogle()
         }
 
         // Register buttons
         binding.btnRegister.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
 
         binding.btnRegisterTutor.setOnClickListener {
-            val intent = Intent(this, RegisterTutorActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, RegisterTutorActivity::class.java))
         }
 
         // Email/Password login
@@ -67,35 +57,49 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.edtEmail.text.toString().trim()
             val password = binding.edtPass.text.toString().trim()
 
-            // Check if both email and password are empty first
-            if (email.isEmpty() && password.isEmpty()) {
-                Toast.makeText(this, "Email and Password fields are empty. Please fill in both fields.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            // Then check if only email is empty
-            else if (email.isEmpty()) {
-                Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            // Then check if only password is empty
-            else if (password.isEmpty()) {
-                Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT).show()
+            // Check if fields are empty
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill in both fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
+            // Check if user is online
+            if (isOnline()) {
+                // Proceed with Firebase login
+                auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        // Save credentials for offline login
+                        sharedPreferences.edit().apply {
+                            putString("email", email)
+                            putString("password", password)  // In a real app, hash this for security
+                            apply()
+                        }
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Invalid login credentials", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else {
+                // Perform offline login
+                val storedEmail = sharedPreferences.getString("email", "")
+                val storedPassword = sharedPreferences.getString("password", "")
 
-            // Proceed with login if both fields are filled
-            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    val intent = Intent(this, MainActivity::class.java)
+                if (email == storedEmail && password == storedPassword) {
+                    // Offline login success
+                    startActivity(Intent(this, MainActivity::class.java))
                     finish()
-                    startActivity(intent)
                 } else {
-                    Toast.makeText(this, "Login details are not registered. Please enter registered email and password !", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "No internet and no saved credentials", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+    }
 
+    // Check network connectivity
+    private fun isOnline(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        return connectivityManager.activeNetworkInfo?.isConnected == true
     }
 
     // Launch Google Sign-In Intent
@@ -122,9 +126,7 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 } else {
                     Toast.makeText(this, "Firebase Authentication failed", Toast.LENGTH_SHORT).show()
