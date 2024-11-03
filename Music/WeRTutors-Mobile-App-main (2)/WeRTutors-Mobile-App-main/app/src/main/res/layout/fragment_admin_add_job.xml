@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editTextStudentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/student_name_hint" />
+
+        <EditText
+            android:id="@+id/editTextGrade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/grade_hint"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editTextRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/rate_hint"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/editTextType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/type_hint" />
+
+        <EditText
+            android:id="@+id/editTextSchool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/school_hint" />
+
+        <EditText
+            android:id="@+id/editTextAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/address_hint" />
+
+        <EditText
+            android:id="@+id/editTextSubjects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/subjects_hint" />
+
+        <Button
+            android:id="@+id/buttonAddJob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_job_button"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+</ScrollView>

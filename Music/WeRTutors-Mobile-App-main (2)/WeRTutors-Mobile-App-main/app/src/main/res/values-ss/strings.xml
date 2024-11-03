@@ -1,0 +1,302 @@
+<resources>
+    <string name="app_name">WeRTutors</string>
+    <string name="navigation_drawer_close" />
+    <string name="navigation_drawer_open" />
+
+
+    <string name="hello_blank_fragment">Sawubona leli libhaxa</string>
+    <string name="john_doe">John Doe</string>
+
+    <string name="Wertutors" />
+    <!-- Preference Titles -->
+    <string name="messages_header">Imiyalezo</string>
+    <string name="sync_header">Vumelanisa</string>
+    <string name="hello_world">Sawubona</string>
+    <string name="welcome_message">Siyakwamukela</string>
+    <!-- Messages Preferences -->
+    <string name="signature_title">Umtsetfo wakho</string>
+    <string name="reply_title">Impendulo yokuzenzakalelayo</string>
+    <string name="ScheduleCalendar">Ikhalenda Yekuhlela"</string>
+    <string name="dashboard">IDESHIBHODI</string>
+    <string name="Apply_To_Job">Faka isicelo somsebenzi</string>
+    <string name="ViewYourSchedule">Buka isheduli yakho</string>
+    <string name="Book_A_Tutor">Bhuka umfundisi</string>
+    <string name="nav_Ai_Helper">Umsiti wekudla</string>
+    <string name="How_To_Guide">Indlela Yokuhola</string>
+    <string name="dash_board">Ibhodi leDashboard</string>
+    <!-- Sync Preferences -->
+    <string name="sync_title">Vumelanisa i-imeyili njalo</string>
+    <string name="attachment_title">Landa lokufakwe</string>
+    <string name="attachment_summary_on">Landa ngokuzenzakalelayo lokufakwe kuma-imeyili angenako</string>
+    <string name="attachment_summary_off">Landa lokufakwe kuphela uma kucelwa ngesandla</string>
+    <string name="nav_profile" />
+    <string name="nav_dashboard" />
+    <string name="nav_notifications" />
+    <string name="type_of_tutoring">Uhlobo lwekufundza</string>
+    <string name="enter_number">faka inombolo</string>
+    <string name="phonenumber">Inombolo yefoni</string>
+    <string name="enter_institution">faka inhlangano</string>
+    <string name="tetiary_institution_adress">ikheli lenhlangano</string>
+
+    <string name="surname">sibongo</string>
+
+    <string name="name">libito</string>
+    <string name="__400">400\n</string>
+    <string name="booking">Ukubhuka</string>
+    <string name="todo1">todo</string>
+
+    <string name="todo2">todo2</string>
+    <string name="_400">_400</string>
+    <string name="tutor">umfundzi\n</string>
+    <string name="we_r_tutors">weretutors</string>
+    <string name="todo">todos</string>
+    <string name="sammy_snow">sammy snows</string>
+    <string name="sammy">Sammy</string>
+    <string name="job_title">Sihloko semsebenti</string>
+    <string name="reg" />
+    <string name="billings">Ukubhadala</string>
+    <string name="scroll" />
+    <string name="scrol" />
+    <string name="sec_time_left">emasekhondi asele</string>
+    <string name="button" />
+    <string name="api_key">AIzaSyD7nFgqvRPZ1vzeii9iFtY2a001jRMT23Y</string>
+    <string name="default_web_client_id">default_webclient_id</string>
+    <string name="enter_tertiary_institution_address_optional" />
+
+    <string name="enter_phone_number">faka inombolo yefoni</string>
+    <string name="change_profile_image">Shintsha isithombe sephrofayela</string>
+    <string name="update">Buyekeza</string>
+    <string name="profile_picture">Isithombe sephrofayela</string>
+    <string name="review_session">Buyekeza Iseshini</string>
+    <string name="select_tutor">Khetha Umfundzi</string>
+    <string name="select_course">Khetha Ikhosi</string>
+    <string name="rate_session">Linganisela Iseshini</string>
+
+    <string name="enter_review_subject">Faka isihloko sokubuyekeza kwakho</string>
+
+    <string name="enter_review_description">Faka incazelo yokubuyekeza</string>
+    <string name="submit">Thumela</string>
+    <string name="empty_string"> </string>
+    <string name="very_poor">Kubuhlungu kakhulu</string>
+    <string name="poor">Kubuhlungu</string>
+    <string name="decent">Kuhle</string>
+    <string name="good">Kuhle kakhulu</string>
+    <string name="great">Kuhle kakhulu kakhulu</string>
+
+    <string name="nav_ATS">ATS</string>
+    <string name="nav_tutor_profile">Iphrofayela yomfundzi</string>
+
+    <string name="nav_schedule">Isheduli</string>
+    <string name="nav_AiHelper">Ai Umsizi</string>
+    <string name="nav_create_review">Dala Ukubuyekeza</string>
+    <string name="nav_session_timer">Isikhathi Seseshini</string>
+    <string name="nav_setting">Isilungiselelo</string>
+    <string name="nav_displayedMarks">Bonisa Amamaki</string>
+    <string name="nav_marks">Faka Amamaki</string>
+    <string name="nav_communication">Ukuxhumana</string>
+    <string name="nav_logout">Phuma</string>
+    <string name="please_fill_all_fields">Sicela ugcwalise onke amasimu</string>
+    <string name="review_submitted_successfully">Ukubuyekeza kuthunyelwe ngempumelelo</string>
+    <string name="select_language">Khetha Ulimi</string>
+    //
+
+    <string name="session_title">Isihloko Seseshini</string>
+    <string name="status_ready">Isimo: Silungele</string>
+    <string name="select_session_duration">Khetha Isikhathi Seseshini:</string>
+    <string name="select_duration">Khetha Isikhathi:</string>
+    <string name="select_student">Khetha Umfundi:</string>
+    <string name="session_type">Uhlobo Lweseshini:</string>
+    <string name="practical_work_given">Umsebenzi Wokwenza Unikeziwe:</string>
+    <string name="upload_proof_of_work">Layisha Ubufakazi Bomsebenzi:</string>
+    <string name="session_notes">Amanothi Eseshini</string>
+    <string name="enter_session_notes">Faka amanothi eseshini lapha</string>
+    <string name="comments_for_admin">Amazwana ku-Admin:</string>
+    <string name="enter_comments">Faka amazwana lapha</string>
+    <string name="submit_session">Thumela Iseshini</string>
+    <string name="start">Qala</string>
+    <string name="stop">Misa</string>
+    <string name="add_more_time">Engeza Isikhathi Esengeziwe</string>
+    <string name="upload">Layisha</string>
+    //
+    <string name="Name">Libito</string>
+    <string name="wertutors">WeRTutors</string>
+    <string name="client_register">WeTutors Client Register</string>
+
+    <string name="school_hint">Isikole:</string>
+    <string name="register_button">Bhalisa</string>
+    //
+
+
+    <string name="about">Mayelana</string>
+    <string name="levels_subjects">Amazinga nemihlaba</string>
+    <string name="reviews">Ukubuyekeza</string>
+    <string name="work_experience">Isipiliyoni Somsebenzi</string>
+    <string name="work_experience_info">Ulwazi lwesipiliyoni somsebenzi</string>
+    <string name="education">Imfundo</string>
+    <string name="education_info">Ulwazi lwemfundo</string>
+    <string name="courses_certifications">Izifundo Nezincwadi</string>
+    <string name="courses_info">Ulwazi lwezifundo</string>
+    <string name="skills">Amakhono</string>
+    <string name="skills_info">Ulwazi lwamakhono</string>
+    <string name="education_levels">Amazinga emfundo</string>
+    <string name="levels">Amazinga</string>
+    <string name="subjects_heading">Izihloko</string>
+
+    //
+    <string name="upload_resume">Layisha I-CV</string>
+    <string name="process_resume">Hlela I-CV</string>
+    //
+    <string name="student_name_hint">Libito Lomfundi</string>
+    <string name="grade_hint">Ibanga</string>
+    <string name="rate_hint">Isilinganiso</string>
+    <string name="type_hint">Uhlobo (isb., Online/In-person)</string>
+
+    <string name="address_hint">Ikheli</string>
+    <string name="subjects_hint">Izihloko (ezihlukaniswe ngamakoma)</string>
+    <string name="add_job_button">Engeza Umsebenzi</string>
+
+    //
+
+    <string name="english">IsiNgisi</string>
+    <string name="afrikaans">IsiBhunu</string>
+
+    //
+    <string name="assessment_information">Ulwazi Lokuhlola</string>
+    <string name="enter_subject_name">Faka libito lesihloko</string>
+    <string name="assessment_type">Uhlobo Lokuhlola</string>
+    <string name="enter_category">Faka isigaba (isb., Imathematika, Isayensi)</string>
+    <string name="assessment_date">Usuku Lokuhlola</string>
+    <string name="enter_date">Faka usuku (DD/MM/YYYY)</string>
+    <string name="enter_mark">Faka isilinganiso (kusuka ku-100)</string>
+
+    //
+    <string name="logout_fragment">Phuma Isiqephu</string>
+    <string name="logout">Phuma</string>
+
+    //
+    <string name="notifications">Izaziso</string>
+    <string name="send_notification">Thumela Isaziso</string>
+
+    //
+    <string name="add_card">Engeza Ikhadi</string>
+
+    <string name="enter_card_number">Faka inombolo yekhadi</string>
+    <string name="expiry_date">Usuku lokuphelelwa:</string>
+    <string name="mm_yy">MM/YY</string>
+    <string name="cvv">CVV:</string>
+    <string name="enter_cvv">Faka i-CVV</string>
+    <string name="card_nickname">Igama lekhadi: (Ongakukhetha)</string>
+    <string name="enter_card_nickname">Faka igama lekhadi</string>
+    <string name="save">Londoloza</string>
+
+    //
+    <string name="change_profile_picture">Shintsha Isithombe Sephrofayela</string>
+    <string name="welcome">Siyakwamukela</string>
+    <string name="user_type">Uhlobo Lomsebenzisi:</string>
+    <string name="enter_name">Faka Libito</string>
+    <string name="enter_surname">Faka Sibongo</string>
+    <string name="enter_residential_address">Faka Ikheli Lekuhlala</string>
+    <string name="enter_suburbs">Faka Emadolobheni</string>
+    <string name="enter_tertiary_institution">Faka Inhlangano (Ongakukhetha)</string>
+    <string name="update_profile">Buyekeza Iphrofayela</string>
+    //
+    <string name="quick_navigation">Ukuzulazula Ngokushesha</string>
+    <string name="session">Iseshini</string>
+    <string name="billing">Ukubhadala</string>
+    <string name="progress_tracker">Umkhondo Wokuthuthuka</string>
+
+    <string name="profile">Iphrofayela</string>
+    <string name="jobs">Imisebenzi</string>
+
+    //
+    <string name="select_a_tutor">Khetha Umfundzi</string>
+    <string name="select_a_subject">Khetha Isihloko</string>
+    <string name="select_a_time">Khetha Isikhathi</string>
+    <string name="enter_appointment_details">Faka imininingwane yokuhlangana</string>
+    <string name="add_appointment">Engeza Ukuhlangana</string>
+    <string name="remove_appointment">Susa Ukuhlangana</string>
+    <string name="appointments">Ukuhlangana</string>
+    //
+
+
+    <string name="off">Cishiwe</string>
+    <string name="dark_mode_description">Imodi emnyama isetshenziswa ukunciphisa ukukhathala kwamehlo ezimeni zokukhanya okuphansi.</string>
+
+    //
+    <string name="account_settings">Izilungiselelo Ze-akhawunti</string>
+    <string name="edit_profile">Hlela Iphrofayela</string>
+    <string name="change_language">Shintsha Ulimi</string>
+
+    <string name="payment">Inkokhelo</string>
+    <string name="logout_of_account">Phuma ku-akhawunti</string>
+    //
+    <string name="ai_tutor">AI Umfundzi</string>
+    <string name="ask_your_question_here">Buza umbuzo wakho lapha</string>
+    <string name="send">Thumela</string>
+    //
+
+
+    <string name="view_applications">Buka Izicelo</string>
+//
+    <string name="status_pending">Isimo: Kulindwe</string>
+    <string name="accept">Yamukela</string>
+    <string name="reject">Nqaba</string>
+    //
+    <string name="card_type">Uhlobo lwekhadi</string>
+    <string name="card_number">Ikhadi #</string>
+    <string name="string_review">Kubuyekeza</string>
+    <string name="string_howto">Indlela Yokwenza</string>
+    //
+    <string name="student_name">Libito Lomfundi</string>
+    <string name="grade">Ibanga</string>
+    <string name="apply">Faka isicelo</string>
+    //
+    <string name="review_subject">Buyekeza isihloko</string>
+    <string name="review_description">Buyekeza incazelo</string>
+
+    <string name="by_student_name">ngomfundi libito</string>
+    //
+    <string name="location">Indawo</string>
+    <string name="tutor_name">Libito Lomfundzi</string>
+    <string name="rate">Isilinganiso</string>
+    <string name="language">Ulimi</string>
+    <string name="description">Incazelo</string>
+    <string name="subjects">Izihloko</string>
+
+    //
+    <string name="tutor_register">Bhalisa Umfundzi</string>
+    <string name="name_hint">Libito:</string>
+    <string name="surname_hint">Sibongo:</string>
+    <string name="email_hint">I-imeyili:</string>
+    <string name="password_hint">Iphasiwedi</string>
+    <string name="confirm_password_hint">Qinisekisa Iphasiwedi</string>
+    <string name="phone_hint">Ifoni.No</string>
+    <string name="register">Bhalisa</string>
+    <string name="send_message">Lokhu kuthumela umyalezo</string>
+    <string name="dark_mode">imodi emnyama\n</string>
+    <string name="rating">isilinganiso\n</string>
+    <string-array name="session_durations">
+        <item>15 min.</item>
+        <item>30 min.</item>
+        <item>45 min.</item>
+        <item>60 min.</item>
+        <item>75 min.</item>
+        <item>90 min.</item>
+        <item>105 min.</item>
+        <item>120 min.</item>
+        <item>135 min.</item>
+        <item>150 min.</item>
+        <item>165 min.</item>
+        <item>180 min.</item>
+    </string-array>
+
+    <string-array name="practical_options">
+        <item>Yebo</item>
+        <item>Cha</item>
+    </string-array>
+
+    <string-array name="session_types">
+        <item>Ngasese</item>
+        <item>Ku-inthanethi</item>
+    </string-array>
+</resources>

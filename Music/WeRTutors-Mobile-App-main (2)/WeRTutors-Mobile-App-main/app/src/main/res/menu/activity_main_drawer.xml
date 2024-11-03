@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_nav"
+            android:title="@string/How_To_Guide"
+            android:icon="@drawable/ic_info"
+            />
+        <item
+            android:id="@+id/nav_dashboard"
+            android:title="@string/dash_board"
+            android:icon="@drawable/baseline_dashboard_24"/>
+
+        <item
+            android:id="@+id/nav_tutor_profile"
+            android:icon="@drawable/tutorprofile"
+            android:title="@string/nav_tutor_profile"
+           />
+
+
+        <item
+            android:id="@+id/nav_cal"
+            android:icon="@drawable/calender"
+            android:title="@string/ViewYourSchedule"
+            />
+
+        <item
+            android:id="@+id/nav_AiHelper"
+            android:icon="@drawable/ic_ai"
+            android:title="@string/nav_Ai_Helper"
+            />
+
+        <item
+            android:id="@+id/nav_session_timer"
+            android:icon="@drawable/ic_timer"
+            android:title="@string/nav_session_timer"
+            />
+        <item
+            android:id="@+id/nav_create_review"
+            android:icon="@drawable/ic_rating_2"
+            android:title="@string/nav_create_review"
+            />
+
+        <item
+            android:id="@+id/nav_displayedMarks"
+            android:icon="@drawable/ic_view_marks_2"
+            android:title="@string/nav_displayedMarks"
+            />
+        <item
+            android:id="@+id/nav_marks"
+            android:title="@string/nav_marks"
+            android:icon="@drawable/ic_add_marks"/>
+
+
+        <item
+            android:id="@+id/nav_communication"
+            android:title="@string/nav_communication"
+            android:icon="@drawable/chatting"/>
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/settings"
+            android:title="@string/nav_setting"
+            />
+        <item
+            android:id="@+id/nav_logout"
+            android:title="@string/nav_logout"
+            android:icon="@drawable/baseline_airline_seat_recline_extra_24"/>
+    </group>
+  </menu>

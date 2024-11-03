@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/ivNotify"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/notification" />
+
+    <TextView
+        android:id="@+id/tvNotifyDesc"
+        android:layout_width="159dp"
+        android:layout_height="94dp"
+        android:layout_below="@id/ivNotify"
+        android:layout_alignRight="@+id/ivNotify"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="-74dp"
+
+        android:layout_marginEnd="59dp"
+        android:layout_marginRight="-214dp"
+        android:layout_toEndOf="@+id/ivNotify"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvNotifyDesc1"
+        android:layout_width="159dp"
+        android:layout_height="94dp"
+        android:layout_below="@id/ivNotify"
+        android:layout_alignRight="@+id/ivNotify"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="-33dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginRight="-190dp"
+
+
+        android:layout_toEndOf="@+id/ivNotify"
+
+        android:text="Description"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+</RelativeLayout>

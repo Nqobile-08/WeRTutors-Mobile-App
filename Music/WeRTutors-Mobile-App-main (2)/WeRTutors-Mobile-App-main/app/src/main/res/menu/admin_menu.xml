@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@drawable/baseline_dashboard_24"
+        android:title="Dashboard" />
+    <item
+        android:id="@+id/nav_Analytics"
+        android:icon="@drawable/analytics"
+        android:title="Analytics" />
+    <item
+        android:id="@+id/nav_MngTutors"
+        android:icon="@drawable/managetutors"
+        android:title="ManageTutors" />
+    <item
+        android:id="@+id/nav_JobPost"
+        android:icon="@drawable/jobspost"
+        android:title="Jobs Post" />
+
+    <item
+    android:id="@+id/nav_MngStudents"
+    android:icon="@drawable/managestudents"
+    android:title="Manage Students" />
+    <item
+        android:id="@+id/nav_ManageBills"
+        android:icon="@drawable/managebills"
+        android:title="Manage Billing" />
+    <item
+        android:id="@+id/nav_Notifications"
+        android:icon="@drawable/adnotifications"
+        android:title="Notifications" />
+    <item
+        android:id="@+id/nav_adLogout"
+        android:icon="@drawable/logout"
+        android:title="Logout" />
+</menu>
