@@ -1,0 +1,311 @@
+<resources>
+    <string name="app_name">WeRTutors</string>
+    <string name="navigation_drawer_close" />
+    <string name="navigation_drawer_open" />
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="john_doe">John Doe</string>
+
+    <string name="Wertutors" />
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+    <string name="hello_world">Hello</string>
+    <string name="welcome_message">Welcome</string>
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+    <string name="msg_token_fmt" translatable="false">FCM Token: %1$s</string>
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="nav_profile" />
+    <string name="nav_dashboard" />
+    <string name="nav_notifications" />
+    <string name="type_of_tutoring" />
+    <string name="enter_number">enter number</string>
+    <string name="phonenumber">Phone number</string>
+    <string name="enter_institution">enter instiution</string>
+    <string name="tetiary_institution_adress">tertiary instution</string>
+
+    <string name="surname">surname</string>
+
+    <string name="name">name</string>
+    <string name="__400">400\n</string>
+    <string name="booking">Booking</string>
+    <string name="todo1">todo</string>
+
+    <string name="todo2">todo2</string>
+    <string name="_400">_400</string>
+    <string name="tutor">tutor\n</string>
+    <string name="we_r_tutors">weretutors</string>
+    <string name="todo">todos</string>
+    <string name="sammy_snow">sammy snows</string>
+    <string name="sammy">Sammy</string>
+    <string name="job_title">Job Title</string>
+    <string name="reg" />
+    <string name="billings">Billing</string>
+    <string name="scroll" />
+    <string name="scrol" />
+    <string name="sec_time_left">sec time left</string>
+    <string name="button" />
+    <string name="api_key">AIzaSyD7nFgqvRPZ1vzeii9iFtY2a001jRMT23Y</string>
+    <string name="default_web_client_id">default_webclient_id</string>
+    <string name="enter_tertiary_institution_address_optional" />
+
+
+    <string name="enter_phone_number" />
+    <string name="change_profile_image" />
+    <string name="update" />
+    <string name="profile_picture">Profile Picture</string>
+    <string name="review_session">Review Session</string>
+    <string name="select_tutor">Select Tutor</string>
+    <string name="select_course">Select Course</string>
+    <string name="rate_session">Rate Session</string>
+
+    <string name="enter_review_subject">Enter the subject of your review</string>
+
+    <string name="enter_review_description">Enter the description for the review</string>
+
+    <string name="empty_string"> </string>
+    <string name="very_poor">Very Poor</string>
+    <string name="poor">Poor</string>
+    <string name="decent">Decent</string>
+    <string name="good">Good</string>
+    <string name="great">Great</string>
+
+    <string name="nav_ATS">ATS</string>
+    <string name="nav_tutor_profile">Tutor Profile</string>
+
+    <string name="nav_schedule">Schedule</string>
+    <string name="nav_AiHelper">Ai Helper</string>
+    <string name="nav_create_review">Create Review</string>
+    <string name="nav_session_timer">Session Timer</string>
+    <string name="nav_setting">Setting</string>
+    <string name="nav_displayedMarks">Display Marks</string>
+    <string name="nav_marks">Enter Marks</string>
+    <string name="nav_communication">Communication</string>
+    <string name="nav_logout">Log Out</string>
+    <string name="please_fill_all_fields">Please fill all fields</string>
+    <string name="review_submitted_successfully">Review submitted successfully</string>
+
+    //
+
+    <string name="session_title">Session Title</string>
+    <string name="status_ready">Status: Ready</string>
+    <string name="select_session_duration">Select Session Duration:</string>
+    <string name="select_duration">Select Duration:</string>
+    <string name="select_student">Select Student:</string>
+    <string name="session_type">Session Type:</string>
+    <string name="practical_work_given">Practical Work Given:</string>
+    <string name="upload_proof_of_work">Upload Proof of Work:</string>
+    <string name="session_notes">Session Notes</string>
+    <string name="enter_session_notes">Enter session notes here</string>
+    <string name="comments_for_admin">Comments for Admin:</string>
+    <string name="enter_comments">Enter comments here</string>
+    <string name="submit_session">Submit Session</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="add_more_time">Add More Time</string>
+    <string name="upload">Upload</string>
+    //
+    <string name="Name">Name</string>
+    <string name="wertutors">WeRTutors</string>
+    <string name="client_register">WeTutors Client Register</string>
+    <string name="name_hint">Name</string>
+    <string name="surname_hint">Surname</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+
+    <string name="register_button">Register</string>
+    //
+
+
+    <string name="about">About</string>
+    <string name="levels_subjects">Levels and subjects</string>
+    <string name="reviews">Reviews</string>
+    <string name="work_experience">Work Experience</string>
+    <string name="work_experience_info">Work experience info</string>
+    <string name="education">Education</string>
+    <string name="education_info">Education info</string>
+    <string name="courses_certifications">Courses and Certifications</string>
+    <string name="courses_info">Courses info</string>
+    <string name="skills">Skills</string>
+    <string name="skills_info">Skills info</string>
+    <string name="education_levels">Education levels</string>
+    <string name="levels">Levels</string>
+    <string name="subjects_heading">Subjects</string>
+
+    //
+    <string name="upload_resume">Upload Resume</string>
+    <string name="process_resume">Process Resume</string>
+    //
+    <string name="student_name_hint">Student Name</string>
+    <string name="grade_hint">Grade</string>
+    <string name="rate_hint">Rate</string>
+    <string name="type_hint">Type (e.g., Online/In-person)</string>
+    <string name="school_hint">School</string>
+    <string name="address_hint">Address</string>
+    <string name="subjects_hint">Subjects (comma-separated)</string>
+    <string name="add_job_button">Add Job</string>
+
+    //
+    <string name="select_language">Select Language</string>
+    <string name="english">English</string>
+    <string name="afrikaans">Afrikaans</string>
+
+    //
+    sources>
+    <string name="assessment_information">Assessment Information</string>
+    <string name="enter_subject_name">Enter subject name</string>
+    <string name="assessment_type">Assessment Type</string>
+    <string name="enter_category">Enter category (e.g., Math, Science)</string>
+    <string name="assessment_date">Assessment Date</string>
+    <string name="enter_date">Enter date (DD/MM/YYYY)</string>
+    <string name="enter_mark">Enter mark (out of 100)</string>
+    <string name="submit">Submit</string>
+    //
+    <string name="logout_fragment">Logout Fragment</string>
+    <string name="logout">Logout</string>
+
+    //
+    <string name="notifications">Notifications</string>
+    <string name="send_notification">Send Notification</string>
+
+    //
+    <string name="add_card">Add Card</string>
+
+    <string name="enter_card_number">Enter Card Number</string>
+    <string name="expiry_date">Expiry Date:</string>
+    <string name="mm_yy">MM/YY</string>
+    <string name="cvv">CVV:</string>
+    <string name="enter_cvv">Enter CVV</string>
+    <string name="card_nickname">Card Nickname: (Optional)</string>
+    <string name="enter_card_nickname">Enter Card Nickname</string>
+    <string name="save">Save</string>
+
+    //
+    <string name="change_profile_picture">Change Profile Picture</string>
+    <string name="welcome">Welcome</string>
+    <string name="user_type">User Type:</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_surname">Enter Surname</string>
+    <string name="enter_residential_address">Enter Residential Address</string>
+    <string name="enter_suburbs">Enter Suburbs</string>
+    <string name="enter_tertiary_institution">Enter Tertiary Institution (Optional)</string>
+    <string name="update_profile">Update Profile</string>
+    //
+    <string name="quick_navigation">Quick Navigation</string>
+    <string name="session">Session</string>
+    <string name="billing">Billing</string>
+    <string name="progress_tracker">Progress Tracker</string>
+
+    <string name="profile">Profile</string>
+    <string name="jobs">Jobs</string>
+
+    //
+    <string name="select_a_tutor">Select a Tutor</string>
+    <string name="select_a_subject">Select a Subject</string>
+    <string name="select_a_time">Select a Time</string>
+    <string name="enter_appointment_details">Enter appointment details</string>
+    <string name="add_appointment">Add Appointment</string>
+    <string name="remove_appointment">Remove Appointment</string>
+    <string name="appointments">Appointments</string>
+    //
+    <string name="settings" translatable="false">Settings</string>
+
+    <string name="off">Off</string>
+    <string name="dark_mode_description">Dark mode is used to reduce eye strain in low-light conditions.</string>
+
+    //
+    <string name="account_settings">Account Settings</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_language">Change Language</string>
+
+    <string name="payment">Payment</string>
+    <string name="logout_of_account">Logout of account</string>
+    //
+    <string name="ai_tutor">AI Tutor</string>
+    <string name="ask_your_question_here">Ask your question here</string>
+    <string name="send">Send</string>
+    //
+
+
+    <string name="view_applications">View Applications</string>
+    //
+
+    <string name="status_pending">Status: Pending</string>
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    //
+    <string name="card_type">Card type</string>
+    <string name="card_number">Card #</string>
+
+    //
+    <string name="student_name">Student Name</string>
+    <string name="grade">Grade</string>
+    <string name="apply">Apply</string>
+    //
+    sources>
+    <string name="review_subject">Review subject</string>
+    <string name="review_description">Review description</string>
+
+    <string name="by_student_name">by student name</string>
+    //
+    <string name="location">Location</string>
+    <string name="tutor_name">Tutor Name</string>
+    <string name="rate">Rate</string>
+    <string name="language">Language</string>
+    <string name="description">Description</string>
+    <string name="subjects">Subjects</string>
+
+    //
+    <string name="tutor_register">Tutor Register</string>
+
+    <string name="phone_hint">Phone.No</string>
+    <string name="register">Register</string>
+    <string name="send_message">This is send message</string>
+    <string name="dark_mode">darkmode\n</string>
+    <string name="rating">rating\n</string>
+    <string name="ScheduleCalendar">ScheduleCalender</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="Apply_To_Job">Apply to job</string>
+    <string name="ViewYourSchedule">View Your Schedule</string>
+    <string name="Book_A_Tutor">Book a tutor</string>
+    <string name="nav_Ai_Helper">Ai Helper</string>
+    <string name="How_To_Guide">How To Guide</string>
+    <string name="dash_board">Dash Board</string>
+    <string name="string_review">Review</string>
+    <string name="string_howto">How To</string>
+    <string name="nav_chat">Chat</string>
+    <string name="ViewTutors">View Tutors</string>
+    <string name="ViewTutor">View Tutor</string>
+    <string-array name="session_durations">
+        <item>15 min.</item>
+        <item>30 min.</item>
+        <item>45 min.</item>
+        <item>60 min.</item>
+        <item>75 min.</item>
+        <item>90 min.</item>
+        <item>105 min.</item>
+        <item>120 min.</item>
+        <item>135 min.</item>
+        <item>150 min.</item>
+        <item>165 min.</item>
+        <item>180 min.</item>
+    </string-array>
+
+    <string-array name="practical_options">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="session_types">
+        <item>In Person</item>
+        <item>Online</item>
+    </string-array>
+</resources>

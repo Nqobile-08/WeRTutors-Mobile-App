@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_nav"
+            android:title="How To Guide"
+            />
+        <item
+            android:id="@+id/nav_dashboard"
+            android:title="@string/dashboard"
+            android:icon="@drawable/baseline_dashboard_24"/>
+
+        <item
+            android:id="@+id/nav_ATS"
+            android:icon="@drawable/jobspost"
+            android:title="@string/Apply_To_Job" />
+
+        <item
+            android:id="@+id/nav_cal"
+            android:icon="@drawable/calender"
+            android:title="@string/ViewYourSchedule"
+            />
+
+        <item
+            android:id="@+id/nav_AiHelper"
+            android:icon="@drawable/ic_ai"
+            android:title="@string/nav_AiHelper"
+            />
+
+        <item
+            android:id="@+id/nav_session_timer"
+            android:icon="@drawable/ic_timer"
+            android:title="@string/nav_session_timer"
+            />
+
+
+        <item
+            android:id="@+id/nav_communication"
+            android:title="@string/nav_communication"
+            android:icon="@drawable/chatting"/>
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/settings"
+            android:title="@string/nav_setting"
+            />
+        <item
+            android:id="@+id/nav_logout"
+            android:title="@string/nav_logout"
+            android:icon="@drawable/baseline_airline_seat_recline_extra_24"/>
+    </group>
+</menu>
