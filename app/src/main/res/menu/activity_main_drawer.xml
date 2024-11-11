@@ -16,7 +16,10 @@
             android:icon="@drawable/tutorprofile"
             android:title="@string/nav_tutor_profile"
            />
-
+        <item
+            android:id="@+id/nav_schedule"
+            android:title="@string/Book_A_Tutor"
+            />
 
         <item
             android:id="@+id/nav_cal"

@@ -129,7 +129,7 @@ class DisplayMarksFragment : Fragment() {
                 android.graphics.Color.parseColor("#98FF98") // Mint green color
             )
             labelsFormatter = { String.format("%.1f%%", it) }
-            labelsColor = android.graphics.Color.BLACK
+            labelsColor = android.graphics.Color.parseColor("#81D4FA")
             labelsSize = 40f
 
             animation.duration = 1500L
@@ -179,8 +179,8 @@ class DisplayMarksFragment : Fragment() {
                 )
 
                 labelsFormatter = { String.format("%.1f%%", it) }
-                labelsSize = 30f //28
-                labelsColor = android.graphics.Color.BLACK
+                labelsSize = 40f //28
+                labelsColor = android.graphics.Color.parseColor("#81D4FA")
                 animation.duration = 1500L
                 labelsFormatter = { String.format("%.0f%%", it) }
 

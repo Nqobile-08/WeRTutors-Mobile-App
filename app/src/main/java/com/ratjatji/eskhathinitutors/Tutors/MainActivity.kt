@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.nav_dashboard -> selectedFragment = QuickNavFragment()
                 R.id.nav_tutor_profile -> selectedFragment = tutorOptions_1()
-               // R.id.nav_schedule -> selectedFragment = SchedulesFragment()
+                R.id.nav_schedule -> selectedFragment = SchedulesFragment()
                 R.id.nav_create_review -> selectedFragment = CreateReviewFragment()
                 R.id.nav_session_timer -> selectedFragment = SessionTimer()
                 R.id.nav_setting -> selectedFragment = SettingsHomeFragment()
