@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Logo -->
+
+        <!-- Session Title -->
+        <TextView
+            android:id="@+id/sessionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/session_title"
+            android:textSize="24sp"
+            android:textStyle="bold"
+
+            android:layout_centerHorizontal="true"/>
+
+        <!-- Tutor Name -->
+        <TextView
+            android:id="@+id/tutorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sessionTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="18sp"/>
+
+        <!-- Session Status -->
+        <TextView
+            android:id="@+id/sessionStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status_ready"
+            android:layout_below="@id/tutorName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Timer Display -->
+        <TextView
+            android:id="@+id/timerDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00:00"
+            android:textSize="48sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/sessionStatus"
+            android:layout_marginTop="24dp"/>
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/sessionProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/timerDisplay"
+            android:layout_marginTop="16dp"
+            android:max="100"
+            android:progress="0"/>
+
+        <!-- Select Session Duration Label -->
+        <TextView
+            android:id="@+id/selectTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_session_duration"
+            android:layout_below="@id/sessionProgress"
+            android:layout_marginTop="24dp"/>
+
+        <!-- Slider for Session Time -->
+        <com.google.android.material.slider.Slider
+            android:id="@+id/timeSlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/selectTimeLabel"
+            android:layout_marginTop="8dp"
+            android:valueFrom="0"
+            android:valueTo="180"
+            android:stepSize="15"
+            app:labelBehavior="floating"/>
+
+        <!-- Display Selected Time -->
+        <TextView
+            android:id="@+id/selectedTimeDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00:00"
+            android:textSize="18sp"
+            android:layout_below="@id/timeSlider"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Start and Stop Buttons -->
+        <LinearLayout
+            android:id="@+id/buttonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/selectedTimeDisplay"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/startSessionButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:text="@string/start"
+                android:backgroundTint="@color/WRTBlue"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/stopSessionButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="@string/stop"
+                android:backgroundTint="@color/WRTBlue"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <!-- Add More Time Button -->
+        <Button
+            android:id="@+id/addMoreTimeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_more_time"
+            android:backgroundTint="@color/WRTBlue"
+            android:layout_below="@id/buttonContainer"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"/>
+
+        <!-- Spinner for Session Duration -->
+        <TextView
+            android:id="@+id/sessionDurationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_duration"
+            android:layout_below="@id/addMoreTimeButton"
+            android:layout_marginTop="16dp"/>
+
+        <Spinner
+            android:id="@+id/sessionDurationSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sessionDurationLabel"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Spinner for Linked Students -->
+        <TextView
+            android:id="@+id/linkedStudentsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_student"
+            android:layout_below="@id/sessionDurationSpinner"
+            android:layout_marginTop="16dp"/>
+
+        <Spinner
+            android:id="@+id/linkedStudentsSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linkedStudentsLabel"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Spinner for Session Type -->
+        <TextView
+            android:id="@+id/sessionTypeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/session_type"
+            android:layout_below="@id/linkedStudentsSpinner"
+            android:layout_marginTop="16dp"/>
+
+        <Spinner
+            android:id="@+id/sessionTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sessionTypeLabel"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Spinner for Practical Work -->
+        <TextView
+            android:id="@+id/practicalWorkLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/practical_work_given"
+            android:layout_below="@id/sessionTypeSpinner"
+            android:layout_marginTop="16dp"/>
+
+        <Spinner
+            android:id="@+id/practicalWorkSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/practicalWorkLabel"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Proof of Work Upload -->
+        <TextView
+            android:id="@+id/proofOfWorkLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/upload_proof_of_work"
+            android:layout_below="@id/practicalWorkSpinner"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/uploadProofButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/WRTBlue"
+            android:layout_below="@id/proofOfWorkLabel"
+            android:layout_marginTop="8dp"
+            android:text="@string/upload"/>
+
+        <!-- Session Notes -->
+        <TextView
+            android:id="@+id/sessionNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/uploadProofButton"
+            android:layout_marginTop="24dp"
+            android:text="@string/session_notes"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/notesInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sessionNotes"
+            android:layout_marginTop="8dp"
+            android:hint="@string/enter_session_notes"
+            android:minHeight="100dp"
+            android:gravity="top"
+            android:inputType="textMultiLine"/>
+
+        <!-- Comment Area -->
+        <TextView
+            android:id="@+id/commentLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/comments_for_admin"
+            android:layout_below="@id/notesInput"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/commentInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/commentLabel"
+            android:layout_marginTop="8dp"
+            android:hint="@string/enter_comments"
+            android:minHeight="100dp"
+            android:gravity="top"
+            android:inputType="textMultiLine"/>
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/submitSessionButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submit_session"
+            android:backgroundTint="@color/WRTBlue"
+            android:layout_below="@id/commentInput"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+</ScrollView>

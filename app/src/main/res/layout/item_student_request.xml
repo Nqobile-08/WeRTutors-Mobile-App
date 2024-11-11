@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    layout_width="match_parent"
+    layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        >
+
+
+        <TextView
+            android:id="@+id/tvDateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date:"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTutoringSubject" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01 January 2024"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/tvDateTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTutoringSubject" />
+
+        <TextView
+            android:id="@+id/tvTimeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time:"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateTitle" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13:00 - 14:00"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/tvDateTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateTitle" />
+
+        <TextView
+            android:id="@+id/tvSessionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Session:"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTimeTitle" />
+
+        <TextView
+            android:id="@+id/tvSession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Virtual"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/tvSessionTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTimeTitle" />
+
+        <TextView
+            android:id="@+id/tvReviewDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student description"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@+id/tvDateTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvSessionTitle" />
+
+        <TextView
+            android:id="@+id/tvTutoringSubject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="- Subject"
+            android:textSize="16dp"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/tvStudentName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvStudentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student name "
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <ImageView
+            android:id="@+id/imgRejectSession"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_cross"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <ImageView
+            android:id="@+id/imgAcceptSession"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_check"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintEnd_toStartOf="@id/imgRejectSession"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

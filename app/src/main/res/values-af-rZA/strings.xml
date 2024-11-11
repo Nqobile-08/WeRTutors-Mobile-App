@@ -1,0 +1,277 @@
+<resources>
+    <string name="app_name">WeRTutors</string>
+    <string name="navigation_drawer_close" />
+    <string name="navigation_drawer_open" />
+
+    <string name="hello_blank_fragment">Hallo leë fragment</string>
+    <string name="john_doe">John Doe</string>
+
+    <string name="Wertutors" />
+    <!-- Preference Titles -->
+    <string name="messages_header">Boodskappe</string>
+    <string name="sync_header">Sinchroniseer</string>
+    <string name="hello_world">Hallo</string>
+    <string name="welcome_message">Welkom</string>
+    <!-- Messages Preferences -->
+    <string name="signature_title">Jou handtekening</string>
+    <string name="reply_title">Standaard antwoord aksie</string>
+    <string name="ScheduleCalendar">Skedule Kalender</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sinchroniseer e-pos periodiek</string>
+    <string name="attachment_title">Laai inkomende aanhangsels af</string>
+    <string name="attachment_summary_on">Laai outomaties aanhangsels af vir inkomende e-posse</string>
+    <string name="attachment_summary_off">Laai slegs aanhangsels af wanneer handmatig versoek</string>
+    <string name="nav_profile" />
+    <string name="nav_dashboard" />
+    <string name="nav_notifications" />
+    <string name="type_of_tutoring">Tipe onderrig</string>
+    <string name="enter_number">voer nommer in</string>
+    <string name="phonenumber">Telefoonnommer</string>
+    <string name="enter_institution">voer instelling in</string>
+    <string name="tetiary_institution_adress">tertiêre instelling</string>
+    <string name="enter_surname">voer van in</string>
+    <string name="surname">van</string>
+    <string name="enter_name">voer naam in</string>
+    <string name="name">naam</string>
+    <string name="__400">400\n</string>
+    <string name="booking">Bespreking</string>
+    <string name="todo1">todo</string>
+    <string name="billing">Fakturering</string>
+    <string name="todo2">todo2</string>
+    <string name="_400">_400</string>
+    <string name="tutor">tutor\n</string>
+    <string name="we_r_tutors">weretutors</string>
+    <string name="todo">todos</string>
+    <string name="sammy_snow">sammy snows</string>
+    <string name="sammy">Sammy</string>
+    <string name="job_title">Pos Titel</string>
+    <string name="reg" />
+    <string name="billings">Fakturering</string>
+    <string name="scroll" />
+    <string name="scrol" />
+    <string name="sec_time_left">sekondes oor</string>
+    <string name="button" />
+    <string name="api_key">AIzaSyD7nFgqvRPZ1vzeii9iFtY2a001jRMT23Y</string>
+    <string name="default_web_client_id">standaard_webclient_id</string>
+    <string name="enter_tertiary_institution_address_optional" />
+    <string name="enter_suburbs">voer voorstede in</string>
+    <string name="enter_residential_address">voer woonadres in</string>
+    <string name="enter_phone_number">voer telefoonnommer in</string>
+    <string name="change_profile_image">Verander profiel prent</string>
+    <string name="update">Opdateer</string>
+    <string name="profile_picture">Profiel Prent</string>
+    <string name="review_session">Hersien Sessie</string>
+    <string name="select_tutor">Kies Tutor</string>
+    <string name="select_course">Kies Kursus</string>
+    <string name="rate_session">Beoordeel Sessie</string>
+
+    <string name="enter_review_subject">Voer die onderwerp van jou hersiening in</string>
+
+    <string name="enter_review_description">Voer die beskrywing vir die hersiening in</string>
+
+    <string name="empty_string"> </string>
+    <string name="very_poor">Baie Swak</string>
+    <string name="poor">Swak</string>
+    <string name="decent">Ordentlik</string>
+    <string name="good">Goed</string>
+    <string name="great">Uitstekend</string>
+
+    <string name="nav_ATS">ATS</string>
+    <string name="nav_tutor_profile">Tutor Profiel</string>
+
+    <string name="nav_schedule">Skedule</string>
+    <string name="nav_AiHelper">Ai Helper</string>
+    <string name="nav_create_review">Skep Hersiening</string>
+    <string name="nav_session_timer">Sessie Timer</string>
+    <string name="nav_setting">Instelling</string>
+    <string name="nav_displayedMarks">Vertoon Punte</string>
+    <string name="nav_marks">Voer Punte in</string>
+    <string name="nav_communication">Kommunikasie</string>
+    <string name="nav_logout">Teken Uit</string>
+    <string name="please_fill_all_fields">Vul asseblief alle velde in</string>
+    <string name="review_submitted_successfully">Hersiening suksesvol ingedien</string>
+
+    //
+
+    <string name="session_title">Sessie Titel</string>
+    <string name="status_ready">Status: Gereed</string>
+    <string name="select_session_duration">Kies Sessie Duur:</string>
+    <string name="select_duration">Kies Duur:</string>
+    <string name="select_student">Kies Student:</string>
+    <string name="session_type">Sessie Tipe:</string>
+    <string name="practical_work_given">Praktiese Werk Gegee:</string>
+    <string name="upload_proof_of_work">Laai Bewys van Werk op:</string>
+    <string name="session_notes">Sessie Notas</string>
+    <string name="enter_session_notes">Voer sessie notas hier in</string>
+    <string name="comments_for_admin">Kommentaar vir Admin:</string>
+    <string name="enter_comments">Voer kommentaar hier in</string>
+    <string name="submit_session">Indien Sessie</string>
+    <string name="start">Begin</string>
+    <string name="stop">Stop</string>
+    <string name="add_more_time">Voeg Meer Tyd By</string>
+    <string name="upload">Laai op</string>
+    //
+    <string name="Name">Naam</string>
+    <string name="wertutors">WeRTutors</string>
+    <string name="client_register">WeTutors Kliënt Register</string>
+
+
+
+
+
+    <string name="register_button">Registreer</string>
+    //
+
+
+
+
+
+
+    <string name="about">Oor</string>
+    <string name="levels_subjects">Vlakke en vakke</string>
+    <string name="reviews">Resensies</string>
+    <string name="work_experience">Werkservaring</string>
+    <string name="work_experience_info">Werkservaring inligting</string>
+    <string name="education">Onderwys</string>
+    <string name="education_info">Onderwys inligting</string>
+    <string name="courses_certifications">Kursusse en Sertifisering</string>
+    <string name="courses_info">Kursusse inligting</string>
+    <string name="skills">Vaardighede</string>
+    <string name="skills_info">Vaardighede inligting</string>
+    <string name="education_levels">Onderwys vlakke</string>
+    <string name="levels">Vlakke</string>
+    <string name="subjects_heading">Vakke</string>
+
+    //
+    <string name="upload_resume">Laai CV op</string>
+    <string name="process_resume">Verwerk CV</string>
+    //
+    <string name="student_name_hint">Student Naam</string>
+    <string name="grade_hint">Graad</string>
+    <string name="rate_hint">Tarief</string>
+    <string name="type_hint">Tipe (bv. Aanlyn/In-persoon)</string>
+    <string name="school_hint">Skool</string>
+    <string name="address_hint">Adres</string>
+    <string name="subjects_hint">Vakke (komma-geskei)</string>
+    <string name="add_job_button">Voeg Werk By</string>
+
+    //
+    <string name="select_language">Kies Taal</string>
+    <string name="english">Engels</string>
+    <string name="afrikaans">Afrikaans</string>
+
+    //
+    <string name="assessment_information">Assessering Inligting</string>
+    <string name="enter_subject_name">Voer vaknaam in</string>
+    <string name="assessment_type">Assessering Tipe</string>
+    <string name="enter_category">Voer kategorie in (bv. Wiskunde, Wetenskap)</string>
+    <string name="assessment_date">Assessering Datum</string>
+    <string name="enter_date">Voer datum in (DD/MM/JJJJ)</string>
+    <string name="enter_mark">Voer punt in (uit 100)</string>
+    <string name="submit">Indien</string>
+    //
+    <string name="logout_fragment">Teken Uit Fragment</string>
+    <string name="logout">Teken Uit</string>
+
+    //
+    <string name="notifications">Kennisgewings</string>
+    <string name="send_notification">Stuur Kennisgewing</string>
+
+    //
+    <string name="add_card">Voeg Kaart By</string>
+    <string name="card_number">Kaartnommer:</string>
+    <string name="enter_card_number">Voer Kaartnommer in</string>
+    <string name="expiry_date">Vervaldatum:</string>
+    <string name="mm_yy">MM/JJ</string>
+    <string name="cvv">CVV:</string>
+    <string name="enter_cvv">Voer CVV in</string>
+    <string name="card_nickname">Kaart Bynaam: (Opsioneel)</string>
+    <string name="enter_card_nickname">Voer Kaart Bynaam in</string>
+    <string name="save">Stoor</string>
+
+    //
+    <string name="change_profile_picture">Verander Profiel Prent</string>
+    <string name="welcome">Welkom</string>
+    <string name="user_type">Gebruiker Tipe:</string>
+
+
+
+    <string name="enter_tertiary_institution">Voer Tersiêre Instelling in (Opsioneel)</string>
+    <string name="update_profile">Opdateer Profiel</string>
+    //
+    <string name="quick_navigation">Vinnige Navigasie</string>
+    <string name="session">Sessie</string>
+
+    <string name="progress_tracker">Vordering Tracker</string>
+    <string name="settings">Instellings</string>
+    <string name="profile">Profiel</string>
+    <string name="jobs">Werke</string>
+
+    //
+    <string name="select_a_tutor">Kies \'n Tutor</string>
+    <string name="select_a_subject">Kies \'n Vak</string>
+    <string name="select_a_time">Kies \'n Tyd</string>
+    <string name="enter_appointment_details">Voer afspraakbesonderhede in</string>
+    <string name="add_appointment">Voeg Afspraak By</string>
+    <string name="remove_appointment">Verwyder Afspraak</string>
+    <string name="appointments">Afsprake</string>
+    //
+
+    <string name="off">Af</string>
+    <string name="dark_mode_description">Donker modus word gebruik om oogspanning in lae lig toestande te verminder.</string>
+
+    //
+    <string name="account_settings">Rekening Instellings</string>
+    <string name="edit_profile">Wysig Profiel</string>
+    <string name="change_language">Verander Taal</string>
+
+    <string name="payment">Betaling</string>
+    <string name="logout_of_account">Teken uit van rekening</string>
+    //
+    <string name="ai_tutor">AI Tutor</string>
+    <string name="ask_your_question_here">Vra jou vraag hier</string>
+    <string name="send">Stuur</string>
+    //
+
+
+    <string name="view_applications">Sien Aansoeke</string>
+    //
+
+    <string name="status_pending">Status: Hangende</string>
+    <string name="accept">Aanvaar</string>
+    <string name="reject">Verwerp</string>
+    //
+    <string name="card_type">Kaart tipe</string>
+
+
+    //
+    <string name="student_name">Student Naam</string>
+    <string name="grade">Graad</string>
+    <string name="apply">Aansoek</string>
+    //
+    <string name="review_subject">Hersien onderwerp</string>
+    <string name="review_description">Hersien beskrywing</string>
+
+    <string name="by_student_name">deur student naam</string>
+    //
+    <string name="location">Ligging</string>
+    <string name="tutor_name">Tutor Naam</string>
+    <string name="rate">Tarief</string>
+    <string name="language">Taal</string>
+    <string name="description">Beskrywing</string>
+    <string name="subjects">Vakke</string>
+
+    //
+    <string name="tutor_register">Tutor Register</string>
+    <string name="name_hint">Naam:</string>
+    <string name="surname_hint">Van:</string>
+    <string name="email_hint">E-pos:</string>
+    <string name="password_hint">Wagwoord</string>
+    <string name="confirm_password_hint">Bevestig Wagwoord</string>
+    <string name="phone_hint">Telefoon.No</string>
+    <string name="register">Registreer</string>
+    <string name="send_message">Dit is stuur boodskap</string>
+    <string name="dark_mode">donker modus\n</string>
+    <string name="rating">gradering\n</string>
+</resources>

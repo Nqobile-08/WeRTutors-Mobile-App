@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PaymentAddCardFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Card"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Card Number:"
+        android:textSize="18sp"
+        />
+    <EditText
+        android:id="@+id/etCardNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Card Number"
+        android:inputType="numberPassword"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expiry Date:"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"/>
+    <EditText
+        android:id="@+id/etExpiryDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="MM/YY"
+        android:inputType="date"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CVV:"
+        android:textSize="18sp"
+
+        android:layout_marginTop="15dp"/>
+    <EditText
+        android:id="@+id/etCvv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter CVV"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Card Nickname: (Optional)"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"/>
+    <EditText
+        android:id="@+id/etCardNickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Card Nickname" />
+
+    <Button
+        android:id="@+id/btnSaveCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:backgroundTint="@color/WRTBlue"
+        android:layout_marginTop="160dp" />
+
+</LinearLayout>

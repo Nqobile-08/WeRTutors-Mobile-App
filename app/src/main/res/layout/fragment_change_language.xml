@@ -1,0 +1,25 @@
+<!-- fragment_change_language.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/englishButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="English" />
+
+    <Button
+        android:id="@+id/afrikaansButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Afrikaans" />
+
+    <Button
+        android:id="@+id/swatiButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Swati" />
+</LinearLayout>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    layout_width="match_parent"
+    layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        >
+
+        <ImageView
+            android:id="@+id/ivLocation"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+android:src="@drawable/ic_location"
+            app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+            app:layout_constraintTop_toBottomOf="@+id/imgStar"/>
+
+        <ImageView
+            android:id="@+id/ivLanguage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+android:src="@drawable/ic_language"
+            app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+            app:layout_constraintTop_toBottomOf="@+id/tvLocation"/>
+        <TextView
+            android:id="@+id/tvLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/ivLocation"
+            app:layout_constraintTop_toBottomOf="@+id/tvRating" />
+
+        <TextView
+            android:id="@+id/tvTutorName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:text="Tutor Name"
+            app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvLanguage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Language"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/ivLocation"
+            app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Descripition"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfilePic" />
+
+        <TextView
+            android:id="@+id/tvSubjects"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subjects"
+            android:textColor="@color/white"
+            android:background="@color/WRTLightBlue"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+        <TextView
+            android:id="@+id/tvRate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/tvRating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Rating"
+            app:layout_constraintStart_toEndOf="@id/imgStar"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/tvTutorName" />
+
+        <TextView
+            android:id="@+id/tvRatingCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="(x)"
+            app:layout_constraintStart_toEndOf="@id/tvRating"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/tvTutorName" />
+
+        <ImageView
+            android:id="@+id/imgStar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+android:src="@drawable/ic_star"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+            app:layout_constraintTop_toBottomOf="@+id/tvTutorName"/>
+        <ImageView
+            android:id="@+id/ivProfilePic"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/RoundCorners"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
