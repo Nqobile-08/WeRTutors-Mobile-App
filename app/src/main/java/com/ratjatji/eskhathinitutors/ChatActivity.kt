@@ -34,6 +34,8 @@ class ChatActivity : AppCompatActivity() {
         userRecyclerView.layoutManager = LinearLayoutManager(this)
         userRecyclerView.adapter = adapter
 
+
+
         adapter.setOnItemClickListener { selectedUser ->
             val intent = Intent(this@ChatActivity, commsAct::class.java)
             intent.putExtra("name", selectedUser.name)
@@ -58,8 +60,9 @@ class ChatActivity : AppCompatActivity() {
                             // Validate snapshot content and parse tutor object
                             val tutor = postSnapshot.getValue(Users::class.java)
                             if (tutor != null && tutor.uid != auth.currentUser?.uid) {
+                                tutor.name = "${tutor.name} ${tutor.surname}"
                                 userList.add(tutor)
-                                Log.d("ChatActivity", "Tutor added: ${tutor.name}")
+                                Log.d("ChatActivity", "Tutor added: ${tutor.name} ")
                             }
                         } catch (e: Exception) {
                             Log.e("ChatActivity", "Error converting tutor data: ${e.message}")
@@ -77,6 +80,8 @@ class ChatActivity : AppCompatActivity() {
                     Log.e("ChatActivity", "Database error: ${error.message}")
                 }
             })
+
+
 
 
 

@@ -44,7 +44,6 @@ class commsAct : AppCompatActivity() {
         private const val TAG = "commsAct"
     }
 
-    // Activity result launcher for picking images
     private val pickImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             result.data?.data?.let { uri ->
@@ -57,28 +56,85 @@ class commsAct : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comms)
 
-        // Initialize notification channels
-        NotificationHelper.createNotificationChannels(this)
+        try {
+            // Initialize Firebase instances
+            mDbRef = FirebaseDatabase.getInstance().reference
+            mStorage = FirebaseStorage.getInstance()
 
-        // Initialize Firebase instances
-        mDbRef = FirebaseDatabase.getInstance().reference
-        mStorage = FirebaseStorage.getInstance()
+            // Get intent extras for full name and UID
+            receiverName = intent.getStringExtra("name")
+            receiverUid = intent.getStringExtra("uid")
+            val senderUid = FirebaseAuth.getInstance().currentUser?.uid
 
-        // Get intent extras
-        receiverName = intent.getStringExtra("name")
-        receiverUid = intent.getStringExtra("uid")
-        val senderUid = FirebaseAuth.getInstance().currentUser?.uid
+            // Set up room IDs
+            senderRoom = receiverUid + senderUid
+            receiverRoom = senderUid + receiverUid
 
-        // Set up room IDs
-        senderRoom = receiverUid + senderUid
-        receiverRoom = senderUid + receiverUid
+            // Initialize views and setup
+            initializeViews()
+            setupToolbar()
+            setupRecyclerView()
+            setupClickListeners()
+            setupMessageListener()
 
-        // Initialize views
-        initializeViews()
-        setupToolbar()
-        setupRecyclerView()
-        setupClickListeners()
-        setupMessageListener()
+        } catch (e: Exception) {
+            Log.e(TAG, "Error in onCreate", e)
+            Toast.makeText(this, "Error initializing chat", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun initializeViews() {
+        try {
+            chatRecyclerView = findViewById(R.id.chatRecycleView)
+            messageBox = findViewById(R.id.messageBox)
+            sendButton = findViewById(R.id.sendButton)
+            attachmentButton = findViewById(R.id.attachmentButton)
+            userName = findViewById(R.id.userName)
+
+            messageList = ArrayList()
+            messageAdapter = MessageAdapter(this, messageList)
+
+            // Display the full name in the toolbar
+            userName.text = receiverName
+
+            findViewById<ImageButton>(R.id.backButton).setOnClickListener {
+                onBackPressed()
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error initializing views", e)
+        }
+    }
+
+    private fun setupToolbar() {
+        supportActionBar?.hide()
+    }
+
+    private fun setupRecyclerView() {
+        try {
+            chatRecyclerView.layoutManager = LinearLayoutManager(this).apply {
+                stackFromEnd = true
+            }
+            chatRecyclerView.adapter = messageAdapter
+        } catch (e: Exception) {
+            Log.e(TAG, "Error setting up RecyclerView", e)
+        }
+    }
+
+    private fun setupClickListeners() {
+        try {
+            sendButton.setOnClickListener {
+                val messageText = messageBox.text.toString().trim()
+                if (messageText.isNotEmpty()) {
+                    sendTextMessage(messageText)
+                }
+            }
+
+            attachmentButton.setOnClickListener {
+                showAttachmentOptions()
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error setting up click listeners", e)
+        }
     }
 
     private fun setupMessageListener() {
@@ -86,15 +142,30 @@ class commsAct : AppCompatActivity() {
             mDbRef.child("chats").child(room).child("messages")
                 .addChildEventListener(object : ChildEventListener {
                     override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                        val message = snapshot.getValue(Message::class.java)
-                        message?.let {
-                            if (message.senderId != FirebaseAuth.getInstance().currentUser?.uid) {
-                                // Notify receiver only if they are the receiver, and not the sender
-                                sendNotification("You received a new message: ", message.message ?: "")
+                        try {
+                            val message = snapshot.getValue(Message::class.java)
+                            message?.let {
+                                if (it.timestamp == 0L) {
+                                    Log.w(TAG, "Received message with invalid timestamp")
+                                    return
+                                }
+                                messageList.add(it)
+                                messageAdapter.updateMessages()
+
+                                // Post scroll to main thread to ensure it happens after layout
+                                chatRecyclerView.post {
+                                    try {
+                                        val newPosition = messageAdapter.itemCount - 1
+                                        if (newPosition >= 0) {
+                                            chatRecyclerView.smoothScrollToPosition(newPosition)
+                                        }
+                                    } catch (e: Exception) {
+                                        Log.e(TAG, "Error scrolling to bottom", e)
+                                    }
+                                }
                             }
-                            messageList.add(it)
-                            messageAdapter.notifyDataSetChanged()
-                            chatRecyclerView.smoothScrollToPosition(messageList.size - 1)
+                        } catch (e: Exception) {
+                            Log.e(TAG, "Error processing new message", e)
                         }
                     }
 
@@ -108,137 +179,133 @@ class commsAct : AppCompatActivity() {
         }
     }
 
-    private fun initializeViews() {
-        chatRecyclerView = findViewById(R.id.chatRecycleView)
-        messageBox = findViewById(R.id.messageBox)
-        sendButton = findViewById(R.id.sendButton)
-        attachmentButton = findViewById(R.id.attachmentButton)
-        userName = findViewById(R.id.userName)
-
-        messageList = ArrayList()
-        messageAdapter = MessageAdapter(this, messageList)
-
-        // Set receiver's name in the toolbar
-        userName.text = receiverName
-
-        findViewById<ImageButton>(R.id.backButton).setOnClickListener {
-            onBackPressed()
-        }
-    }
-
-    private fun setupToolbar() {
-        supportActionBar?.hide()
-    }
-
-    private fun setupRecyclerView() {
-        chatRecyclerView.layoutManager = LinearLayoutManager(this).apply {
-            stackFromEnd = true
-        }
-        chatRecyclerView.adapter = messageAdapter
-    }
-
-    private fun setupClickListeners() {
-        sendButton.setOnClickListener {
-            val messageText = messageBox.text.toString().trim()
-            if (messageText.isNotEmpty()) {
-                sendTextMessage(messageText)
-            }
-        }
-
-        attachmentButton.setOnClickListener {
-            showAttachmentOptions()
-        }
-    }
-
     private fun showAttachmentOptions() {
-        val options = arrayOf("Image", "File")
-        AlertDialog.Builder(this)
-            .setTitle("Select Attachment Type")
-            .setItems(options) { _, which ->
-                when (which) {
-                    0 -> openImagePicker()
-                    1 -> openFilePicker()
+        try {
+            val options = arrayOf("Image", "File")
+            AlertDialog.Builder(this)
+                .setTitle("Select Attachment Type")
+                .setItems(options) { _, which ->
+                    when (which) {
+                        0 -> openImagePicker()
+                        1 -> openFilePicker()
+                    }
                 }
-            }
-            .show()
+                .show()
+        } catch (e: Exception) {
+            Log.e(TAG, "Error showing attachment options", e)
+        }
     }
 
     private fun openImagePicker() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        pickImage.launch(intent)
-    }
-
-    private fun openFilePicker() {
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "*/*"
-        pickImage.launch(intent)
-    }
-
-    private fun uploadImage(uri: Uri) {
-        val progressDialog = AlertDialog.Builder(this)
-            .setView(layoutInflater.inflate(R.layout.progress_dialog, null))
-            .setCancelable(false)
-            .create()
-            .apply {
-                show()
-            }
-
-        val ref = mStorage.reference.child("chat_images/${UUID.randomUUID()}")
-        ref.putFile(uri)
-            .addOnSuccessListener {
-                ref.downloadUrl.addOnSuccessListener { downloadUri ->
-                    progressDialog.dismiss()
-                    sendMediaMessage(downloadUri.toString(), "image")
-                }
-            }
-            .addOnFailureListener {
-                progressDialog.dismiss()
-                Toast.makeText(this, "Failed to upload image", Toast.LENGTH_SHORT).show()
-            }
-    }
-
-    private fun sendTextMessage(text: String) {
-        val message = Message(
-            text,
-            FirebaseAuth.getInstance().currentUser?.uid,
-            System.currentTimeMillis(),
-            type = "text"
-        )
-        sendMessage(message)
-    }
-
-    private fun sendMediaMessage(url: String, type: String) {
-        val message = Message(
-            url,
-            FirebaseAuth.getInstance().currentUser?.uid,
-            System.currentTimeMillis(),
-            type = type
-        )
-        sendMessage(message)
-    }
-
-    private fun sendMessage(message: Message) {
-        senderRoom?.let { sRoom ->
-            receiverRoom?.let { rRoom ->
-                val messageId = mDbRef.child("chats").child(sRoom).child("messages").push().key
-                message.messageId = messageId
-
-                mDbRef.child("chats").child(sRoom).child("messages").child(messageId!!)
-                    .setValue(message)
-                    .addOnSuccessListener {
-                        mDbRef.child("chats").child(rRoom).child("messages").child(messageId)
-                            .setValue(message)
-                            .addOnSuccessListener {
-                                messageBox.setText("")
-                            }
-                    }
-            }
+        try {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            pickImage.launch(intent)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error opening image picker", e)
+            Toast.makeText(this, "Unable to open image picker", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun sendNotification(title: String, messageText: String) {
-        NotificationHelper.sendNotification(
-            this, "messages", title, messageText
-        )
+    private fun openFilePicker() {
+        try {
+            val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
+                type = "*/*"
+            }
+            pickImage.launch(intent)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error opening file picker", e)
+            Toast.makeText(this, "Unable to open file picker", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun uploadImage(uri: Uri) {
+        try {
+            val progressDialog = AlertDialog.Builder(this)
+                .setView(layoutInflater.inflate(R.layout.progress_dialog, null))
+                .setCancelable(false)
+                .create()
+                .apply {
+                    show()
+                }
+
+            val ref = mStorage.reference.child("chat_images/${UUID.randomUUID()}")
+            ref.putFile(uri)
+                .addOnSuccessListener {
+                    ref.downloadUrl.addOnSuccessListener { downloadUri ->
+                        progressDialog.dismiss()
+                        sendMediaMessage(downloadUri.toString(), "image")
+                    }
+                }
+                .addOnFailureListener {
+                    progressDialog.dismiss()
+                    Toast.makeText(this, "Failed to upload image", Toast.LENGTH_SHORT).show()
+                    Log.e(TAG, "Failed to upload image", it)
+                }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error in uploadImage", e)
+            Toast.makeText(this, "Error uploading image", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun sendTextMessage(text: String) {
+        try {
+            val message = Message(
+                text,
+                FirebaseAuth.getInstance().currentUser?.uid,
+                System.currentTimeMillis(),
+                type = "text"
+            )
+            sendMessage(message)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error sending text message", e)
+            Toast.makeText(this, "Error sending message", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun sendMediaMessage(url: String, type: String) {
+        try {
+            val message = Message(
+                url,
+                FirebaseAuth.getInstance().currentUser?.uid,
+                System.currentTimeMillis(),
+                type = type
+            )
+            sendMessage(message)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error sending media message", e)
+            Toast.makeText(this, "Error sending media", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun sendMessage(message: Message) {
+        try {
+            senderRoom?.let { sRoom ->
+                receiverRoom?.let { rRoom ->
+                    val messageId = mDbRef.child("chats").child(sRoom).child("messages").push().key
+                    message.messageId = messageId
+
+                    mDbRef.child("chats").child(sRoom).child("messages").child(messageId!!)
+                        .setValue(message)
+                        .addOnSuccessListener {
+                            mDbRef.child("chats").child(rRoom).child("messages").child(messageId)
+                                .setValue(message)
+                                .addOnSuccessListener {
+                                    messageBox.setText("")
+                                }
+                                .addOnFailureListener { e ->
+                                    Log.e(TAG, "Error sending message to receiver room", e)
+                                    Toast.makeText(this, "Failed to send message", Toast.LENGTH_SHORT).show()
+                                }
+                        }
+                        .addOnFailureListener { e ->
+                            Log.e(TAG, "Error sending message to sender room", e)
+                            Toast.makeText(this, "Failed to send message", Toast.LENGTH_SHORT).show()
+                        }
+                }
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error in sendMessage", e)
+            Toast.makeText(this, "Error sending message", Toast.LENGTH_SHORT).show()
+        }
     }
 }

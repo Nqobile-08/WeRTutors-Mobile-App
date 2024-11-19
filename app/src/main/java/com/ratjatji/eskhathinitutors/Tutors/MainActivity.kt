@@ -61,7 +61,6 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
-                replace(R.id.nav_host_fragment, SchedulesFragment())
             }
             navView.setCheckedItem(R.id.nav_dashboard)
         }
@@ -73,7 +72,6 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.nav_dashboard -> selectedFragment = QuickNavFragment()
                 R.id.nav_tutor_profile -> selectedFragment = tutorOptions_1()
-                R.id.nav_schedule -> selectedFragment = SchedulesFragment()
                 R.id.nav_create_review -> selectedFragment = CreateReviewFragment()
                 R.id.nav_session_timer -> selectedFragment = SessionTimer()
                 R.id.nav_setting -> selectedFragment = SettingsHomeFragment()
@@ -123,7 +121,6 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.nav_dashboard -> selectedFragment = QuickNavFragment()
                 R.id.nav_profile -> selectedFragment = ProfileFragment()
-                R.id.nav_students -> selectedFragment = SchedulesFragment()
 
                 //  R.id.nav_setting -> selectedFragment = Setting()
             }

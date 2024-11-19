@@ -27,8 +27,11 @@ class tutorOptions_1 : Fragment() {
     private lateinit var etSearchBar: EditText
     private lateinit var tutorList: ArrayList<Tutors1>
     private lateinit var filteredTutorList: ArrayList<Tutors1>
-    private lateinit var adapter: TutorAdapter
     private lateinit var database: DatabaseReference
+
+    private var _adapter: TutorAdapter? = null
+    private val adapter: TutorAdapter
+        get() = _adapter ?: throw IllegalStateException("Adapter accessed before initialization")
 
     //Tutor profile declarations
     lateinit var imageId: Array<Int>
@@ -197,6 +200,14 @@ class tutorOptions_1 : Fragment() {
         tutorList = arrayListOf()
         filteredTutorList = arrayListOf()
 
+// Initialize the adapter with an empty list first
+        _adapter = TutorAdapter(filteredTutorList)
+        recyclerView.adapter = _adapter
+
+// Setup click listener right away
+        setupAdapterClickListener()
+
+// Then load the data
         getUserData()
 
         etSearchBar.addTextChangedListener(object : TextWatcher {
@@ -273,16 +284,14 @@ class tutorOptions_1 : Fragment() {
                     filteredTutorList.clear()
                     filteredTutorList.addAll(tutorList)
 
-                    adapter = TutorAdapter(filteredTutorList)
-                    recyclerView.adapter = adapter
-                    setupAdapterClickListener()
+                    _adapter?.notifyDataSetChanged()
                 }
             }
         }
     }
 
     private fun setupAdapterClickListener() {
-        adapter.setOnItemClickListener(object : TutorAdapter.onItemClickListener {
+        _adapter?.setOnItemClickListener(object : TutorAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
                 val intent = Intent(context, TutorExpandedActivity::class.java)
                 val selectedTutor = filteredTutorList[position]
@@ -329,7 +338,7 @@ class tutorOptions_1 : Fragment() {
             }
         }
 
-        adapter.notifyDataSetChanged()
+        _adapter?.notifyDataSetChanged()
     }
 
 }

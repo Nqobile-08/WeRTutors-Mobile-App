@@ -70,32 +70,14 @@ android {
     implementation ("androidx.core:core:1.7.0")
     implementation ("androidx.work:work-runtime-ktx:2.7.0")
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
-    // PDF parsing
-
-
-// OCR for image processing (Tesseract)
-
-
-
-
-// Retrofit for networking
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
         // Kotlin Coroutines
         implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
         implementation ("com.squareup.okhttp3:okhttp:4.9.1")
-   // implementation (libs.pdfbox)
-        //implementation ("com.github.barteksc:android-pdf-viewer:3.2.0-beta.1")
-        //implementation 'com.tom_roush:pdfbox-android:2.0.22.1'
         implementation ("com.itextpdf:itext7-core:7.1.16")
-
         implementation ("com.itextpdf:itext7-core:7.1.15")
-       // implementation (libs.pdfbox.android)
-
-    //fcm
         implementation ("com.squareup.okhttp3:okhttp:4.9.3")
-        //
-
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -109,19 +91,18 @@ android {
     implementation(libs.generativeai)
     implementation(libs.androidx.preference.ktx)
     implementation(libs.androidx.compiler)
-        implementation(libs.firebase.crashlytics)
-        implementation(libs.firebase.storage)
-        implementation(libs.firebase.messaging)
-        implementation(libs.firebase.functions)
-        testImplementation(libs.junit)
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.storage)
+    implementation(libs.firebase.messaging)
+    implementation(libs.firebase.functions)
+    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.google.firebase:firebase-auth:latest_version")
-
     implementation ("com.google.firebase:firebase-database:latest_version")
-
     implementation("com.google.android.gms:play-services-auth:21.2.0")
     implementation ("com.squareup.picasso:picasso:2.71828")
-
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 }

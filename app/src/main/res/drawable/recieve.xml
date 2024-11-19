@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:paddingStart="10dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp">
+
+        <!-- Text message -->
+        <TextView
+            android:id="@+id/txt_receive_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/received_message_background"
+            android:padding="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:visibility="visible" />
+
+        <!-- Image message -->
+        <ImageView
+            android:id="@+id/img_receive_message"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/txt_receive_message"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"
+            android:scaleType="fitCenter" />
+
+        <!-- Time display -->
+        <TextView
+            android:id="@+id/txt_receive_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_receive_message"
+            android:layout_marginTop="2dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp"
+            android:layout_alignStart="@id/txt_receive_message" />
+    </RelativeLayout>
+</RelativeLayout>

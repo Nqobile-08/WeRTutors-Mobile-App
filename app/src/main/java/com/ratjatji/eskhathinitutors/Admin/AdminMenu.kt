@@ -11,7 +11,6 @@ import com.google.android.material.navigation.NavigationView
 import com.ratjatji.eskhathinitutors.ProfileFragment
 import com.ratjatji.eskhathinitutors.R
 import com.ratjatji.eskhathinitutors.Tutors.QuickNavFragment
-import com.ratjatji.eskhathinitutors.Tutors.SchedulesFragment
 
 class AdminMenu : AppCompatActivity() {
 
@@ -61,7 +60,6 @@ class AdminMenu : AppCompatActivity() {
 
                 R.id.nav_dashboard -> selectedFragment = QuickNavFragment()
                 R.id.nav_profile -> selectedFragment = ProfileFragment()
-                R.id.nav_students -> selectedFragment = SchedulesFragment()
                 //  R.id.nav_setting -> selectedFragment = Setting()
             }
 

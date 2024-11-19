@@ -31,7 +31,7 @@ class WeRTutorsAi : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_we_r_tutors_ai, container, false)
-RegisterActivity().title="AI Helper"
+        RegisterActivity().title = "AI Helper"
         etUserInput = view.findViewById(R.id.inputEditText)
         btnSend = view.findViewById(R.id.sendButton)
         tvConversation = view.findViewById(R.id.conversationTextView)
@@ -66,7 +66,8 @@ RegisterActivity().title="AI Helper"
                 sendMessageToAI(userInput)
                 etUserInput.text.clear()
             } else {
-                Toast.makeText(requireContext(), "Please enter a message", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Please enter a message", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
